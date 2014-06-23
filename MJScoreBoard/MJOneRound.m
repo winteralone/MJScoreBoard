@@ -112,6 +112,31 @@
     return [[NSArray alloc]initWithObjects:[NSNumber numberWithInteger:s[0]], [NSNumber numberWithInteger:s[1]], [NSNumber numberWithInteger:s[2]], [NSNumber numberWithInteger:s[3]], nil ];
 }
 
+#pragma mark NSCoding Delegate
+#define     WinnerKey   @"Winner"
+#define     LoserKey    @"Loser"
+#define     ScoreKey    @"Score"
+#define     PenaltyKey  @"Penalty"
+#define     ElementKey  @"Element"
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_nWinner forKey:WinnerKey];
+    [aCoder encodeObject:_nLoser forKey:LoserKey];
+    [aCoder encodeObject:_nScore forKey:ScoreKey];
+    [aCoder encodeObject:_penaltyScores forKey:PenaltyKey];
+    [aCoder encodeObject:_scoreElements forKey:ElementKey];
+}
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [[MJOneRound alloc] init];
+    _nWinner = [aDecoder decodeObjectForKey:WinnerKey];
+    _nLoser = [aDecoder decodeObjectForKey:LoserKey];
+    _nScore = [aDecoder decodeObjectForKey:ScoreKey];
+    _penaltyScores = [aDecoder decodeObjectForKey:PenaltyKey];
+    _scoreElements = [aDecoder decodeObjectForKey:ElementKey];
+    return self;
+}
+
 #pragma mark NSCopying delegate
 -(id)copyWithZone:(NSZone *)zone
 {

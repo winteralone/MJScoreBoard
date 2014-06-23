@@ -26,6 +26,17 @@
     [super awakeFromNib];
 }
 
+- (NSURL*)getPathURL
+{
+    return [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+
+}
+
+- (NSArray*)getFileList
+{
+    return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[self getPathURL] path] error:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,7 +61,7 @@
     for (int i=1; i<100; i++)
     {
         NSString *gameName = [NSString stringWithFormat:@"%@-%@", dateToday, [[NSNumber numberWithInt:i] stringValue]];
-        if ([self containsGame:gameName] == -1)
+        if ([self containsGame:gameName] == NO)
         {
             MJOneGame *game = [[MJOneGame alloc] initWithName:gameName];
             [self addGame:game];
@@ -61,34 +72,14 @@
 
 - (void)addGame:(MJOneGame *)game
 {
-    if (!_gameList)
-    {
-        _gameList = [[NSMutableArray alloc] init];
-    }
-    NSInteger index = [self containsGame:game.gameName];
-
-    if (index != -1)
-    {
-        _gameList[index] = game;
-    }
-    else
-    {
-        [_gameList insertObject:game atIndex:0];
-    }
+    [game saveToFile];
     [self.tableView reloadData];
 }
 
-- (NSInteger)containsGame:(NSString *)gameName
+- (BOOL)containsGame:(NSString *)gameName
 {
-    for (NSInteger i=0; i<_gameList.count; i++)
-    {
-        MJOneGame *game= _gameList[i];
-        if ( [game.gameName isEqualToString:gameName])
-        {
-            return i;
-        }
-    }
-    return -1;
+    NSURL *url = [self getPathURL];
+    return [[NSFileManager defaultManager]fileExistsAtPath:[[url URLByAppendingPathComponent:gameName] path] ];
 }
 #pragma mark - Table View
 
@@ -99,15 +90,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _gameList.count;
+    NSArray* pathArray = [self getFileList];
+    return [pathArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    MJOneGame *game = _gameList[indexPath.row];
-    cell.textLabel.text = game.gameName;
+    NSArray* pathArray = [self getFileList];
+    NSString* filename = pathArray[indexPath.row];
+    MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
+    [game loadFromFile];
+
+    cell.textLabel.text = pathArray[indexPath.row];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", game.playerNames[0], game.playerNames[1], game.playerNames[2], game.playerNames[3]];
     return cell;
 
@@ -121,8 +117,12 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_gameList removeObjectAtIndex:indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSURL *path = [self getPathURL];
+        NSString* fileName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+
+        [[NSFileManager defaultManager] removeItemAtURL:[path URLByAppendingPathComponent:fileName] error:nil];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -132,7 +132,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_detailViewController loadFromMJOneGame:_gameList[indexPath.row]];
+    NSArray *pathArray = [self getFileList];
+    NSString* filename = [[pathArray[indexPath.row] componentsSeparatedByString:@"."] firstObject];
+    MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
+    [_detailViewController loadFromMJOneGame:game];
     
 }
 

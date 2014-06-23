@@ -67,14 +67,7 @@
         }
         _rawScoreList[arrayIndex] = result;
     }
-    
-
-    /*
-    NSArray* paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSAllDomainsMask];
-    NSURL *url = [[paths objectAtIndex:0] URLByAppendingPathComponent:@"data.plist"];
-    BOOL bSuccess = [_rawScoreList writeToURL:url atomically:NO];
-    */
-    
+        
     //刷新总成绩列表
     [self calculateScores];
     [self saveCurrentGame];
@@ -121,7 +114,7 @@
     while (1)
     {
         NSString* title = [NSString stringWithFormat:@"%@-%@", dateToday, [[NSNumber numberWithInt:i] stringValue] ];
-        if ([masterViewController containsGame:title] == -1 )
+        if ([masterViewController containsGame:title] == NO )
         {
             [self.navigationItem setTitle:title];
             break;
@@ -144,13 +137,14 @@
     game.playerNames = [[NSArray alloc]initWithObjects:_playerName1.text, _playerName2.text, _playerName3.text, _playerName4.text, nil];
     game.rawScoreList = [[NSMutableArray alloc] initWithArray:_rawScoreList copyItems:YES];
     [masterController addGame:game];
-    
+        
 }
 
 - (void)loadFromMJOneGame:(MJOneGame *)game
 {
     if (game)
     {
+        [game loadFromFile];
         _rawScoreList = nil;
         _rawScoreList = [[NSMutableArray alloc]initWithArray:game.rawScoreList copyItems:YES];
         _playerName1.text = game.playerNames[0];

@@ -7,7 +7,8 @@
 //
 
 #import "MJOneGame.h"
-
+#define PlayerNamesKey      @"PlayerNames"
+#define ScoreListKey        @"ScoreList"
 @implementation MJOneGame
 
 - (id)init
@@ -26,14 +27,40 @@
     return self;
 }
 
+- (NSURL*)getFileURL:(NSString*)fileName;
+{
+    NSURL *path = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
+    NSURL *filePath = [path URLByAppendingPathComponent:fileName];
+    return filePath;
+}
+
 - (BOOL)saveToFile
 {
-    return YES;
+    NSMutableData *data = [[NSMutableData alloc]init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
+    [archiver encodeObject:_playerNames forKey:PlayerNamesKey];
+    [archiver encodeObject:_rawScoreList forKey:ScoreListKey];
+    [archiver finishEncoding];
+    
+    NSURL* filePath = [self getFileURL:_gameName];
+
+    return [data writeToFile:filePath.path atomically:NO];
 }
 
 - (BOOL)loadFromFile
 {
-    return YES;
+
+    NSURL* filePath = [self getFileURL:_gameName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath.path])
+    {
+        NSData* data = [[NSData alloc]initWithContentsOfURL:filePath];
+        NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
+        _playerNames = [unArchiver decodeObjectForKey:PlayerNamesKey];
+        _rawScoreList = [unArchiver decodeObjectForKey:ScoreListKey];
+        return YES;
+    };
+    
+    return NO;
 }
 
 @end

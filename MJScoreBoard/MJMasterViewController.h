@@ -14,5 +14,5 @@
 
 @property (strong, nonatomic) MJDetailViewController *detailViewController;
 - (void)addGame:(MJOneGame*)game;
-- (NSInteger)containsGame:(NSString *)gameName;
+- (BOOL)containsGame:(NSString *)gameName;
 @end
