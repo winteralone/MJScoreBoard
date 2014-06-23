@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) MJDetailViewController *parentController;
 @property (copy, nonatomic) NSMutableArray *playerNames;
-@property (strong, nonatomic) MJOneRound *result;
+@property (strong, nonatomic) MJOneRound *originalResult;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 @end

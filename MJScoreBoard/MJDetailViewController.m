@@ -285,7 +285,7 @@
     NSInteger arrayIndex = indexPath.section * 4 + indexPath.row;
     if ([[_rawScoreList objectAtIndex:arrayIndex] isKindOfClass:[MJOneRound class]])
     {
-        scoreController.result = [_rawScoreList objectAtIndex:arrayIndex];
+        scoreController.originalResult = [_rawScoreList objectAtIndex:arrayIndex];
     }
 }
 

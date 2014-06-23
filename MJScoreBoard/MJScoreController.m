@@ -13,7 +13,7 @@
     
     NSMutableArray* _penaltyAction;
     NSInteger _pScores[4];
-    MJOneRound *_originalResult;
+    MJOneRound *_tempResult;
 }
 @property (weak, nonatomic) IBOutlet UISegmentedControl *winnerControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *loserControl;
@@ -59,18 +59,18 @@
         [_winnerControl setTitle:[_playerNames objectAtIndex:i] forSegmentAtIndex:i];
         [_loserControl setTitle:[_playerNames objectAtIndex:i] forSegmentAtIndex:i];
     }
-    if (_result == nil)
+    if (_originalResult == nil)
     {
-        _result = [[MJOneRound alloc] init];
+        _tempResult = [[MJOneRound alloc] init];
         [self refreshControlStates:4];
     }
     else
     {
-        _originalResult = [_result copy];
-        [self refreshControlStates:[_result.nWinner integerValue]];
-        _winnerControl.selectedSegmentIndex = [_result.nWinner intValue];
-        _loserControl.selectedSegmentIndex = [_result.nLoser intValue];
-        _scoreLabel.text = [NSString stringWithFormat:@"%d", [_result.nScore intValue]];
+        _tempResult = [_originalResult copy];
+        [self refreshControlStates:[_originalResult.nWinner integerValue]];
+        _winnerControl.selectedSegmentIndex = [_originalResult.nWinner intValue];
+        _loserControl.selectedSegmentIndex = [_originalResult.nLoser intValue];
+        _scoreLabel.text = [NSString stringWithFormat:@"%d", [_originalResult.nScore intValue]];
     }
     [self setPenaltyButtonTitle];
     
@@ -100,13 +100,13 @@
 
 - (IBAction)CloseMe:(id)sender
 {
-    _result.nWinner = [NSNumber numberWithInteger:_winnerControl.selectedSegmentIndex];
-    _result.nLoser = [NSNumber numberWithInteger:_loserControl.selectedSegmentIndex ];
-    _result.nScore = [NSNumber numberWithInteger: _scoreLabel.text.integerValue];
+    _tempResult.nWinner = [NSNumber numberWithInteger:_winnerControl.selectedSegmentIndex];
+    _tempResult.nLoser = [NSNumber numberWithInteger:_loserControl.selectedSegmentIndex ];
+    _tempResult.nScore = [NSNumber numberWithInteger: _scoreLabel.text.integerValue];
 
     if(_originalResult) //修改现有战绩
     {
-        if([_originalResult isEqual:_result])
+        if([_tempResult isEqual:_originalResult])
         {
             //若没被修改，直接退出
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -124,9 +124,9 @@
     else
     {
         //新局，直接保存退出
-        if ([_result isValid])
+        if ([_tempResult isValid])
         {
-            [_parentController updateRow:_result atIndexPath:_indexPath];
+            [_parentController updateRow:_tempResult atIndexPath:_indexPath];
         }
         [self dismissViewControllerAnimated:YES completion:nil];
     }
@@ -217,10 +217,10 @@
 - (void)setPenaltyButtonTitle
 {
     NSString *penaltyButtonTitle = [NSString stringWithFormat:@"罚分: %@:%@  %@:%@  %@:%@  %@:%@",
-                                    _playerNames[0], _result.penaltyScores[0],
-                                    _playerNames[1], _result.penaltyScores[1],
-                                    _playerNames[2], _result.penaltyScores[2],
-                                    _playerNames[3], _result.penaltyScores[3], nil];
+                                    _playerNames[0], _tempResult.penaltyScores[0],
+                                    _playerNames[1], _tempResult.penaltyScores[1],
+                                    _playerNames[2], _tempResult.penaltyScores[2],
+                                    _playerNames[3], _tempResult.penaltyScores[3], nil];
     [_btnSetPenalty setTitle:penaltyButtonTitle forState:UIControlStateNormal];
     
 }
@@ -228,12 +228,12 @@
 #pragma mark MJSetPenaltyScoreDelegate
 - (NSArray *)penaltyScores
 {
-    return _result.penaltyScores;
+    return _tempResult.penaltyScores;
 }
 
 - (void)setPenaltyScores:(NSMutableArray *)penaltyScores
 {
-    _result.penaltyScores = penaltyScores;
+    _tempResult.penaltyScores = penaltyScores;
 }
 
 - (void)didSetPenaltyScores
@@ -245,14 +245,11 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     assert(_originalResult);
-    if (buttonIndex == 1 && [_result isValid])
+    if (buttonIndex == 1 && [_tempResult isValid])
     {
-        [_parentController updateRow:_result atIndexPath:_indexPath];
+        [_parentController updateRow:_tempResult atIndexPath:_indexPath];
     }
-    else
-    {
-        [_parentController updateRow:_originalResult atIndexPath:_indexPath];
-    }
+
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
