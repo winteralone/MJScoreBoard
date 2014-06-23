@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7764857A18BB93DB005333A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857918BB93DB005333A3 /* Foundation.framework */; };
+		7764857C18BB93DB005333A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857B18BB93DB005333A3 /* CoreGraphics.framework */; };
+		7764857E18BB93DB005333A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857D18BB93DB005333A3 /* UIKit.framework */; };
+		7764858418BB93DB005333A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7764858218BB93DB005333A3 /* InfoPlist.strings */; };
+		7764858618BB93DB005333A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7764858518BB93DB005333A3 /* main.m */; };
+		7764858A18BB93DB005333A3 /* MJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7764858918BB93DB005333A3 /* MJAppDelegate.m */; };
+		7764858D18BB93DB005333A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7764858B18BB93DB005333A3 /* Main.storyboard */; };
+		7764859018BB93DB005333A3 /* MJMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7764858F18BB93DB005333A3 /* MJMasterViewController.m */; };
+		7764859318BB93DB005333A3 /* MJDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7764859218BB93DB005333A3 /* MJDetailViewController.m */; };
+		7764859518BB93DB005333A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7764859418BB93DB005333A3 /* Images.xcassets */; };
+		7764859C18BB93DB005333A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764859B18BB93DB005333A3 /* XCTest.framework */; };
+		7764859D18BB93DB005333A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857918BB93DB005333A3 /* Foundation.framework */; };
+		7764859E18BB93DB005333A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857D18BB93DB005333A3 /* UIKit.framework */; };
+		776485A618BB93DB005333A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 776485A418BB93DB005333A3 /* InfoPlist.strings */; };
+		776485A818BB93DB005333A3 /* MJScoreBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776485A718BB93DB005333A3 /* MJScoreBoardTests.m */; };
+		777BFE0018BF5ABD003C4130 /* MJOneRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 777BFDFF18BF5ABD003C4130 /* MJOneRound.m */; };
+		777F031018BE27DA0029DBD8 /* MJScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F030F18BE27DA0029DBD8 /* MJScoreController.m */; };
+		77B9169418C4D85C0009E5FD /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 77B9169318C4D85C0009E5FD /* TODO */; };
+		77C597AB194F2F510012D223 /* MJOneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AA194F2F510012D223 /* MJOneGame.m */; };
+		77C597AE195069A20012D223 /* MJCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AD195069A20012D223 /* MJCustomButton.m */; };
+		77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597B0195071400012D223 /* MJPenaltyViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7764859F18BB93DB005333A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7764856E18BB93DB005333A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7764857518BB93DB005333A3;
+			remoteInfo = MJScoreBoard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7764857618BB93DB005333A3 /* MJScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7764857918BB93DB005333A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7764857B18BB93DB005333A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7764857D18BB93DB005333A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7764858118BB93DB005333A3 /* MJScoreBoard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MJScoreBoard-Info.plist"; sourceTree = "<group>"; };
+		7764858318BB93DB005333A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7764858518BB93DB005333A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7764858718BB93DB005333A3 /* MJScoreBoard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MJScoreBoard-Prefix.pch"; sourceTree = "<group>"; };
+		7764858818BB93DB005333A3 /* MJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJAppDelegate.h; sourceTree = "<group>"; };
+		7764858918BB93DB005333A3 /* MJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJAppDelegate.m; sourceTree = "<group>"; };
+		7764858C18BB93DB005333A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7764858E18BB93DB005333A3 /* MJMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJMasterViewController.h; sourceTree = "<group>"; };
+		7764858F18BB93DB005333A3 /* MJMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJMasterViewController.m; sourceTree = "<group>"; };
+		7764859118BB93DB005333A3 /* MJDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJDetailViewController.h; sourceTree = "<group>"; };
+		7764859218BB93DB005333A3 /* MJDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJDetailViewController.m; sourceTree = "<group>"; };
+		7764859418BB93DB005333A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7764859A18BB93DB005333A3 /* MJScoreBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJScoreBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7764859B18BB93DB005333A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		776485A318BB93DB005333A3 /* MJScoreBoardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MJScoreBoardTests-Info.plist"; sourceTree = "<group>"; };
+		776485A518BB93DB005333A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		776485A718BB93DB005333A3 /* MJScoreBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJScoreBoardTests.m; sourceTree = "<group>"; };
+		777BFDFE18BF5ABD003C4130 /* MJOneRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJOneRound.h; sourceTree = "<group>"; };
+		777BFDFF18BF5ABD003C4130 /* MJOneRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJOneRound.m; sourceTree = "<group>"; };
+		777F030E18BE27DA0029DBD8 /* MJScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreController.h; sourceTree = "<group>"; };
+		777F030F18BE27DA0029DBD8 /* MJScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreController.m; sourceTree = "<group>"; };
+		77B9169318C4D85C0009E5FD /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		77C597A9194F2F510012D223 /* MJOneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJOneGame.h; sourceTree = "<group>"; };
+		77C597AA194F2F510012D223 /* MJOneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJOneGame.m; sourceTree = "<group>"; };
+		77C597AC195069A20012D223 /* MJCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCustomButton.h; sourceTree = "<group>"; };
+		77C597AD195069A20012D223 /* MJCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCustomButton.m; sourceTree = "<group>"; };
+		77C597AF195071400012D223 /* MJPenaltyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPenaltyViewController.h; sourceTree = "<group>"; };
+		77C597B0195071400012D223 /* MJPenaltyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPenaltyViewController.m; sourceTree = "<group>"; };
+		77C597B219511A980012D223 /* MJScoreDelegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJScoreDelegates.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7764857318BB93DB005333A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7764857C18BB93DB005333A3 /* CoreGraphics.framework in Frameworks */,
+				7764857E18BB93DB005333A3 /* UIKit.framework in Frameworks */,
+				7764857A18BB93DB005333A3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7764859718BB93DB005333A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7764859C18BB93DB005333A3 /* XCTest.framework in Frameworks */,
+				7764859E18BB93DB005333A3 /* UIKit.framework in Frameworks */,
+				7764859D18BB93DB005333A3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7764856D18BB93DB005333A3 = {
+			isa = PBXGroup;
+			children = (
+				7764857F18BB93DB005333A3 /* MJScoreBoard */,
+				776485A118BB93DB005333A3 /* MJScoreBoardTests */,
+				7764857818BB93DB005333A3 /* Frameworks */,
+				7764857718BB93DB005333A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7764857718BB93DB005333A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7764857618BB93DB005333A3 /* MJScoreBoard.app */,
+				7764859A18BB93DB005333A3 /* MJScoreBoardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7764857818BB93DB005333A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7764857918BB93DB005333A3 /* Foundation.framework */,
+				7764857B18BB93DB005333A3 /* CoreGraphics.framework */,
+				7764857D18BB93DB005333A3 /* UIKit.framework */,
+				7764859B18BB93DB005333A3 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7764857F18BB93DB005333A3 /* MJScoreBoard */ = {
+			isa = PBXGroup;
+			children = (
+				7764858818BB93DB005333A3 /* MJAppDelegate.h */,
+				7764858918BB93DB005333A3 /* MJAppDelegate.m */,
+				77C597B219511A980012D223 /* MJScoreDelegates.h */,
+				77C597B319565E1C0012D223 /* Models */,
+				7764858B18BB93DB005333A3 /* Main.storyboard */,
+				77C597B519565E440012D223 /* Views */,
+				77B9169318C4D85C0009E5FD /* TODO */,
+				77C597B419565E370012D223 /* Controllers */,
+				7764859418BB93DB005333A3 /* Images.xcassets */,
+				7764858018BB93DB005333A3 /* Supporting Files */,
+			);
+			path = MJScoreBoard;
+			sourceTree = "<group>";
+		};
+		7764858018BB93DB005333A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7764858118BB93DB005333A3 /* MJScoreBoard-Info.plist */,
+				7764858218BB93DB005333A3 /* InfoPlist.strings */,
+				7764858518BB93DB005333A3 /* main.m */,
+				7764858718BB93DB005333A3 /* MJScoreBoard-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		776485A118BB93DB005333A3 /* MJScoreBoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				776485A718BB93DB005333A3 /* MJScoreBoardTests.m */,
+				776485A218BB93DB005333A3 /* Supporting Files */,
+			);
+			path = MJScoreBoardTests;
+			sourceTree = "<group>";
+		};
+		776485A218BB93DB005333A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				776485A318BB93DB005333A3 /* MJScoreBoardTests-Info.plist */,
+				776485A418BB93DB005333A3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77C597B319565E1C0012D223 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				777BFDFE18BF5ABD003C4130 /* MJOneRound.h */,
+				777BFDFF18BF5ABD003C4130 /* MJOneRound.m */,
+				77C597A9194F2F510012D223 /* MJOneGame.h */,
+				77C597AA194F2F510012D223 /* MJOneGame.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		77C597B419565E370012D223 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				77C597AF195071400012D223 /* MJPenaltyViewController.h */,
+				77C597B0195071400012D223 /* MJPenaltyViewController.m */,
+				777F030E18BE27DA0029DBD8 /* MJScoreController.h */,
+				777F030F18BE27DA0029DBD8 /* MJScoreController.m */,
+				7764858E18BB93DB005333A3 /* MJMasterViewController.h */,
+				7764858F18BB93DB005333A3 /* MJMasterViewController.m */,
+				7764859118BB93DB005333A3 /* MJDetailViewController.h */,
+				7764859218BB93DB005333A3 /* MJDetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		77C597B519565E440012D223 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77C597AC195069A20012D223 /* MJCustomButton.h */,
+				77C597AD195069A20012D223 /* MJCustomButton.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7764857518BB93DB005333A3 /* MJScoreBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 776485AB18BB93DB005333A3 /* Build configuration list for PBXNativeTarget "MJScoreBoard" */;
+			buildPhases = (
+				7764857218BB93DB005333A3 /* Sources */,
+				7764857318BB93DB005333A3 /* Frameworks */,
+				7764857418BB93DB005333A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MJScoreBoard;
+			productName = MJScoreBoard;
+			productReference = 7764857618BB93DB005333A3 /* MJScoreBoard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7764859918BB93DB005333A3 /* MJScoreBoardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 776485AE18BB93DB005333A3 /* Build configuration list for PBXNativeTarget "MJScoreBoardTests" */;
+			buildPhases = (
+				7764859618BB93DB005333A3 /* Sources */,
+				7764859718BB93DB005333A3 /* Frameworks */,
+				7764859818BB93DB005333A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				776485A018BB93DB005333A3 /* PBXTargetDependency */,
+			);
+			name = MJScoreBoardTests;
+			productName = MJScoreBoardTests;
+			productReference = 7764859A18BB93DB005333A3 /* MJScoreBoardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7764856E18BB93DB005333A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MJ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Self;
+				TargetAttributes = {
+					7764857518BB93DB005333A3 = {
+						DevelopmentTeam = TPAZ48HSGV;
+					};
+					7764859918BB93DB005333A3 = {
+						TestTargetID = 7764857518BB93DB005333A3;
+					};
+				};
+			};
+			buildConfigurationList = 7764857118BB93DB005333A3 /* Build configuration list for PBXProject "MJScoreBoard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7764856D18BB93DB005333A3;
+			productRefGroup = 7764857718BB93DB005333A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7764857518BB93DB005333A3 /* MJScoreBoard */,
+				7764859918BB93DB005333A3 /* MJScoreBoardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7764857418BB93DB005333A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7764859518BB93DB005333A3 /* Images.xcassets in Resources */,
+				7764858418BB93DB005333A3 /* InfoPlist.strings in Resources */,
+				77B9169418C4D85C0009E5FD /* TODO in Resources */,
+				7764858D18BB93DB005333A3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7764859818BB93DB005333A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				776485A618BB93DB005333A3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7764857218BB93DB005333A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77C597AB194F2F510012D223 /* MJOneGame.m in Sources */,
+				77C597AE195069A20012D223 /* MJCustomButton.m in Sources */,
+				777F031018BE27DA0029DBD8 /* MJScoreController.m in Sources */,
+				7764859318BB93DB005333A3 /* MJDetailViewController.m in Sources */,
+				7764858618BB93DB005333A3 /* main.m in Sources */,
+				77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */,
+				7764859018BB93DB005333A3 /* MJMasterViewController.m in Sources */,
+				777BFE0018BF5ABD003C4130 /* MJOneRound.m in Sources */,
+				7764858A18BB93DB005333A3 /* MJAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7764859618BB93DB005333A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				776485A818BB93DB005333A3 /* MJScoreBoardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		776485A018BB93DB005333A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7764857518BB93DB005333A3 /* MJScoreBoard */;
+			targetProxy = 7764859F18BB93DB005333A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7764858218BB93DB005333A3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7764858318BB93DB005333A3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7764858B18BB93DB005333A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7764858C18BB93DB005333A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		776485A418BB93DB005333A3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				776485A518BB93DB005333A3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		776485A918BB93DB005333A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Debug;
+		};
+		776485AA18BB93DB005333A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Release;
+		};
+		776485AC18BB93DB005333A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
+				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		776485AD18BB93DB005333A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
+				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		776485AF18BB93DB005333A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MJScoreBoard.app/MJScoreBoard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MJScoreBoardTests/MJScoreBoardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		776485B018BB93DB005333A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MJScoreBoard.app/MJScoreBoard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
+				INFOPLIST_FILE = "MJScoreBoardTests/MJScoreBoardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7764857118BB93DB005333A3 /* Build configuration list for PBXProject "MJScoreBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776485A918BB93DB005333A3 /* Debug */,
+				776485AA18BB93DB005333A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		776485AB18BB93DB005333A3 /* Build configuration list for PBXNativeTarget "MJScoreBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776485AC18BB93DB005333A3 /* Debug */,
+				776485AD18BB93DB005333A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		776485AE18BB93DB005333A3 /* Build configuration list for PBXNativeTarget "MJScoreBoardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776485AF18BB93DB005333A3 /* Debug */,
+				776485B018BB93DB005333A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7764856E18BB93DB005333A3 /* Project object */;
+}
