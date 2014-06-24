@@ -11,10 +11,8 @@
 #import "MJDetailViewController.h"
 #import "MJOneGame.h"
 
-@interface MJMasterViewController () {
-//    NSMutableArray *_objects;
-    NSMutableArray *_gameList;
-}
+@interface MJMasterViewController ()
+
 @end
 
 @implementation MJMasterViewController
@@ -99,11 +97,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     NSArray* pathArray = [self getFileList];
-    NSString* filename = pathArray[indexPath.row];
+    NSInteger index =  [pathArray count] - 1 - indexPath.row;
+    NSString* filename = pathArray[index];
     MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
     [game loadFromFile];
 
-    cell.textLabel.text = pathArray[indexPath.row];
+    cell.textLabel.text = pathArray[index];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", game.playerNames[0], game.playerNames[1], game.playerNames[2], game.playerNames[3]];
     return cell;
 
@@ -133,7 +132,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *pathArray = [self getFileList];
-    NSString* filename = [[pathArray[indexPath.row] componentsSeparatedByString:@"."] firstObject];
+    NSInteger index = [pathArray count] - 1 - indexPath.row;
+    NSString* filename = [[pathArray[index] componentsSeparatedByString:@"."] firstObject];
     MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
     [_detailViewController loadFromMJOneGame:game];
     

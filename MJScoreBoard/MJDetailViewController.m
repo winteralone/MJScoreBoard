@@ -173,12 +173,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OneRound"];
-    
+    UITableViewCell *cell = nil;
     NSInteger currIndex = indexPath.section * 4 + indexPath.row;
-    
-    if (currIndex < _currentRound)
+
+    if (currIndex == _currentRound)
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"NewRound"];
+        [cell setUserInteractionEnabled:YES];
+    }
+    else if (currIndex > _currentRound)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"OneRound"];
+        [cell setHidden:YES];
+    }
+    else if (currIndex < _currentRound)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"OneRound"];
         if ( [[_oneRoundScoreList objectAtIndex:currIndex] isKindOfClass:[NSArray class]]
             && [[_totalScoreList objectAtIndex:currIndex] isKindOfClass:[NSArray class]] )
         {
@@ -192,19 +202,7 @@
                 currText.text = [NSString stringWithFormat:@"%@", value];
             }
         }
-        return cell;
     }
-    
-    if (currIndex > _currentRound)
-    {
-        [cell setHidden:YES];
-    }
-    else if (currIndex == _currentRound)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"NewRound"];
-        [cell setUserInteractionEnabled:YES];
-    }
-    
     return cell;
 }
 
