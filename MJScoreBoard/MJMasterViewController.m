@@ -100,7 +100,10 @@
     NSInteger index =  [pathArray count] - 1 - indexPath.row;
     NSString* filename = pathArray[index];
     MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
-    [game loadFromFile];
+    if (![filename isEqualToString:@".DS_Store"])
+    {
+        [game loadFromFile];
+    }
 
     cell.textLabel.text = pathArray[index];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", game.playerNames[0], game.playerNames[1], game.playerNames[2], game.playerNames[3]];

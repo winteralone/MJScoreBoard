@@ -7,6 +7,7 @@
 //
 #import "MJDetailViewController.h"
 #import "MJScoreController.h"
+#import "MJScoreElementViewController.h"
 #import "MJOneRound.h"
 @interface MJScoreController ()
 {
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *loserControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *changeScoreControl;
 @property (strong, nonatomic) IBOutlet UIButton *btnSetPenalty;
+@property (strong, nonatomic) IBOutlet UIButton *btnSetScoreElement;
 
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *loserLabel;
@@ -73,6 +75,7 @@
         _scoreLabel.text = [NSString stringWithFormat:@"%d", [_originalResult.nScore intValue]];
     }
     [self setPenaltyButtonTitle];
+    [self setScoreElementButtonTitle];
     
 }
 
@@ -174,6 +177,21 @@
             [dest setValue:self forKey:@"delegate"];
         }
     }
+    if ([segue.identifier isEqualToString:@"SetElementScore"])
+    {
+        UIViewController* dest  = segue.destinationViewController;
+        if ([dest respondsToSelector:@selector(setSelectedScoreElements:)])
+        {
+            [dest setValue:_tempResult.scoreElements forKey:@"selectedScoreElements"];
+        }
+    }
+}
+
+- (IBAction)doneWithScoreElement:(UIStoryboardSegue* )segue
+{
+    MJScoreElementViewController *sourceController =  segue.sourceViewController;
+    _tempResult.scoreElements = sourceController.selectedScoreElements;
+    [self setScoreElementButtonTitle];
 }
 
 #pragma mark PrivateMethods
@@ -223,6 +241,17 @@
                                     _playerNames[3], _tempResult.penaltyScores[3], nil];
     [_btnSetPenalty setTitle:penaltyButtonTitle forState:UIControlStateNormal];
     
+}
+
+- (void)setScoreElementButtonTitle
+{
+    NSString *labelText = @"番种: ";
+    for (NSString *toDisplay in _tempResult.scoreElements)
+    {
+        labelText = [NSString stringWithFormat:@"%@ %@", labelText, toDisplay];
+    }
+    [_btnSetScoreElement setTitle:labelText forState:UIControlStateNormal];
+
 }
 
 #pragma mark MJSetPenaltyScoreDelegate

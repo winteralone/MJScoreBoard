@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7706031D195DA67D00D8735D /* MJScoreElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706031C195DA67D00D8735D /* MJScoreElementViewController.m */; };
+		77060320195DABDC00D8735D /* MJScoreElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706031F195DABDC00D8735D /* MJScoreElementCell.m */; };
+		77060323196113E900D8735D /* MJScoreElementHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77060322196113E900D8735D /* MJScoreElementHeaderView.m */; };
+		7722241319630C0C008600B1 /* MJBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7722241219630C0C008600B1 /* MJBorderedView.m */; };
 		7764857A18BB93DB005333A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857918BB93DB005333A3 /* Foundation.framework */; };
 		7764857C18BB93DB005333A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857B18BB93DB005333A3 /* CoreGraphics.framework */; };
 		7764857E18BB93DB005333A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857D18BB93DB005333A3 /* UIKit.framework */; };
@@ -41,6 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7706031B195DA67D00D8735D /* MJScoreElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreElementViewController.h; sourceTree = "<group>"; };
+		7706031C195DA67D00D8735D /* MJScoreElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementViewController.m; sourceTree = "<group>"; };
+		7706031E195DABDC00D8735D /* MJScoreElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreElementCell.h; sourceTree = "<group>"; };
+		7706031F195DABDC00D8735D /* MJScoreElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementCell.m; sourceTree = "<group>"; };
+		77060321196113E900D8735D /* MJScoreElementHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreElementHeaderView.h; sourceTree = "<group>"; };
+		77060322196113E900D8735D /* MJScoreElementHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementHeaderView.m; sourceTree = "<group>"; };
+		7722241119630C0C008600B1 /* MJBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBorderedView.h; sourceTree = "<group>"; };
+		7722241219630C0C008600B1 /* MJBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBorderedView.m; sourceTree = "<group>"; };
 		7764857618BB93DB005333A3 /* MJScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7764857918BB93DB005333A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7764857B18BB93DB005333A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -190,6 +202,8 @@
 		77C597B419565E370012D223 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7706031B195DA67D00D8735D /* MJScoreElementViewController.h */,
+				7706031C195DA67D00D8735D /* MJScoreElementViewController.m */,
 				77C597AF195071400012D223 /* MJPenaltyViewController.h */,
 				77C597B0195071400012D223 /* MJPenaltyViewController.m */,
 				777F030E18BE27DA0029DBD8 /* MJScoreController.h */,
@@ -205,6 +219,12 @@
 		77C597B519565E440012D223 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7722241119630C0C008600B1 /* MJBorderedView.h */,
+				7722241219630C0C008600B1 /* MJBorderedView.m */,
+				7706031E195DABDC00D8735D /* MJScoreElementCell.h */,
+				7706031F195DABDC00D8735D /* MJScoreElementCell.m */,
+				77060321196113E900D8735D /* MJScoreElementHeaderView.h */,
+				77060322196113E900D8735D /* MJScoreElementHeaderView.m */,
 				77C597AC195069A20012D223 /* MJCustomButton.h */,
 				77C597AD195069A20012D223 /* MJCustomButton.m */,
 			);
@@ -319,9 +339,13 @@
 				7764859318BB93DB005333A3 /* MJDetailViewController.m in Sources */,
 				7764858618BB93DB005333A3 /* main.m in Sources */,
 				77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */,
+				77060323196113E900D8735D /* MJScoreElementHeaderView.m in Sources */,
 				7764859018BB93DB005333A3 /* MJMasterViewController.m in Sources */,
 				777BFE0018BF5ABD003C4130 /* MJOneRound.m in Sources */,
 				7764858A18BB93DB005333A3 /* MJAppDelegate.m in Sources */,
+				7706031D195DA67D00D8735D /* MJScoreElementViewController.m in Sources */,
+				77060320195DABDC00D8735D /* MJScoreElementCell.m in Sources */,
+				7722241319630C0C008600B1 /* MJBorderedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

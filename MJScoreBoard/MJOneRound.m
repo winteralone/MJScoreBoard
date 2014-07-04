@@ -54,6 +54,10 @@
         return YES;
     if (![oneRound.penaltyScores isEqualToArray:_penaltyScores])
         return NO;
+    if (oneRound.scoreElements == nil && _scoreElements == nil)
+        return YES;
+    if (![oneRound.scoreElements isEqualToArray:_scoreElements])
+        return NO;
     return YES;
     
 }
@@ -144,7 +148,8 @@
     newRound.nWinner = [_nWinner copy];
     newRound.nLoser = [_nLoser copy];
     newRound.nScore = [_nScore copy];
-    newRound.penaltyScores = [[NSMutableArray alloc]initWithArray:_penaltyScores copyItems:YES];;
+    newRound.penaltyScores = [[NSMutableArray alloc]initWithArray:_penaltyScores copyItems:YES];
+    newRound.scoreElements = [[NSMutableArray alloc]initWithArray:_scoreElements copyItems:YES];
     return newRound;
 }
 @end
