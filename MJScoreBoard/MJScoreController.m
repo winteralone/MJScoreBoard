@@ -106,7 +106,7 @@
     _tempResult.nWinner = [NSNumber numberWithInteger:_winnerControl.selectedSegmentIndex];
     _tempResult.nLoser = [NSNumber numberWithInteger:_loserControl.selectedSegmentIndex ];
     _tempResult.nScore = [NSNumber numberWithInteger: _scoreLabel.text.integerValue];
-
+    
     if(_originalResult) //修改现有战绩
     {
         if([_tempResult isEqual:_originalResult])
@@ -177,7 +177,7 @@
             [dest setValue:self forKey:@"delegate"];
         }
     }
-    if ([segue.identifier isEqualToString:@"SetElementScore"])
+    if ([segue.identifier isEqualToString:@"SetScoreElement"])
     {
         UIViewController* dest  = segue.destinationViewController;
         if ([dest respondsToSelector:@selector(setSelectedScoreElements:)])
@@ -189,9 +189,16 @@
 
 - (IBAction)doneWithScoreElement:(UIStoryboardSegue* )segue
 {
-    MJScoreElementViewController *sourceController =  segue.sourceViewController;
-    _tempResult.scoreElements = sourceController.selectedScoreElements;
-    [self setScoreElementButtonTitle];
+    if ([segue.identifier isEqualToString:@"DidSetPenalty"])
+    {
+        [self setPenaltyButtonTitle];
+    }
+    else if([segue.identifier isEqualToString:@"DidSetScoreElement"])
+    {
+        MJScoreElementViewController *sourceController =  segue.sourceViewController;
+        _tempResult.scoreElements = sourceController.selectedScoreElements;
+        [self setScoreElementButtonTitle];
+    }
 }
 
 #pragma mark PrivateMethods
@@ -228,7 +235,7 @@
         }
         _scoreLabel.hidden = NO;
         _changeScoreControl.hidden = NO;
-
+        
     }
 }
 
@@ -251,7 +258,7 @@
         labelText = [NSString stringWithFormat:@"%@ %@", labelText, toDisplay];
     }
     [_btnSetScoreElement setTitle:labelText forState:UIControlStateNormal];
-
+    
 }
 
 #pragma mark MJSetPenaltyScoreDelegate
@@ -278,7 +285,7 @@
     {
         [_parentController updateRow:_tempResult atIndexPath:_indexPath];
     }
-
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

@@ -13,7 +13,6 @@
     NSInteger _pScores[4];
 }
 
-- (IBAction)CloseMe;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *penaltyPlayerControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *penaltyModeControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *addPenaltyScoreControl;
@@ -160,9 +159,4 @@
 }
 */
 
-- (IBAction)CloseMe
-{
-    [_delegate didSetPenaltyScores];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 @end

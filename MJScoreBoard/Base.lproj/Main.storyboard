@@ -342,7 +342,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="n3V-Zm-32Z" kind="modal" identifier="SetElementScore" modalPresentationStyle="formSheet" id="aPh-H1-KVP"/>
+                                    <segue destination="n3V-Zm-32Z" kind="modal" identifier="SetScoreElement" modalPresentationStyle="formSheet" id="aPh-H1-KVP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -410,7 +410,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="确定"/>
                                 <connections>
-                                    <action selector="CloseMe" destination="VEH-Fn-9i9" eventType="touchUpInside" id="hiq-Vb-i1Z"/>
+                                    <segue destination="pjN-wB-miE" kind="unwind" identifier="DidSetPenalty" unwindAction="doneWithScoreElement:" id="dRC-Ok-3nS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="罚分列表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyL-kv-2ro">
@@ -488,6 +488,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXa-0y-NBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pjN-wB-miE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2013" y="322"/>
         </scene>
@@ -540,7 +541,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aut-XF-4b1" kind="unwind" unwindAction="doneWithScoreElement:" id="iJM-To-qmy"/>
+                                    <segue destination="aut-XF-4b1" kind="unwind" identifier="DidSetScoreElement" unwindAction="doneWithScoreElement:" id="iJM-To-qmy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="主番种: " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="500" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-Nu-hZ3">
@@ -562,7 +563,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOf-F1-gkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="aut-XF-4b1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1993" y="1036"/>
+            <point key="canvasLocation" x="2013" y="1034"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
