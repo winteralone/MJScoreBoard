@@ -15,17 +15,14 @@
 
 @implementation MJScoreElementCell
 
-
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (void)awakeFromNib
 {
-    self = [super initWithCoder:aDecoder];
-
     if (!_label)
     {
         _label = [[UILabel alloc]initWithFrame:self.bounds];
         [_label setTextAlignment:NSTextAlignmentCenter];
         [self.contentView addSubview:_label];
-
+        
     }
     if (!self.backgroundView)
     {
@@ -38,8 +35,9 @@
         bgView.backgroundColor = [UIColor blueColor];
         self.selectedBackgroundView = bgView;
     }
-    return self;
+    
 }
+
 
 - (id)initWithFrame:(CGRect)frame
 {

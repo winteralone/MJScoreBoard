@@ -15,11 +15,13 @@
     _nLoser =  [NSNumber numberWithInt:-1];
     _nScore =  [NSNumber numberWithInt:0];
     _penaltyScores = [[NSMutableArray alloc] initWithObjects:@0, @0, @0, @0, nil];
+    _scoreElements = [[NSMutableArray alloc]init];
 }
 - (id)init
 {
+    self = [super init];
     [self reset];
-    return [super init];
+    return self;
 }
 
 - (BOOL)isValid
@@ -148,8 +150,14 @@
     newRound.nWinner = [_nWinner copy];
     newRound.nLoser = [_nLoser copy];
     newRound.nScore = [_nScore copy];
-    newRound.penaltyScores = [[NSMutableArray alloc]initWithArray:_penaltyScores copyItems:YES];
-    newRound.scoreElements = [[NSMutableArray alloc]initWithArray:_scoreElements copyItems:YES];
+    if(_penaltyScores)
+    {
+        newRound.penaltyScores = [[NSMutableArray alloc]initWithArray:_penaltyScores copyItems:YES];
+    }
+    if (_scoreElements)
+    {
+        newRound.scoreElements = [[NSMutableArray alloc]initWithArray:_scoreElements copyItems:YES];
+    }
     return newRound;
 }
 @end

@@ -25,16 +25,14 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (void)awakeFromNib
 {
-    self = [super initWithCoder:aDecoder];
     if (!_label)
     {
         _label = [[UILabel alloc]initWithFrame:self.frame];
         _label.textColor = [UIColor whiteColor];
         [self addSubview:_label];
     }
-    return self;
 }
 
 - (void)setTitle:(NSString *)title

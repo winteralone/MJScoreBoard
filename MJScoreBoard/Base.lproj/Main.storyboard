@@ -289,13 +289,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ec2-VT-6dp">
-                                <rect key="frame" x="262" y="206" width="17" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK3-IW-uOt" customClass="MJCustomButton">
                                 <rect key="frame" x="220" y="544" width="100" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -308,23 +301,8 @@
                                     <action selector="CloseMe:" destination="dn8-o5-Oxh" eventType="touchUpInside" id="cSN-Bc-fhp"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-60-BNC">
-                                <rect key="frame" x="20" y="170" width="500" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="-20"/>
-                                    <segment title="-5"/>
-                                    <segment title="-1"/>
-                                    <segment title="+1"/>
-                                    <segment title="+5"/>
-                                    <segment title="+20"/>
-                                </segments>
-                                <connections>
-                                    <action selector="ChangeScore:" destination="dn8-o5-Oxh" eventType="valueChanged" id="uwX-Fl-bTl"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-9P-zUO" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="342" width="500" height="36"/>
+                                <rect key="frame" x="20" y="446" width="500" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="罚分">
@@ -335,7 +313,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9l6-kC-J0a" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="438" width="500" height="36"/>
+                                <rect key="frame" x="20" y="331" width="500" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="番种">
@@ -345,32 +323,43 @@
                                     <segue destination="n3V-Zm-32Z" kind="modal" identifier="SetScoreElement" modalPresentationStyle="formSheet" id="aPh-H1-KVP"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0K-Hg-caG" customClass="MJScoreAdjustControl">
+                                <rect key="frame" x="20" y="170" width="500" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Q4n-Ml-bSc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="dn8-o5-Oxh" id="79f-07-FmP"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Jlg-9P-zUO" secondAttribute="centerX" id="3DQ-vs-td7"/>
-                            <constraint firstItem="I8g-60-BNC" firstAttribute="width" secondItem="Jlg-9P-zUO" secondAttribute="width" id="3zA-Mt-wRj"/>
+                            <constraint firstItem="M0K-Hg-caG" firstAttribute="top" secondItem="YoM-4c-d5d" secondAttribute="bottom" constant="40" id="127-vH-wix"/>
+                            <constraint firstItem="9l6-kC-J0a" firstAttribute="width" secondItem="M0K-Hg-caG" secondAttribute="width" id="3HZ-Nx-9Yc"/>
                             <constraint firstItem="S15-4d-b9R" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="4MR-kh-V7Q"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="top" secondItem="MdO-n5-kfO" secondAttribute="bottom" constant="8" symbolic="YES" id="6gr-ao-Czc"/>
-                            <constraint firstItem="YoM-4c-d5d" firstAttribute="centerX" secondItem="Ec2-VT-6dp" secondAttribute="centerX" id="DVk-AS-RTc"/>
+                            <constraint firstItem="9l6-kC-J0a" firstAttribute="top" secondItem="M0K-Hg-caG" secondAttribute="bottom" constant="121" id="Eua-1k-jdr"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="top" secondItem="S15-4d-b9R" secondAttribute="bottom" constant="8" symbolic="YES" id="FU8-yg-h1Y"/>
                             <constraint firstAttribute="centerX" secondItem="9l6-kC-J0a" secondAttribute="centerX" id="GEK-di-E2J"/>
                             <constraint firstAttribute="trailing" secondItem="YoM-4c-d5d" secondAttribute="trailing" constant="20" symbolic="YES" id="PcK-Om-1Hk"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="QC3-AJ-xgb"/>
-                            <constraint firstItem="Jlg-9P-zUO" firstAttribute="top" secondItem="Ec2-VT-6dp" secondAttribute="bottom" constant="100" id="QPv-LW-Py4"/>
-                            <constraint firstItem="Ec2-VT-6dp" firstAttribute="top" secondItem="I8g-60-BNC" secondAttribute="bottom" constant="8" symbolic="YES" id="Rkv-ek-BTB"/>
                             <constraint firstItem="MdO-n5-kfO" firstAttribute="top" secondItem="aGh-BZ-7RY" secondAttribute="bottom" constant="8" symbolic="YES" id="UQ6-mO-njs"/>
                             <constraint firstItem="S15-4d-b9R" firstAttribute="top" secondItem="598-OY-b0h" secondAttribute="bottom" constant="20" symbolic="YES" id="Wx5-th-7cG"/>
                             <constraint firstItem="MdO-n5-kfO" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="cBf-5k-fyz"/>
+                            <constraint firstItem="Jlg-9P-zUO" firstAttribute="top" secondItem="9l6-kC-J0a" secondAttribute="bottom" constant="79" id="csS-5K-uwm"/>
                             <constraint firstAttribute="trailing" secondItem="aGh-BZ-7RY" secondAttribute="trailing" constant="20" symbolic="YES" id="dAO-wY-H8x"/>
-                            <constraint firstItem="I8g-60-BNC" firstAttribute="width" secondItem="YoM-4c-d5d" secondAttribute="width" id="dVP-xW-7C5"/>
+                            <constraint firstItem="9l6-kC-J0a" firstAttribute="centerX" secondItem="M0K-Hg-caG" secondAttribute="centerX" id="fgn-XZ-eBJ"/>
                             <constraint firstAttribute="centerX" secondItem="DK3-IW-uOt" secondAttribute="centerX" id="g5X-rq-uBr"/>
-                            <constraint firstItem="9l6-kC-J0a" firstAttribute="top" secondItem="Jlg-9P-zUO" secondAttribute="bottom" constant="60" id="i9j-Ct-UxI"/>
-                            <constraint firstItem="I8g-60-BNC" firstAttribute="centerX" secondItem="YoM-4c-d5d" secondAttribute="centerX" id="oLo-MC-lZW"/>
+                            <constraint firstItem="M0K-Hg-caG" firstAttribute="centerX" secondItem="YoM-4c-d5d" secondAttribute="centerX" id="h2t-FW-pBo"/>
+                            <constraint firstItem="9l6-kC-J0a" firstAttribute="centerX" secondItem="Jlg-9P-zUO" secondAttribute="centerX" id="iKG-bV-UNY"/>
+                            <constraint firstItem="M0K-Hg-caG" firstAttribute="width" secondItem="YoM-4c-d5d" secondAttribute="width" id="oVg-ac-7wE"/>
                             <constraint firstItem="GgY-O1-NY8" firstAttribute="top" secondItem="DK3-IW-uOt" secondAttribute="bottom" constant="40" id="p3C-Bj-lOf"/>
                             <constraint firstItem="9l6-kC-J0a" firstAttribute="width" secondItem="Jlg-9P-zUO" secondAttribute="width" id="qBL-1S-HFQ"/>
+                            <constraint firstItem="9l6-kC-J0a" firstAttribute="width" secondItem="M0K-Hg-caG" secondAttribute="width" id="ssb-KJ-VMg"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="t3F-7h-5ZA"/>
-                            <constraint firstItem="I8g-60-BNC" firstAttribute="top" secondItem="YoM-4c-d5d" secondAttribute="bottom" constant="40" id="wQm-Ie-Uxf"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
@@ -378,10 +367,9 @@
                     <connections>
                         <outlet property="btnSetPenalty" destination="Jlg-9P-zUO" id="o01-0z-tiR"/>
                         <outlet property="btnSetScoreElement" destination="9l6-kC-J0a" id="n0J-M7-LWb"/>
-                        <outlet property="changeScoreControl" destination="I8g-60-BNC" id="s04-ED-naR"/>
                         <outlet property="loserControl" destination="YoM-4c-d5d" id="KbD-LY-QTv"/>
                         <outlet property="loserLabel" destination="MdO-n5-kfO" id="kA1-kZ-NzF"/>
-                        <outlet property="scoreLabel" destination="Ec2-VT-6dp" id="Pa5-zg-4GG"/>
+                        <outlet property="scoreAdjustControl" destination="M0K-Hg-caG" id="rT5-oS-EnT"/>
                         <outlet property="winnerControl" destination="aGh-BZ-7RY" id="zbl-Sm-vbD"/>
                     </connections>
                 </viewController>
@@ -410,7 +398,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="确定"/>
                                 <connections>
-                                    <segue destination="pjN-wB-miE" kind="unwind" identifier="DidSetPenalty" unwindAction="doneWithScoreElement:" id="dRC-Ok-3nS"/>
+                                    <segue destination="pjN-wB-miE" kind="unwind" identifier="DidSetPenalty" unwindAction="doneWithScoreSettings:" id="dRC-Ok-3nS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="罚分列表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyL-kv-2ro">
@@ -541,7 +529,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aut-XF-4b1" kind="unwind" identifier="DidSetScoreElement" unwindAction="doneWithScoreElement:" id="iJM-To-qmy"/>
+                                    <segue destination="aut-XF-4b1" kind="unwind" identifier="DidSetScoreElement" unwindAction="doneWithScoreSettings:" id="iJM-To-qmy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="主番种: " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="500" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-Nu-hZ3">

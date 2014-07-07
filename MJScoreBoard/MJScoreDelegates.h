@@ -15,3 +15,10 @@
 
 - (void) didSetPenaltyScores;
 @end
+
+@protocol MJScoreAdjustControlDelegate <NSObject>
+
+@property (copy, nonatomic) NSNumber *currentScore;
+- (void)adjustScore:(NSInteger)offset;
+@end
+

@@ -11,8 +11,9 @@
 
 @class MJOneRound;
 @class MJDetailViewController;
+@protocol MJScoreAdjustControlDelegate;
 
-@interface MJScoreController : UIViewController <UIAlertViewDelegate, MJSetPenaltyDelegate>
+@interface MJScoreController : UIViewController <UIAlertViewDelegate, MJSetPenaltyDelegate, MJScoreAdjustControlDelegate>
 
 
 @property (weak, nonatomic) MJDetailViewController *parentController;
