@@ -102,6 +102,15 @@
     _tempResult.nWinner = [NSNumber numberWithInteger:_winnerControl.selectedSegmentIndex];
     _tempResult.nLoser = [NSNumber numberWithInteger:_loserControl.selectedSegmentIndex ];
     
+    if ([_tempResult.nWinner integerValue] != 4
+        && [_tempResult.nWinner integerValue] != -1
+        && [_tempResult.nLoser integerValue] == -1 )
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"未指定点炮者！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
     if(_originalResult) //修改现有战绩
     {
         if([_tempResult isEqual:_originalResult])

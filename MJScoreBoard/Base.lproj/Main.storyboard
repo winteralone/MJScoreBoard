@@ -139,7 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点此录入成绩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu9-1s-dMN">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👉录入成绩👈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu9-1s-dMN">
                                                     <rect key="frame" x="267" y="4" width="168" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-9P-zUO" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="446" width="500" height="36"/>
+                                <rect key="frame" x="20" y="486" width="500" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="罚分">
@@ -313,7 +313,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9l6-kC-J0a" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="331" width="500" height="36"/>
+                                <rect key="frame" x="20" y="410" width="500" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="番种">
@@ -341,7 +341,7 @@
                             <constraint firstItem="9l6-kC-J0a" firstAttribute="width" secondItem="M0K-Hg-caG" secondAttribute="width" id="3HZ-Nx-9Yc"/>
                             <constraint firstItem="S15-4d-b9R" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="4MR-kh-V7Q"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="top" secondItem="MdO-n5-kfO" secondAttribute="bottom" constant="8" symbolic="YES" id="6gr-ao-Czc"/>
-                            <constraint firstItem="9l6-kC-J0a" firstAttribute="top" secondItem="M0K-Hg-caG" secondAttribute="bottom" constant="121" id="Eua-1k-jdr"/>
+                            <constraint firstItem="9l6-kC-J0a" firstAttribute="top" secondItem="M0K-Hg-caG" secondAttribute="bottom" constant="200" id="Eua-1k-jdr"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="top" secondItem="S15-4d-b9R" secondAttribute="bottom" constant="8" symbolic="YES" id="FU8-yg-h1Y"/>
                             <constraint firstAttribute="centerX" secondItem="9l6-kC-J0a" secondAttribute="centerX" id="GEK-di-E2J"/>
                             <constraint firstAttribute="trailing" secondItem="YoM-4c-d5d" secondAttribute="trailing" constant="20" symbolic="YES" id="PcK-Om-1Hk"/>
@@ -349,7 +349,7 @@
                             <constraint firstItem="MdO-n5-kfO" firstAttribute="top" secondItem="aGh-BZ-7RY" secondAttribute="bottom" constant="8" symbolic="YES" id="UQ6-mO-njs"/>
                             <constraint firstItem="S15-4d-b9R" firstAttribute="top" secondItem="598-OY-b0h" secondAttribute="bottom" constant="20" symbolic="YES" id="Wx5-th-7cG"/>
                             <constraint firstItem="MdO-n5-kfO" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="cBf-5k-fyz"/>
-                            <constraint firstItem="Jlg-9P-zUO" firstAttribute="top" secondItem="9l6-kC-J0a" secondAttribute="bottom" constant="79" id="csS-5K-uwm"/>
+                            <constraint firstItem="Jlg-9P-zUO" firstAttribute="top" secondItem="9l6-kC-J0a" secondAttribute="bottom" constant="40" id="csS-5K-uwm"/>
                             <constraint firstAttribute="trailing" secondItem="aGh-BZ-7RY" secondAttribute="trailing" constant="20" symbolic="YES" id="dAO-wY-H8x"/>
                             <constraint firstItem="9l6-kC-J0a" firstAttribute="centerX" secondItem="M0K-Hg-caG" secondAttribute="centerX" id="fgn-XZ-eBJ"/>
                             <constraint firstAttribute="centerX" secondItem="DK3-IW-uOt" secondAttribute="centerX" id="g5X-rq-uBr"/>

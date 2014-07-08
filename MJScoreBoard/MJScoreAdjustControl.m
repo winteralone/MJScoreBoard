@@ -35,6 +35,8 @@
     UIButton* button = [[MJCustomButton alloc]initWithFrame:CGRectMake(width*xPos+0.5, 0, width-1, height)];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[self tintColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+
     button.titleLabel.font = [UIFont systemFontOfSize:20];
     [button addTarget:self action:@selector(addScore:) forControlEvents:UIControlEventTouchUpInside];
     return button;
