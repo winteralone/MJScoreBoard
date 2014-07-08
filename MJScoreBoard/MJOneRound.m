@@ -15,7 +15,7 @@
     _nLoser =  [NSNumber numberWithInt:-1];
     _nScore =  [NSNumber numberWithInt:0];
     _penaltyScores = [[NSMutableArray alloc] initWithObjects:@0, @0, @0, @0, nil];
-    _scoreElements = [[NSMutableArray alloc]init];
+    _scoreElements = [[NSMutableArray alloc] init];
 }
 - (id)init
 {
@@ -64,8 +64,7 @@
     
 }
 
-
-- (NSArray *)getScore
+- (NSArray* )getRawScore
 {
     NSInteger s[4] = {0, 0, 0, 0};
     if (![self isValid])
@@ -111,9 +110,23 @@
         }
         
     }
+    return [NSArray arrayWithObjects:[NSNumber numberWithInteger:s[0]], [NSNumber numberWithInteger:s[1]], [NSNumber numberWithInteger:s[2]], [NSNumber numberWithInteger:s[3]], nil ];
+
+}
+
+
+- (NSArray *)getScore
+{
+    NSInteger s[4] = {0, 0, 0, 0};
+    NSArray* rawScore = [self getRawScore];
+    if (!rawScore)
+    {
+        return nil;
+    }
+    
     for (int i=0; i<4; i++)
     {
-        s[i] += [ [_penaltyScores objectAtIndex:i] intValue];
+        s[i] =  [_penaltyScores[i] intValue] + [rawScore[i] intValue];
     }
     return [[NSArray alloc]initWithObjects:[NSNumber numberWithInteger:s[0]], [NSNumber numberWithInteger:s[1]], [NSNumber numberWithInteger:s[2]], [NSNumber numberWithInteger:s[3]], nil ];
 }

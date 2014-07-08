@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MJSetPenaltyDelegate <NSObject>
-
-@property (copy, nonatomic) NSArray *playerNames;
-@property (strong, nonatomic) NSMutableArray *penaltyScores;
-
-- (void) didSetPenaltyScores;
-@end
 
 @protocol MJScoreAdjustControlDelegate <NSObject>
 
@@ -22,3 +15,11 @@
 - (void)adjustScore:(NSInteger)offset;
 @end
 
+@class MJOneRound;
+
+@protocol MJMiniSummaryTableDelegate <NSObject>
+
+@property (copy, nonatomic)NSArray *playerNames;
+- (MJOneRound*) getCurrentRound;
+
+@end

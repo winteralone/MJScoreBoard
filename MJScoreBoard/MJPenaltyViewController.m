@@ -7,6 +7,7 @@
 //
 
 #import "MJPenaltyViewController.h"
+#import "MJOneRound.h"
 
 @interface MJPenaltyViewController ()
 {
@@ -141,11 +142,10 @@
     
 }
 
-- (void)setDelegate:(UIViewController<MJSetPenaltyDelegate> *)delegate
+- (void)setDelegate:(UIViewController<MJMiniSummaryTableDelegate> *)delegate
 {
-    _penaltyScores = delegate.penaltyScores;
+    _penaltyScores = [delegate getCurrentRound].penaltyScores;
     _playerNames = delegate.playerNames;
-    _delegate = delegate;
 }
 
 /*

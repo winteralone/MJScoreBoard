@@ -10,6 +10,8 @@
 #import "MJScoreElementViewController.h"
 #import "MJOneRound.h"
 #import "MJScoreAdjustControl.h"
+#import "MJMiniSummaryTable.h"
+
 @interface MJScoreController ()
 {
     
@@ -19,11 +21,10 @@
 }
 @property (weak, nonatomic) IBOutlet UISegmentedControl *winnerControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *loserControl;
-@property (strong, nonatomic) IBOutlet UIButton *btnSetPenalty;
-@property (strong, nonatomic) IBOutlet UIButton *btnSetScoreElement;
 
 @property (strong, nonatomic) IBOutlet UILabel *loserLabel;
 @property (strong, nonatomic) IBOutlet MJScoreAdjustControl *scoreAdjustControl;
+@property (strong, nonatomic) IBOutlet MJMiniSummaryTable *summaryTable;
 
 
 - (IBAction)selectPlayer:(UISegmentedControl *)sender;
@@ -60,7 +61,7 @@
     if (_originalResult == nil)
     {
         _tempResult = [[MJOneRound alloc] init];
-        [self refreshControlStates:4];
+        [self refreshControlStates:-1];
     }
     else
     {
@@ -70,9 +71,7 @@
         _loserControl.selectedSegmentIndex = [_originalResult.nLoser intValue];
         [_scoreAdjustControl reloadData];
     }
-    [self setPenaltyButtonTitle];
-    [self setScoreElementButtonTitle];
-    
+    [_summaryTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,6 +92,8 @@
         {
             _winnerControl.selectedSegmentIndex = -1;
         }
+        _tempResult.nLoser = [NSNumber numberWithInteger:sender.selectedSegmentIndex];
+        [_summaryTable reloadData];
     }
 }
 
@@ -162,16 +163,7 @@
 
 - (IBAction)doneWithScoreSettings:(UIStoryboardSegue* )segue
 {
-    if ([segue.identifier isEqualToString:@"DidSetPenalty"])
-    {
-        [self setPenaltyButtonTitle];
-    }
-    else if([segue.identifier isEqualToString:@"DidSetScoreElement"])
-    {
-        MJScoreElementViewController *sourceController =  segue.sourceViewController;
-        _tempResult.scoreElements = sourceController.selectedScoreElements;
-        [self setScoreElementButtonTitle];
-    }
+    [_summaryTable reloadData];
 }
 
 #pragma mark PrivateMethods
@@ -179,13 +171,15 @@
 
 - (void)refreshControlStates:(NSInteger)selectedIndex
 {
-    if (selectedIndex == 4)
+    if (selectedIndex == 4 || selectedIndex == -1)
     {
         _loserControl.hidden = YES;
         _loserControl.selectedSegmentIndex = -1;
         _loserLabel.hidden = YES;
         _scoreAdjustControl.hidden = YES;
         _tempResult.nScore = [NSNumber numberWithInt:0];
+        _tempResult.nLoser = [NSNumber numberWithInt:-1];
+        [_tempResult.scoreElements removeAllObjects];
     }
     else
     {
@@ -207,45 +201,17 @@
         }
         _scoreAdjustControl.hidden = NO;
     }
+    _tempResult.nWinner = [NSNumber numberWithInteger:selectedIndex];
     [_scoreAdjustControl reloadData];
+    [_summaryTable reloadData];
 }
 
-- (void)setPenaltyButtonTitle
-{
-    NSString *penaltyButtonTitle = [NSString stringWithFormat:@"罚分: %@:%@  %@:%@  %@:%@  %@:%@",
-                                    _playerNames[0], _tempResult.penaltyScores[0],
-                                    _playerNames[1], _tempResult.penaltyScores[1],
-                                    _playerNames[2], _tempResult.penaltyScores[2],
-                                    _playerNames[3], _tempResult.penaltyScores[3], nil];
-    [_btnSetPenalty setTitle:penaltyButtonTitle forState:UIControlStateNormal];
-    
-}
 
-- (void)setScoreElementButtonTitle
-{
-    NSString *labelText = @"番种: ";
-    for (NSString *toDisplay in _tempResult.scoreElements)
-    {
-        labelText = [NSString stringWithFormat:@"%@ %@", labelText, toDisplay];
-    }
-    [_btnSetScoreElement setTitle:labelText forState:UIControlStateNormal];
-    
-}
+#pragma mark MJMiniSummaryTableDelegate
 
-#pragma mark MJSetPenaltyScoreDelegate
-- (NSArray *)penaltyScores
+- (MJOneRound*)getCurrentRound
 {
-    return _tempResult.penaltyScores;
-}
-
-- (void)setPenaltyScores:(NSMutableArray *)penaltyScores
-{
-    _tempResult.penaltyScores = penaltyScores;
-}
-
-- (void)didSetPenaltyScores
-{
-    [self setPenaltyButtonTitle];
+    return _tempResult;
 }
 
 #pragma mark MJScoreAdjustControlDelegate
@@ -266,6 +232,7 @@
     newScore = newScore < 8 ? 8: newScore;
     _tempResult.nScore = [NSNumber numberWithInteger:newScore];
     [_scoreAdjustControl reloadData];
+    [_summaryTable reloadData];
 }
 
 #pragma mark UIAlertViewDelegate
@@ -276,8 +243,6 @@
     {
         [_parentController updateRow:_tempResult atIndexPath:_indexPath];
     }
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }

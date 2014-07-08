@@ -10,5 +10,5 @@
 #import "MJScoreDelegates.h"
 
 @interface MJPenaltyViewController : UIViewController
-@property (weak, nonatomic) UIViewController<MJSetPenaltyDelegate> *delegate;
+@property (weak, nonatomic) UIViewController<MJMiniSummaryTableDelegate> *delegate;
 @end

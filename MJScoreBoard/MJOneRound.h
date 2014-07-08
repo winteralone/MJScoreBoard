@@ -18,6 +18,7 @@
 - (id)init;
 - (void)reset;
 - (NSArray*)getScore;
+- (NSArray*)getRawScore;
 - (BOOL)isValid;
 - (BOOL)isEqual:(id)object;
 @end

@@ -29,6 +29,7 @@
 		776485A818BB93DB005333A3 /* MJScoreBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776485A718BB93DB005333A3 /* MJScoreBoardTests.m */; };
 		777BFE0018BF5ABD003C4130 /* MJOneRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 777BFDFF18BF5ABD003C4130 /* MJOneRound.m */; };
 		777F031018BE27DA0029DBD8 /* MJScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F030F18BE27DA0029DBD8 /* MJScoreController.m */; };
+		779D1BBC196C03710020EDFD /* MJMiniSummaryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D1BBB196C03710020EDFD /* MJMiniSummaryTable.m */; };
 		77B9169418C4D85C0009E5FD /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 77B9169318C4D85C0009E5FD /* TODO */; };
 		77C597AB194F2F510012D223 /* MJOneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AA194F2F510012D223 /* MJOneGame.m */; };
 		77C597AE195069A20012D223 /* MJCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AD195069A20012D223 /* MJCustomButton.m */; };
@@ -81,6 +82,8 @@
 		777BFDFF18BF5ABD003C4130 /* MJOneRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJOneRound.m; sourceTree = "<group>"; };
 		777F030E18BE27DA0029DBD8 /* MJScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreController.h; sourceTree = "<group>"; };
 		777F030F18BE27DA0029DBD8 /* MJScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreController.m; sourceTree = "<group>"; };
+		779D1BBA196C03710020EDFD /* MJMiniSummaryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMiniSummaryTable.h; sourceTree = "<group>"; };
+		779D1BBB196C03710020EDFD /* MJMiniSummaryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMiniSummaryTable.m; sourceTree = "<group>"; };
 		77B9169318C4D85C0009E5FD /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		77C597A9194F2F510012D223 /* MJOneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJOneGame.h; sourceTree = "<group>"; };
 		77C597AA194F2F510012D223 /* MJOneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJOneGame.m; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 		77C597B519565E440012D223 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				779D1BBA196C03710020EDFD /* MJMiniSummaryTable.h */,
+				779D1BBB196C03710020EDFD /* MJMiniSummaryTable.m */,
 				77222417196AB14F008600B1 /* MJScoreAdjustControl.h */,
 				77222418196AB14F008600B1 /* MJScoreAdjustControl.m */,
 				7722241119630C0C008600B1 /* MJBorderedView.h */,
@@ -343,6 +348,7 @@
 				777F031018BE27DA0029DBD8 /* MJScoreController.m in Sources */,
 				7764859318BB93DB005333A3 /* MJDetailViewController.m in Sources */,
 				7764858618BB93DB005333A3 /* main.m in Sources */,
+				779D1BBC196C03710020EDFD /* MJMiniSummaryTable.m in Sources */,
 				77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */,
 				77060323196113E900D8735D /* MJScoreElementHeaderView.m in Sources */,
 				7764859018BB93DB005333A3 /* MJMasterViewController.m in Sources */,
