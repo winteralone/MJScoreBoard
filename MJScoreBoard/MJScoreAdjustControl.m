@@ -8,7 +8,8 @@
 
 #import "MJScoreAdjustControl.h"
 #import "MJScoreDelegates.h"
-#import "MJCustomButton.h"
+
+#define OFFSET 5
 
 @interface MJScoreAdjustControl ()
 
@@ -30,14 +31,14 @@
 - (UIButton*)createButton:(NSInteger)xPos title:(NSString*)title
 {
     CGFloat height = self.bounds.size.height;
-    CGFloat width = self.bounds.size.width / 8;
+    CGFloat width = self.bounds.size.width / 7;
 
-    UIButton* button = [[MJCustomButton alloc]initWithFrame:CGRectMake(width*xPos+0.5, 0, width-1, height)];
+    UIButton* button = [[UIButton alloc]initWithFrame:CGRectMake(width*xPos+OFFSET, 0, width-OFFSET*2, height)];
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[self tintColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-
-    button.titleLabel.font = [UIFont systemFontOfSize:20];
+    
+    button.titleLabel.font = [UIFont systemFontOfSize:24];
     [button addTarget:self action:@selector(addScore:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }
@@ -47,21 +48,21 @@
     UIButton* button1 = [self createButton:0 title:@"-20"];
     UIButton* button2 = [self createButton:1 title:@"-5"];
     UIButton* button3 = [self createButton:2 title:@"-1"];
-    UIButton* button4 = [self createButton:5 title:@"+1"];
-    UIButton* button5 = [self createButton:6 title:@"+5"];
-    UIButton* button6 = [self createButton:7 title:@"+20"];
+    UIButton* button4 = [self createButton:4 title:@"+1"];
+    UIButton* button5 = [self createButton:5 title:@"+5"];
+    UIButton* button6 = [self createButton:6 title:@"+20"];
     _buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, button5, button6, nil];
     for (UIButton *button in _buttons)
     {
         [self addSubview:button];
     }
     CGFloat height = self.bounds.size.height;
-    CGFloat width = self.bounds.size.width / 8;
+    CGFloat width = self.bounds.size.width / 7;
 
-    _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(width*3 , 0, width*2, height)];
+    _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(width*3 , 0, width, height)];
     _scoreLabel.textColor = [UIColor blackColor];
     _scoreLabel.textAlignment = NSTextAlignmentCenter;
-    _scoreLabel.font = [UIFont systemFontOfSize:30];
+    _scoreLabel.font = [UIFont systemFontOfSize:24];
     [self reloadData];
     [self addSubview:_scoreLabel];
     
@@ -83,13 +84,35 @@
     NSInteger nAdd = [[sender titleForState:UIControlStateNormal]integerValue];
     [self.delegate adjustScore:nAdd];
 }
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    //画顶线
+    for (UIButton *button in _buttons)
+    {
+        UIBezierPath *arrowPath = [[UIBezierPath alloc]init];
+        CGRect rc = button.frame;
+        CGFloat fOffSet = OFFSET;
+        [[UIColor colorWithRed:0 green:0.9 blue:0 alpha:1]setFill];
+        if ([_buttons indexOfObject:button] > 2)
+        {
+            fOffSet *= -1;
+            [[UIColor colorWithRed:0.9 green:0 blue:0 alpha:1]setFill];
+        }
+        [arrowPath moveToPoint: CGPointMake(rc.origin.x + fOffSet,  rc.origin.y) ];
+        [arrowPath addLineToPoint:CGPointMake(rc.origin.x - fOffSet, rc.size.height/2)];
+        [arrowPath addLineToPoint:CGPointMake(rc.origin.x + fOffSet, rc.size.height)];
+        [arrowPath addLineToPoint:CGPointMake(rc.origin.x + rc.size.width+fOffSet, rc.size.height)];
+        [arrowPath addLineToPoint:CGPointMake(rc.origin.x + rc.size.width-fOffSet, rc.size.height/2)];
+        [arrowPath addLineToPoint:CGPointMake(rc.origin.x + rc.size.width+fOffSet, rc.origin.y)];
+        [arrowPath closePath];
+        [arrowPath fill];
+                                              
+    }
     // Drawing code
 }
-*/
+
 
 @end
