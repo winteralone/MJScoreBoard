@@ -25,6 +25,7 @@
 - (void)drawRect:(CGRect)rect
 {
     self.layer.borderWidth = 1;
+    self.layer.cornerRadius = 5;
     self.layer.borderColor = [[UIColor blueColor] CGColor];
     // Drawing code
 }

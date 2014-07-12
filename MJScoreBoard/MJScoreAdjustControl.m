@@ -62,7 +62,8 @@
     _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(width*3 , 0, width, height)];
     _scoreLabel.textColor = [UIColor blackColor];
     _scoreLabel.textAlignment = NSTextAlignmentCenter;
-    _scoreLabel.font = [UIFont systemFontOfSize:24];
+    _scoreLabel.font = [UIFont systemFontOfSize:30];
+    _scoreLabel.adjustsFontSizeToFitWidth = YES;
     [self reloadData];
     [self addSubview:_scoreLabel];
     
@@ -95,11 +96,11 @@
         UIBezierPath *arrowPath = [[UIBezierPath alloc]init];
         CGRect rc = button.frame;
         CGFloat fOffSet = OFFSET;
-        [[UIColor colorWithRed:0 green:0.9 blue:0 alpha:1]setFill];
+        [[UIColor colorWithRed:0 green:0.8 blue:0 alpha:1]setFill];
         if ([_buttons indexOfObject:button] > 2)
         {
             fOffSet *= -1;
-            [[UIColor colorWithRed:0.9 green:0 blue:0 alpha:1]setFill];
+            [[UIColor colorWithRed:0.8 green:0 blue:0 alpha:1]setFill];
         }
         [arrowPath moveToPoint: CGPointMake(rc.origin.x + fOffSet,  rc.origin.y) ];
         [arrowPath addLineToPoint:CGPointMake(rc.origin.x - fOffSet, rc.size.height/2)];

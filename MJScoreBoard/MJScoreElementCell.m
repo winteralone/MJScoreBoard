@@ -33,6 +33,7 @@
     {
         UIView *bgView = [[UIView alloc]initWithFrame:self.bounds];
         bgView.backgroundColor = [UIColor blueColor];
+        bgView.layer.cornerRadius = 5;
         self.selectedBackgroundView = bgView;
     }
     

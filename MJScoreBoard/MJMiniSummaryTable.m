@@ -36,7 +36,7 @@
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(cellWidth*x, cellHeight*y, cellWidth*w, cellHeight)];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = title;
-    label.font = [UIFont systemFontOfSize:20];
+    label.font = [UIFont systemFontOfSize:24];
     label.adjustsFontSizeToFitWidth = YES;
     [self addSubview:label];
     return label;
@@ -143,19 +143,8 @@
     [path addLineToPoint:CGPointMake(cellWidth*5, cellHeight*3)];
     [path moveToPoint:CGPointMake(0, cellHeight*4)];
     [path addLineToPoint:CGPointMake(cellWidth*5, cellHeight*4)];
-    [path moveToPoint:CGPointMake(cellWidth, 0)];
-    [path addLineToPoint:CGPointMake(cellWidth, cellHeight*5)];
-    [path moveToPoint:CGPointMake(cellWidth*5, 0)];
-    [path addLineToPoint:CGPointMake(cellWidth*5, cellHeight*5)];
     [path stroke];
     
-    UIBezierPath *pathB = [[UIBezierPath alloc]init];
-    [pathB setLineWidth:2];
-    [pathB moveToPoint:CGPointMake(cellWidth*5, 0)];
-    [pathB addLineToPoint:CGPointMake(0, 0)];
-    [pathB addLineToPoint:CGPointMake(0, cellHeight*5)];
-    [pathB addLineToPoint:CGPointMake(cellWidth*5, cellHeight*5)];
-    [pathB stroke];
 }
 
 
