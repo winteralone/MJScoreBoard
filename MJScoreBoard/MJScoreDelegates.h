@@ -23,3 +23,10 @@
 - (MJOneRound*) getCurrentRound;
 
 @end
+
+@protocol MJSelectedScoreElementListDelegate <NSObject>
+
+@property NSMutableArray *selectedScoreElements;
+- (void)deleteScoreElement:(NSString*)element;
+
+@end

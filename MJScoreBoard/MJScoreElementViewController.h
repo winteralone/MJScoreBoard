@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJScoreDelegates.h"
 
-@interface MJScoreElementViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MJScoreElementViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MJSelectedScoreElementListDelegate>
 
 @property NSMutableArray *selectedScoreElements;
 

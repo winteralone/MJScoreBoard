@@ -7,7 +7,6 @@
 //
 
 #import "MJScoreElementCell.h"
-#import "MJBorderedView.h"
 
 @interface MJScoreElementCell ()
 @property UILabel* label;
@@ -24,11 +23,9 @@
         [self.contentView addSubview:_label];
         
     }
-    if (!self.backgroundView)
-    {
-        MJBorderedView *borderView = [[MJBorderedView alloc]initWithFrame:self.bounds];
-        self.backgroundView = borderView;
-    }
+    self.layer.borderWidth = 1;
+    self.layer.cornerRadius = 5;
+    self.layer.borderColor = [[UIColor blueColor]CGColor];
     if (!self.selectedBackgroundView)
     {
         UIView *bgView = [[UIView alloc]initWithFrame:self.bounds];

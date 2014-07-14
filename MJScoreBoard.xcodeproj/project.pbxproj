@@ -10,7 +10,6 @@
 		7706031D195DA67D00D8735D /* MJScoreElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706031C195DA67D00D8735D /* MJScoreElementViewController.m */; };
 		77060320195DABDC00D8735D /* MJScoreElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706031F195DABDC00D8735D /* MJScoreElementCell.m */; };
 		77060323196113E900D8735D /* MJScoreElementHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77060322196113E900D8735D /* MJScoreElementHeaderView.m */; };
-		7722241319630C0C008600B1 /* MJBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7722241219630C0C008600B1 /* MJBorderedView.m */; };
 		77222419196AB14F008600B1 /* MJScoreAdjustControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77222418196AB14F008600B1 /* MJScoreAdjustControl.m */; };
 		7764857A18BB93DB005333A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857918BB93DB005333A3 /* Foundation.framework */; };
 		7764857C18BB93DB005333A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7764857B18BB93DB005333A3 /* CoreGraphics.framework */; };
@@ -34,6 +33,8 @@
 		77C597AB194F2F510012D223 /* MJOneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AA194F2F510012D223 /* MJOneGame.m */; };
 		77C597AE195069A20012D223 /* MJCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AD195069A20012D223 /* MJCustomButton.m */; };
 		77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597B0195071400012D223 /* MJPenaltyViewController.m */; };
+		77CA9BAC197228E6004929E7 /* MJSelectedScoreElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BAB197228E6004929E7 /* MJSelectedScoreElementCell.m */; };
+		77CA9BAF1972C72E004929E7 /* MJSelectedScoreElementList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BAE1972C72E004929E7 /* MJSelectedScoreElementList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +54,6 @@
 		7706031F195DABDC00D8735D /* MJScoreElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementCell.m; sourceTree = "<group>"; };
 		77060321196113E900D8735D /* MJScoreElementHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreElementHeaderView.h; sourceTree = "<group>"; };
 		77060322196113E900D8735D /* MJScoreElementHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementHeaderView.m; sourceTree = "<group>"; };
-		7722241119630C0C008600B1 /* MJBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBorderedView.h; sourceTree = "<group>"; };
-		7722241219630C0C008600B1 /* MJBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBorderedView.m; sourceTree = "<group>"; };
 		77222417196AB14F008600B1 /* MJScoreAdjustControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreAdjustControl.h; sourceTree = "<group>"; };
 		77222418196AB14F008600B1 /* MJScoreAdjustControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreAdjustControl.m; sourceTree = "<group>"; };
 		7764857618BB93DB005333A3 /* MJScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +91,10 @@
 		77C597AF195071400012D223 /* MJPenaltyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPenaltyViewController.h; sourceTree = "<group>"; };
 		77C597B0195071400012D223 /* MJPenaltyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPenaltyViewController.m; sourceTree = "<group>"; };
 		77C597B219511A980012D223 /* MJScoreDelegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJScoreDelegates.h; sourceTree = "<group>"; };
+		77CA9BAA197228E6004929E7 /* MJSelectedScoreElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSelectedScoreElementCell.h; sourceTree = "<group>"; };
+		77CA9BAB197228E6004929E7 /* MJSelectedScoreElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSelectedScoreElementCell.m; sourceTree = "<group>"; };
+		77CA9BAD1972C72E004929E7 /* MJSelectedScoreElementList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSelectedScoreElementList.h; sourceTree = "<group>"; };
+		77CA9BAE1972C72E004929E7 /* MJSelectedScoreElementList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSelectedScoreElementList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +232,10 @@
 				779D1BBB196C03710020EDFD /* MJMiniSummaryTable.m */,
 				77222417196AB14F008600B1 /* MJScoreAdjustControl.h */,
 				77222418196AB14F008600B1 /* MJScoreAdjustControl.m */,
-				7722241119630C0C008600B1 /* MJBorderedView.h */,
-				7722241219630C0C008600B1 /* MJBorderedView.m */,
+				77CA9BAD1972C72E004929E7 /* MJSelectedScoreElementList.h */,
+				77CA9BAE1972C72E004929E7 /* MJSelectedScoreElementList.m */,
+				77CA9BAA197228E6004929E7 /* MJSelectedScoreElementCell.h */,
+				77CA9BAB197228E6004929E7 /* MJSelectedScoreElementCell.m */,
 				7706031E195DABDC00D8735D /* MJScoreElementCell.h */,
 				7706031F195DABDC00D8735D /* MJScoreElementCell.m */,
 				77060321196113E900D8735D /* MJScoreElementHeaderView.h */,
@@ -352,12 +357,13 @@
 				77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */,
 				77060323196113E900D8735D /* MJScoreElementHeaderView.m in Sources */,
 				7764859018BB93DB005333A3 /* MJMasterViewController.m in Sources */,
+				77CA9BAF1972C72E004929E7 /* MJSelectedScoreElementList.m in Sources */,
 				77222419196AB14F008600B1 /* MJScoreAdjustControl.m in Sources */,
 				777BFE0018BF5ABD003C4130 /* MJOneRound.m in Sources */,
 				7764858A18BB93DB005333A3 /* MJAppDelegate.m in Sources */,
+				77CA9BAC197228E6004929E7 /* MJSelectedScoreElementCell.m in Sources */,
 				7706031D195DA67D00D8735D /* MJScoreElementViewController.m in Sources */,
 				77060320195DABDC00D8735D /* MJScoreElementCell.m in Sources */,
-				7722241319630C0C008600B1 /* MJBorderedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

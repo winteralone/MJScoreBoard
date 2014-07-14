@@ -10,11 +10,13 @@
 #import "MJCustomButton.h"
 #import "MJScoreElementCell.h"
 #import "MJScoreElementHeaderView.h"
+#import "MJSelectedScoreElementCell.h"
+#import "MJSelectedScoreElementList.h"
 
 @interface MJScoreElementViewController ()
 @property NSArray *scoreElementList;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UILabel *scoreElementLabel;
+@property (strong, nonatomic) IBOutlet MJSelectedScoreElementList *selectedScoreElementList;
 @end
 
 @implementation MJScoreElementViewController
@@ -67,7 +69,6 @@
     {
         if ([toAdd isEqualToString:object])
         {
-            [_selectedScoreElements removeObject:toAdd];
             return;
         }
     }
@@ -78,12 +79,7 @@
 
 - (void)refreshScoreElementLabel
 {
-    NSString *labelText = @"主番种: ";
-    for (NSString *toDisplay in _selectedScoreElements)
-    {
-        labelText = [NSString stringWithFormat:@"%@ %@", labelText, toDisplay];
-    }
-    _scoreElementLabel.text = labelText;
+    [_selectedScoreElementList reloadData];
 }
 
 
@@ -118,6 +114,21 @@
     NSArray* section = _scoreElementList[indexPath.section];
     view.title = [NSString stringWithFormat:@"%@番", section[0], nil ];
     return view;
+    
+}
+#pragma mark MJSelectedScoreElementListDelegate
+
+- (void)deleteScoreElement:(NSString *)element
+{
+    for (NSString *el in _selectedScoreElements)
+    {
+        if ([el isEqualToString:element])
+        {
+            [_selectedScoreElements removeObject:el];
+            break;
+        }
+    }
+    [_selectedScoreElementList reloadData];
     
 }
 
