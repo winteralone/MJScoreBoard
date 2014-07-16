@@ -14,5 +14,5 @@
 @interface MJScoreAdjustControl : UIControl
 
 -(void)reloadData;
-@property IBOutlet id<MJScoreAdjustControlDelegate> delegate;
+@property (weak, nonatomic) IBOutlet id<MJScoreAdjustControlDelegate> delegate;
 @end

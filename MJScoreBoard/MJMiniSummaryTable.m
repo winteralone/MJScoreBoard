@@ -11,7 +11,7 @@
 #import "MJOneRound.h"
 
 @interface MJMiniSummaryTable ()
-@property IBOutlet UIViewController<MJMiniSummaryTableDelegate> *delegate;
+@property (weak, nonatomic) IBOutlet UIViewController<MJMiniSummaryTableDelegate> *delegate;
 @property NSMutableArray* rawScoreLabels;
 @property NSMutableArray* penaltyScoreLabels;
 @property NSMutableArray* totalScoreLabels;
