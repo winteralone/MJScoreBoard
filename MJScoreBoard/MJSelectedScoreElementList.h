@@ -10,7 +10,7 @@
 #import "MJScoreDelegates.h"
 
 @interface MJSelectedScoreElementList : UIView
-@property IBOutlet UIViewController<MJSelectedScoreElementListDelegate> *delegate;
+@property (weak, nonatomic) IBOutlet UIViewController<MJSelectedScoreElementListDelegate> *delegate;
 - (IBAction)clickedCloseButton:(id)sender;
 - (void)reloadData;
 @end
