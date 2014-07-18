@@ -30,3 +30,10 @@
 - (void)deleteScoreElement:(NSString*)element;
 
 @end
+
+@class MJScoreMainTableCell;
+@protocol MJScoreMainTableDelegate <NSObject>
+
+- (void)updateOneRoundCell:(MJScoreMainTableCell*)cell atRound:(NSInteger)round;
+
+@end

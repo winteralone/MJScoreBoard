@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJScoreDelegates.h"
 
 @class MJScoreController;
 @class MJOneRound;
 @class MJOneGame;
 
-@interface MJDetailViewController : UIViewController  <UISplitViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MJDetailViewController : UIViewController  <UISplitViewControllerDelegate, MJScoreMainTableDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) MJScoreController *childController;
 @property (strong, nonatomic) NSMutableArray *oneRoundScoreList;
 @property (strong, nonatomic) NSMutableArray *totalScoreList;
@@ -22,7 +22,6 @@
 @property (assign, nonatomic) NSInteger currentRound;
 
 - (void)updateRow:(MJOneRound*)result atIndexPath:(NSIndexPath *)indexPath;
-- (IBAction)PlayerNameChanged:(UITextField *)sender;
 - (void)loadFromMJOneGame:(MJOneGame*)game;
 - (void)reset;
 @end

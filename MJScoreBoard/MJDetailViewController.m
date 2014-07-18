@@ -11,21 +11,16 @@
 #import "MJScoreController.h"
 #import "MJOneRound.h"
 #import "MJOneGame.h"
+#import "MJScoreMainTable.h"
+#import "MJScoreMainTableCell.h"
 
 @interface MJDetailViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *playerName1;
-@property (weak, nonatomic) IBOutlet UITextField *playerName2;
-@property (weak, nonatomic) IBOutlet UITextField *playerName3;
-@property (weak, nonatomic) IBOutlet UITextField *playerName4;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong, nonatomic) MJScoreMainTable *mainTable;
 
 @end
 
 @implementation MJDetailViewController
-- (IBAction)PlayerNameChanged:(UITextField *)sender
-{
-    [sender resignFirstResponder];
-}
 
 #pragma mark - Managing the detail item
 
@@ -43,7 +38,7 @@
     _totalScoreList = [[NSMutableArray alloc]initWithObjects:@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, nil];
     _currentRound = 0;
 
-    [_tableView reloadData];
+    [_mainTable reloadData];
     
 }
 
@@ -71,7 +66,7 @@
     //刷新总成绩列表
     [self calculateScores];
     [self saveCurrentGame];
-    [_tableView reloadData];
+    [_mainTable reloadData];
 }
 
 - (void)calculateScores
@@ -106,6 +101,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    CGRect rect = self.view.bounds;
+    CGFloat height = self.navigationController.navigationBar.bounds.size.height + 20;
+    rect.origin.y += height;
+    rect.size.height -= height;
+    _mainTable = [[MJScoreMainTable alloc]initWithFrame:rect];
+    _mainTable.delegate = self;
+    [self.view addSubview:_mainTable];
+    
     [self reset];
     NSString* dateToday = [[[NSDate date] description] substringToIndex:10];
 
@@ -121,6 +124,7 @@
         }
         i++;
     }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -134,7 +138,7 @@
     MJMasterViewController *masterController = (MJMasterViewController*)[[[self.splitViewController viewControllers] firstObject] topViewController];
     MJOneGame *game = [[MJOneGame alloc] init];
     game.gameName = [self.navigationItem.title copy];
-    game.playerNames = [[NSArray alloc]initWithObjects:_playerName1.text, _playerName2.text, _playerName3.text, _playerName4.text, nil];
+    game.playerNames = [_mainTable playerNames];
     game.rawScoreList = [[NSMutableArray alloc] initWithArray:_rawScoreList copyItems:YES];
     [masterController addGame:game];
         
@@ -147,10 +151,6 @@
         [game loadFromFile];
         _rawScoreList = nil;
         _rawScoreList = [[NSMutableArray alloc]initWithArray:game.rawScoreList copyItems:YES];
-        _playerName1.text = game.playerNames[0];
-        _playerName2.text = game.playerNames[1];
-        _playerName3.text = game.playerNames[2];
-        _playerName4.text = game.playerNames[3];
         self.navigationItem.title = game.gameName;
         for (NSInteger i=0; i<16; i++)
         {
@@ -161,80 +161,65 @@
             }
         }
         [self calculateScores];
-        [_tableView reloadData];
+        [_mainTable reloadData];
+        [_mainTable setPlayerNames:[game.playerNames mutableCopy]];
     }
 }
+#pragma mark - MJScoreMainTableDelegate
 
-#pragma mark - table view datasource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)updateOneRoundCell:(MJScoreMainTableCell*)cell atRound:(NSInteger)round
 {
-    return 4;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = nil;
-    NSInteger currIndex = indexPath.section * 4 + indexPath.row;
-
-    if (currIndex == _currentRound)
+    if (round == _currentRound)
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"NewRound"];
-        [cell setUserInteractionEnabled:YES];
+        cell.hidden = NO;
+        for (UILabel *label in cell.scoreLabels)
+        {
+            label.text = @"";
+        }
+        cell.scoreElementLabel.textAlignment = NSTextAlignmentRight;
+        cell.scoreElementLabel.text = @"录入成绩👉";
+        cell.backgroundColor = [UIColor yellowColor];
     }
-    else if (currIndex > _currentRound)
+    else if (round > _currentRound)
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"OneRound"];
-        [cell setHidden:YES];
+        cell.hidden = YES;
     }
-    else if (currIndex < _currentRound)
+    else if (round < _currentRound)
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"OneRound"];
-        if ( [[_oneRoundScoreList objectAtIndex:currIndex] isKindOfClass:[NSArray class]]
-            && [[_totalScoreList objectAtIndex:currIndex] isKindOfClass:[NSArray class]] )
+        if ( [[_oneRoundScoreList objectAtIndex:round] isKindOfClass:[NSArray class]]
+            && [[_totalScoreList objectAtIndex:round] isKindOfClass:[NSArray class]] )
         {
             for (int i=0; i<4; i++)
             {
-                UITextView* currText = (UITextView*)[cell viewWithTag:i*2 + 1];
-                NSNumber *value = [[_oneRoundScoreList objectAtIndex:currIndex] objectAtIndex:i];
+                UILabel* currText = (UILabel*)cell.scoreLabels[i*2];
+                NSNumber *value = _oneRoundScoreList[round][i];
                 currText.text = [NSString stringWithFormat:@"%@", value];
-                currText = (UITextView *)[cell viewWithTag:(i+1)*2];
-                value = [[_totalScoreList objectAtIndex:currIndex] objectAtIndex:i];
+                currText = (UILabel*)cell.scoreLabels[i*2+1];
+                value = _totalScoreList[round][i];
                 currText.text = [NSString stringWithFormat:@"%@", value];
             }
+            NSString *scoreElementText = @"";
+            MJOneRound *currRound = _rawScoreList[round];
+            for (NSString *se in currRound.scoreElements)
+            {
+                scoreElementText = [scoreElementText stringByAppendingFormat:@" %@", se ];
+            }
+            cell.scoreElementLabel.textAlignment = NSTextAlignmentLeft;
+            cell.scoreElementLabel.text =scoreElementText;
+            cell.hidden = NO;
+            if (round % 2 == 0)
+            {
+                cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+            }
+            else
+            {
+                cell.backgroundColor = [UIColor whiteColor];
+            }
+            
         }
-    }
-    return cell;
-}
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 4;
-}
-
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    switch (section)
-    {
-        case 0:
-            return @"东";
-            break;
-        case 1:
-            return @"南";
-            break;
-        case 2:
-            return @"西";
-            break;
-        case 3:
-            return @"北";
-            break;
-        default:
-            return nil;
-            break;
     }
 }
-
-
 
 #pragma mark - Split view
 
@@ -260,19 +245,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     MJScoreController* scoreController = [segue destinationViewController];
-    NSMutableArray* tmpNames = [[NSMutableArray alloc]initWithObjects:_playerName1.text, _playerName2.text, _playerName3.text, _playerName4.text, nil];
-    NSArray *defaultName = [[NSArray alloc] initWithObjects:@"东家", @"南家", @"西家", @"北家", nil];
-    for (NSInteger i=0; i<4; i++)
+    NSArray *defaultName = @[@"东家", @"南家", @"西家", @"北家"];
+
+    scoreController.parentController = self;
+    NSIndexPath* indexPath = [_mainTable indexPathForSender:sender];
+    NSMutableArray *tmpNames = [_mainTable playerNames];
+    for (int i=0; i<4; i++)
     {
-        if ([[tmpNames objectAtIndex:i] isEqualToString: @""])
+        if ([tmpNames[i] isEqualToString:@""])
         {
-            [tmpNames replaceObjectAtIndex:i withObject:[defaultName objectAtIndex:i ]];
+            tmpNames[i] = defaultName[i];
         }
     }
     scoreController.playerNames = tmpNames;
-
-    scoreController.parentController = self;
-    NSIndexPath* indexPath = [_tableView indexPathForCell:sender];
     scoreController.indexPath = indexPath;
     NSInteger arrayIndex = indexPath.section * 4 + indexPath.row;
     if ([[_rawScoreList objectAtIndex:arrayIndex] isKindOfClass:[MJOneRound class]])
