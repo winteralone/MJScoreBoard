@@ -13,10 +13,12 @@
 #import "MJOneGame.h"
 #import "MJScoreMainTable.h"
 #import "MJScoreMainTableCell.h"
+#import "MJScoreMainTableTotalScoreCell.h"
 
 @interface MJDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) MJScoreMainTable *mainTable;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *layoutModeControl;
 
 @end
 
@@ -108,6 +110,7 @@
     _mainTable = [[MJScoreMainTable alloc]initWithFrame:rect];
     _mainTable.delegate = self;
     [self.view addSubview:_mainTable];
+    [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
     
     [self reset];
     NSString* dateToday = [[[NSDate date] description] substringToIndex:10];
@@ -131,6 +134,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)setLayoutMode:(UISegmentedControl *)sender
+{
+    [_mainTable setLayout:sender.selectedSegmentIndex];
 }
 
 - (IBAction)saveCurrentGame
@@ -159,6 +166,10 @@
                 _currentRound = i;
                 break;
             }
+        }
+        if ([_rawScoreList[15] isKindOfClass:[MJOneRound class]])
+        {
+            _currentRound = 16;
         }
         [self calculateScores];
         [_mainTable reloadData];
@@ -193,10 +204,10 @@
             {
                 UILabel* currText = (UILabel*)cell.scoreLabels[i*2];
                 NSNumber *value = _oneRoundScoreList[round][i];
-                currText.text = [NSString stringWithFormat:@"%@", value];
+                currText.text = [value stringValue];
                 currText = (UILabel*)cell.scoreLabels[i*2+1];
                 value = _totalScoreList[round][i];
-                currText.text = [NSString stringWithFormat:@"%@", value];
+                currText.text = [value stringValue];
             }
             NSString *scoreElementText = @"";
             MJOneRound *currRound = _rawScoreList[round];
@@ -215,10 +226,26 @@
             {
                 cell.backgroundColor = [UIColor whiteColor];
             }
-            
         }
 
     }
+}
+
+- (void)updateTotalScoreCell:(MJScoreMainTableTotalScoreCell *)cell
+{
+    if (_currentRound == 0)
+    {
+        return;
+    }
+    for (int i=0; i<4; i++)
+    {
+        if ([_totalScoreList[_currentRound - 1] isKindOfClass:[NSArray class]])
+        {
+            UILabel* label =  cell.labels[i];
+            label.text = [_totalScoreList[_currentRound - 1][i] stringValue];
+        }
+    }
+    
 }
 
 #pragma mark - Split view

@@ -32,8 +32,10 @@
 @end
 
 @class MJScoreMainTableCell;
+@class MJScoreMainTableTotalScoreCell;
 @protocol MJScoreMainTableDelegate <NSObject>
 
 - (void)updateOneRoundCell:(MJScoreMainTableCell*)cell atRound:(NSInteger)round;
+- (void)updateTotalScoreCell:(MJScoreMainTableTotalScoreCell*)cell;
 
 @end

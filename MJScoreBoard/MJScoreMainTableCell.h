@@ -10,8 +10,10 @@
 
 @interface MJScoreMainTableCell : UIView
 
-@property NSMutableArray *scoreLabels;
-@property UILabel *scoreElementLabel;
-@property UIButton *infoButton;
+@property (nonatomic) NSMutableArray *scoreLabels;
+@property (nonatomic) UILabel *scoreElementLabel;
+@property (nonatomic) UIButton *infoButton;
+
+@property (nonatomic) NSInteger mode;
 
 @end

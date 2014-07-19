@@ -9,6 +9,7 @@
 #import "MJScoreMainTable.h"
 #import "MJScoreDelegates.h"
 #import "MJScoreMainTableCell.h"
+#import "MJScoreMainTableTotalScoreCell.h"
 
 
 
@@ -16,6 +17,7 @@
 @property NSMutableArray *textFields;
 @property NSMutableArray *sectionLabels;
 @property NSMutableArray *tableCells;
+@property MJScoreMainTableTotalScoreCell *totalScoreCell;
 @end
 
 @implementation MJScoreMainTable
@@ -42,6 +44,7 @@
         [textField setPlaceholder:defaulNames[i]];
         [self addSubview:textField];
     }
+    
 }
 
 - (void)setup
@@ -58,6 +61,9 @@
     }
     CGFloat baseline_y = TEXT_FIELD_HEIGHT;
     NSArray *roundName = @[@"东", @"南", @"西", @"北"];
+    _totalScoreCell = [[MJScoreMainTableTotalScoreCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, CELL_HEIGHT)];
+    [self addSubview:_totalScoreCell];
+    baseline_y += CELL_HEIGHT;
     for (int i=0; i<4; i++)
     {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, SECTION_LABEL_HEIGHT)];
@@ -74,8 +80,11 @@
             [_tableCells addObject:cell];
             [self addSubview:cell];
         }
-        
     }
+    UIView *bottomline = [[UIView alloc] initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, 1)];
+    bottomline.backgroundColor = [UIColor blackColor];
+    [self addSubview:bottomline];
+    
     
 }
 
@@ -85,7 +94,23 @@
     {
         [_delegate updateOneRoundCell:_tableCells[i] atRound:i];
     }
+    [_delegate updateTotalScoreCell:_totalScoreCell];
     
+}
+
+- (void)setLayout:(NSInteger)mode
+{
+    for (MJScoreMainTableCell *cell in _tableCells)
+    {
+        cell.mode = mode;
+    }
+    CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - (mode?0:SCORE_ELEMENT_LABEL_WIDTH) - INFO_BUTTON_WIDTH) / 4;
+    for (int i=0; i<4; i++)
+    {
+        UITextField *textField = _textFields[i];
+        textField.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, TEXT_FIELD_HEIGHT);
+    }
+    _totalScoreCell.mode = mode;
 }
 
 - (NSMutableArray*)playerNames

@@ -35,8 +35,23 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" id="V45-uW-UVy">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ydu-Hl-Plb">
+                                <rect key="frame" x="531" y="7" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="番种"/>
+                                    <segment title="追分"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setLayoutMode:" destination="JEX-9P-axG" eventType="valueChanged" id="5rV-MR-zS3"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="layoutModeControl" destination="ydu-Hl-Plb" id="3YL-Qb-Nhi"/>
                         <segue destination="dn8-o5-Oxh" kind="modal" identifier="SetScore" modalPresentationStyle="formSheet" id="5kI-0O-gSr"/>
                     </connections>
                 </viewController>

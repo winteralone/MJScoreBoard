@@ -37,6 +37,7 @@
 		77CA9BAF1972C72E004929E7 /* MJSelectedScoreElementList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BAE1972C72E004929E7 /* MJSelectedScoreElementList.m */; };
 		77CA9BB41973EDF2004929E7 /* MJScoreMainTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BB31973EDF2004929E7 /* MJScoreMainTable.m */; };
 		77CA9BB7197413AA004929E7 /* MJScoreMainTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */; };
+		77D822B2197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		77CA9BB31973EDF2004929E7 /* MJScoreMainTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTable.m; sourceTree = "<group>"; };
 		77CA9BB5197413AA004929E7 /* MJScoreMainTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreMainTableCell.h; sourceTree = "<group>"; };
 		77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTableCell.m; sourceTree = "<group>"; };
+		77D822B0197A137300C7E340 /* MJScoreMainTableTotalScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreMainTableTotalScoreCell.h; sourceTree = "<group>"; };
+		77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTableTotalScoreCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +245,8 @@
 				77CA9BB31973EDF2004929E7 /* MJScoreMainTable.m */,
 				77CA9BB5197413AA004929E7 /* MJScoreMainTableCell.h */,
 				77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */,
+				77D822B0197A137300C7E340 /* MJScoreMainTableTotalScoreCell.h */,
+				77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				7764859318BB93DB005333A3 /* MJDetailViewController.m in Sources */,
 				7764858618BB93DB005333A3 /* main.m in Sources */,
 				779D1BBC196C03710020EDFD /* MJMiniSummaryTable.m in Sources */,
+				77D822B2197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m in Sources */,
 				77C597B1195071400012D223 /* MJPenaltyViewController.m in Sources */,
 				77060323196113E900D8735D /* MJScoreElementHeaderView.m in Sources */,
 				77CA9BB7197413AA004929E7 /* MJScoreMainTableCell.m in Sources */,

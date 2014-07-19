@@ -22,6 +22,7 @@
 @property (weak, nonatomic) NSMutableArray* playerNames;
 
 - (void)reloadData;
+- (void)setLayout: (NSInteger)mode;
 - (NSIndexPath*)indexPathForSender:(id)sender;
 - (IBAction)clickedInfoButton:(id)sender;
 @end

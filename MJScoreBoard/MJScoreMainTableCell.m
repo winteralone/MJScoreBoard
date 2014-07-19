@@ -34,12 +34,12 @@
             [label setTextAlignment:NSTextAlignmentCenter];
             if (i%2 == 1)
             {
-                [label setFont:[UIFont boldSystemFontOfSize:26]];
+                [label setFont:[UIFont boldSystemFontOfSize:28]];
                 [label setTextColor:[UIColor blueColor]];
             }
             else
             {
-                [label setFont:[UIFont systemFontOfSize:26]];
+                [label setFont:[UIFont systemFontOfSize:28]];
                 
             }
             [label setAdjustsFontSizeToFitWidth:YES];
@@ -47,7 +47,7 @@
             [self addSubview:label];
         }
         _scoreElementLabel = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth*8, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
-        [_scoreElementLabel setFont:[UIFont systemFontOfSize:26]];
+        [_scoreElementLabel setFont:[UIFont systemFontOfSize:28]];
         [_scoreElementLabel setAdjustsFontSizeToFitWidth:YES];
         _infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         _infoButton.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth*8 + SCORE_ELEMENT_LABEL_WIDTH, 0, INFO_BUTTON_WIDTH, CELL_HEIGHT);
@@ -56,6 +56,40 @@
         [self addSubview:_infoButton];
     }
     return self;
+}
+
+- (void)setMode:(NSInteger)mode
+{
+    if (mode == 0)
+    {
+        CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - SCORE_ELEMENT_LABEL_WIDTH - INFO_BUTTON_WIDTH) / 8;
+        for (int i=0; i<8; i++)
+        {
+            UILabel *label = _scoreLabels[i];
+            if (i %2 == 0)
+            {
+                label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i , 0, cellWidth * 2, CELL_HEIGHT);
+
+            }
+            else
+            {
+                label.hidden = YES;
+            }
+        }
+        _scoreElementLabel.hidden = NO;
+    }
+    else // mode == 1
+    {
+        CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - INFO_BUTTON_WIDTH ) / 8;
+        for (int i=0; i<8; i++)
+        {
+            UILabel *label = _scoreLabels[i];
+            label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth *i, 0, cellWidth, CELL_HEIGHT);
+            label.hidden = NO;
+        }
+        _scoreElementLabel.hidden = YES;
+    }
+    _mode = mode;
 }
 
 
