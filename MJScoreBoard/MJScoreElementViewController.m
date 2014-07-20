@@ -35,7 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _scoreElementList = @[
-                          @[@2, @"其他..."],
+                          @[@0, @"三色三步高", @"五门齐", @"三色三同顺", @"花龙", @"清龙",
+                            @"混一色", @"一色三步高", @"七对", @"清一色", @"其他..."],
                           @[@4, @"全带幺",@"不求人", @"双明杠", @"和绝张"],
                           @[@6,  @"碰碰和", @"混一色", @"三色三步高", @"五门齐",  @"全求人", @"双箭刻"],
                           @[@8, @"花龙", @"推不倒", @"三色三同顺", @"三色三节高", @"无番和", @"妙手回春", @"海底捞月", @"杠上开花" , @"抢杠和", @"双暗杠"],
@@ -113,7 +114,14 @@
 {
     MJScoreElementHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ScoreElementHeader" forIndexPath:indexPath];
     NSArray* section = _scoreElementList[indexPath.section];
-    view.title = [NSString stringWithFormat:@"%@番", section[0], nil ];
+    if ([section[0] integerValue] == 0 )
+    {
+        view.title = @"常用";
+    }
+    else
+    {
+        view.title = [NSString stringWithFormat:@"%@番", section[0], nil ];
+    }
     return view;
     
 }

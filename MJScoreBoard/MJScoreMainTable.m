@@ -70,6 +70,7 @@
         label.text = roundName[i];
         label.layer.borderWidth = 0.5;
         label.layer.borderColor = [[UIColor blackColor] CGColor];
+        label.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
         [_sectionLabels addObject:label];
         [self addSubview:label];
         baseline_y += SECTION_LABEL_HEIGHT;

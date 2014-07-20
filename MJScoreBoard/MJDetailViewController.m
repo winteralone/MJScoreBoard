@@ -220,11 +220,11 @@
             cell.hidden = NO;
             if (round % 2 == 0)
             {
-                cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+                cell.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
             }
             else
             {
-                cell.backgroundColor = [UIColor whiteColor];
+                cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:1 alpha:1];
             }
         }
 

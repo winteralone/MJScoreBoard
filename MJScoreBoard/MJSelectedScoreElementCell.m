@@ -24,8 +24,10 @@
     if (self)
     {
         // Initialization code
-        self.layer.backgroundColor = [[UIColor grayColor] CGColor];
-        self.layer.cornerRadius = 20;
+        self.layer.backgroundColor = [[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] CGColor];
+        self.layer.cornerRadius = 10;
+        self.layer.borderWidth = 0.5;
+        self.layer.borderColor = [[UIColor blackColor]CGColor];
         _closeButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width - 24, 0, 24, frame.size.height)];
         [_closeButton setTitle:@"❎" forState:UIControlStateNormal];
         [_closeButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -35,7 +37,7 @@
         _textLabel.adjustsFontSizeToFitWidth = YES;
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-        _textLabel.textColor = [UIColor whiteColor];
+        _textLabel.textColor = [UIColor blackColor];
         [self addSubview:_closeButton];
         [self addSubview:_textLabel];
     }

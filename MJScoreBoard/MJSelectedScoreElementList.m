@@ -22,7 +22,7 @@
 
 - (void)awakeFromNib
 {
-    self.layer.borderWidth = 1;
+    self.layer.borderWidth = 0.5;
     self.layer.borderColor = [[UIColor blackColor] CGColor];
 }
 
@@ -36,7 +36,7 @@
     for (int i=0; i<count; i++)
     {
         CGFloat width = self.bounds.size.width / (count < 5 ? 4 : count);
-        CGRect rect = CGRectMake(i*width, 0, width, self.bounds.size.height);
+        CGRect rect = CGRectMake(3 + i*width, 0, width - 6, self.bounds.size.height);
         MJSelectedScoreElementCell * selected = [[MJSelectedScoreElementCell alloc]initWithFrame:rect];
         selected.title = _delegate.selectedScoreElements[i];
         [self addSubview:selected];

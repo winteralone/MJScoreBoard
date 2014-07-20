@@ -71,6 +71,11 @@
     CGFloat cellWidth = (self.bounds.size.width - 40) / 5;
     CGFloat cellHeight = self.bounds.size.height / 5;
     
+    [self addSeparatorLine:cellHeight];
+    [self addSeparatorLine:cellHeight*3];
+    [self addSeparatorLine:cellHeight*4];
+    [self addSeparatorLine:cellHeight*5];
+    
     UIButton *buttonSetPenalty = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     buttonSetPenalty.frame = CGRectMake(cellWidth * 5 , cellHeight *2, 40, 40 );
     [self addSubview:buttonSetPenalty];
@@ -128,6 +133,15 @@
     _scoreElementLabel.text = labelText;
 }
 
+- (void)addSeparatorLine: (CGFloat)yPos;
+{
+    UIView *viewLine = [[UIView alloc]initWithFrame:CGRectMake(0, yPos, self.bounds.size.width, 0.5)];
+    viewLine.backgroundColor = [UIColor blackColor];
+    [self addSubview:viewLine];
+    
+}
+
+/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -146,6 +160,6 @@
     [path stroke];
     
 }
-
+*/
 
 @end
