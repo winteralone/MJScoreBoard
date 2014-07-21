@@ -23,13 +23,14 @@
         [self.contentView addSubview:_label];
         
     }
-    self.layer.borderWidth = 1;
+    self.layer.borderWidth = 0.5;
     self.layer.cornerRadius = 5;
-    self.layer.borderColor = [[UIColor blueColor]CGColor];
+    self.layer.borderColor = [[UIColor blackColor]CGColor];
+    self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
     if (!self.selectedBackgroundView)
     {
         UIView *bgView = [[UIView alloc]initWithFrame:self.bounds];
-        bgView.backgroundColor = [UIColor blueColor];
+        bgView.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
         bgView.layer.cornerRadius = 5;
         self.selectedBackgroundView = bgView;
     }
@@ -59,7 +60,8 @@
     if(_label)
     {
         _label.text = title;
-        _label.textColor = [UIColor whiteColor];
+        _label.font = [UIFont boldSystemFontOfSize:18];
+        _label.textColor = [UIColor blackColor];
 
     }
 }

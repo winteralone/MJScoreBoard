@@ -42,7 +42,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="番种"/>
-                                    <segment title="追分"/>
+                                    <segment title="场况"/>
                                 </segments>
                                 <connections>
                                     <action selector="setLayoutMode:" destination="JEX-9P-axG" eventType="valueChanged" id="5rV-MR-zS3"/>
@@ -293,6 +293,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cfK-iR-OB4">
                                 <rect key="frame" x="0.0" y="64" width="540" height="499"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hbu-Rm-iUa">
                                     <size key="itemSize" width="100" height="35"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>

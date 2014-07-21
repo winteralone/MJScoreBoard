@@ -30,7 +30,7 @@
     if (!_label)
     {
         _label = [[UILabel alloc]initWithFrame:self.frame];
-        _label.textColor = [UIColor whiteColor];
+        _label.textColor = [UIColor blackColor];
         [self addSubview:_label];
     }
 }

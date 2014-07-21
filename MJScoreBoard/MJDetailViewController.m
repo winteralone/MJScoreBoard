@@ -112,7 +112,11 @@
     [self.view addSubview:_mainTable];
     [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
     
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20]};// [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    
+    [_layoutModeControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [self reset];
+    
     NSString* dateToday = [[[NSDate date] description] substringToIndex:10];
 
     MJMasterViewController *masterViewController = (MJMasterViewController*)[[[self.splitViewController viewControllers] firstObject] topViewController];
@@ -235,6 +239,10 @@
 {
     if (_currentRound == 0)
     {
+        for (UILabel *label in cell.labels)
+        {
+            label.text = @"0";
+        }
         return;
     }
     for (int i=0; i<4; i++)

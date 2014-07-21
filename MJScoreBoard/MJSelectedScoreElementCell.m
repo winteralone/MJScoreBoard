@@ -25,7 +25,7 @@
     {
         // Initialization code
         self.layer.backgroundColor = [[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1] CGColor];
-        self.layer.cornerRadius = 10;
+        self.layer.cornerRadius = 5;
         self.layer.borderWidth = 0.5;
         self.layer.borderColor = [[UIColor blackColor]CGColor];
         _closeButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width - 24, 0, 24, frame.size.height)];
@@ -38,6 +38,7 @@
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         _textLabel.textColor = [UIColor blackColor];
+        _textLabel.font = [UIFont boldSystemFontOfSize:18];
         [self addSubview:_closeButton];
         [self addSubview:_textLabel];
     }
