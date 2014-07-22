@@ -18,6 +18,7 @@
 @interface MJDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) MJScoreMainTable *mainTable;
+@property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *layoutModeControl;
 
 @end
@@ -109,10 +110,18 @@
     rect.size.height -= height;
     _mainTable = [[MJScoreMainTable alloc]initWithFrame:rect];
     _mainTable.delegate = self;
-    [self.view addSubview:_mainTable];
-    [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18]};// [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    _scrollView = [[UIScrollView alloc]initWithFrame:rect];
+    _scrollView.scrollEnabled = YES;
+    _scrollView.delegate = self;
+    [_scrollView addSubview:_mainTable];
+    rect.origin.y = 0;
+    _mainTable.frame = rect;
+    CGSize size = CGSizeMake(500, TEXT_FIELD_HEIGHT + CELL_HEIGHT + 4 * SECTION_LABEL_HEIGHT + 16 * CELL_HEIGHT + 64);
+    _scrollView.contentSize = size;
+    [self.view addSubview:_scrollView];
+
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18]};
     
     [_layoutModeControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [self reset];
@@ -136,8 +145,10 @@
 
 - (void)viewWillLayoutSubviews
 {
-    CGRect rect = _mainTable.frame;
-    rect.size.width = self.view.bounds.size.width;
+    CGRect rect = _scrollView.frame;
+    rect.size = self.view.bounds.size;
+    _scrollView.frame = rect;
+    rect.origin.y = 0;
     _mainTable.frame = rect;
     [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
     

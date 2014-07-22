@@ -13,7 +13,7 @@
 @class MJOneRound;
 @class MJOneGame;
 
-@interface MJDetailViewController : UIViewController  <UISplitViewControllerDelegate, MJScoreMainTableDelegate>
+@interface MJDetailViewController : UIViewController  <UISplitViewControllerDelegate, UIScrollViewDelegate, MJScoreMainTableDelegate>
 
 @property (strong, nonatomic) MJScoreController *childController;
 @property (strong, nonatomic) NSMutableArray *oneRoundScoreList;
