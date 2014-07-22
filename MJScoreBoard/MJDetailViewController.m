@@ -112,7 +112,7 @@
     [self.view addSubview:_mainTable];
     [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20]};// [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18]};// [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     
     [_layoutModeControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [self reset];
@@ -132,6 +132,15 @@
         i++;
     }
 
+}
+
+- (void)viewWillLayoutSubviews
+{
+    CGRect rect = _mainTable.frame;
+    rect.size.width = self.view.bounds.size.width;
+    _mainTable.frame = rect;
+    [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
+    
 }
 
 - (void)didReceiveMemoryWarning

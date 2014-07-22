@@ -103,6 +103,9 @@
 {
     for (MJScoreMainTableCell *cell in _tableCells)
     {
+        CGRect rect = cell.frame;
+        rect.size.width = self.bounds.size.width;
+        cell.frame = rect;
         cell.mode = mode;
     }
     CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - (mode?0:SCORE_ELEMENT_LABEL_WIDTH) - INFO_BUTTON_WIDTH) / 4;
@@ -111,6 +114,9 @@
         UITextField *textField = _textFields[i];
         textField.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, TEXT_FIELD_HEIGHT);
     }
+    CGRect rect = _totalScoreCell.frame;
+    rect.size.width = self.bounds.size.width;
+    _totalScoreCell.frame = rect;
     _totalScoreCell.mode = mode;
 }
 

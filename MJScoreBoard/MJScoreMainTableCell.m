@@ -76,7 +76,9 @@
                 label.hidden = YES;
             }
         }
+        _scoreElementLabel.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 8, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT);
         _scoreElementLabel.hidden = NO;
+        _infoButton.frame = CGRectMake(self.bounds.size.width - INFO_BUTTON_WIDTH, 0, INFO_BUTTON_WIDTH, CELL_HEIGHT);
     }
     else // mode == 1
     {
@@ -88,6 +90,7 @@
             label.hidden = NO;
         }
         _scoreElementLabel.hidden = YES;
+        _infoButton.frame = CGRectMake(self.bounds.size.width - INFO_BUTTON_WIDTH, 0, INFO_BUTTON_WIDTH, CELL_HEIGHT);
     }
     _mode = mode;
 }
