@@ -45,12 +45,12 @@
 
 - (void)awakeFromNib
 {
-    UIButton* button1 = [self createButton:0 title:@"-20"];
+    UIButton* button1 = [self createButton:0 title:@"-10"];
     UIButton* button2 = [self createButton:1 title:@"-5"];
     UIButton* button3 = [self createButton:2 title:@"-1"];
     UIButton* button4 = [self createButton:4 title:@"+1"];
     UIButton* button5 = [self createButton:5 title:@"+5"];
-    UIButton* button6 = [self createButton:6 title:@"+20"];
+    UIButton* button6 = [self createButton:6 title:@"+10"];
     _buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, button5, button6, nil];
     for (UIButton *button in _buttons)
     {
