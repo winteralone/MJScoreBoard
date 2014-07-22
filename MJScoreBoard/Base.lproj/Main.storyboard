@@ -199,12 +199,6 @@
                                     <segue destination="pjN-wB-miE" kind="unwind" identifier="DidSetPenalty" unwindAction="doneWithScoreSettings:" id="dRC-Ok-3nS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="罚分列表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyL-kv-2ro">
-                                <rect key="frame" x="68" y="187" width="404" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-f0-eBz" customClass="MJCustomButton">
                                 <rect key="frame" x="320" y="564" width="100" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +214,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JEt-Qs-Gen">
-                                <rect key="frame" x="68" y="219" width="404" height="29"/>
+                                <rect key="frame" x="20" y="126" width="500" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="东家"/>
@@ -233,27 +227,48 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-3Q-KLE">
-                                <rect key="frame" x="20" y="277" width="500" height="29"/>
+                                <rect key="frame" x="20" y="262" width="500" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="付给三家"/>
                                     <segment title="扣除分数"/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uul-E1-1us">
-                                <rect key="frame" x="68" y="335" width="404" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="-5"/>
-                                    <segment title="-10"/>
+                                    <segment title="付给三家"/>
+                                    <segment title="付给一家"/>
                                 </segments>
                                 <connections>
-                                    <action selector="AddPenaltyScore:" destination="VEH-Fn-9i9" eventType="valueChanged" id="xyW-df-mfm"/>
+                                    <action selector="setPenaltyMode:" destination="VEH-Fn-9i9" eventType="valueChanged" id="aIm-vb-93x"/>
                                 </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lus-9U-aZn" customClass="MJCustomButton">
+                                <rect key="frame" x="120" y="469" width="100" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="-5">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddPenaltyScore:" destination="VEH-Fn-9i9" eventType="touchUpInside" id="ct8-pI-Sfq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZk-mc-35q" customClass="MJCustomButton">
+                                <rect key="frame" x="320" y="469" width="100" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="-10">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddPenaltyScore:" destination="VEH-Fn-9i9" eventType="touchUpInside" id="3t0-Bp-Ehl"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-bF-Xae">
+                                <rect key="frame" x="20" y="363" width="500" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -266,11 +281,10 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="addPenaltyScoreControl" destination="Uul-E1-1us" id="19h-Et-Lwa"/>
+                        <outlet property="benefitPlayerControl" destination="Eoy-bF-Xae" id="SYb-fr-rG7"/>
                         <outlet property="btnResetPenaltyScore" destination="GTz-f0-eBz" id="vPp-Dx-Wt8"/>
                         <outlet property="penaltyModeControl" destination="x6K-3Q-KLE" id="rd9-6J-EJr"/>
                         <outlet property="penaltyPlayerControl" destination="JEt-Qs-Gen" id="sRg-J8-WES"/>
-                        <outlet property="penaltyScoreLabel" destination="jyL-kv-2ro" id="Mvv-V9-3ki"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXa-0y-NBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,8 +336,11 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg6-QM-WFP" customClass="MJCustomButton">
-                                <rect key="frame" x="0.0" y="571" width="540" height="41"/>
+                                <rect key="frame" x="20" y="571" width="500" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="d7V-0r-E9c"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="确定">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -345,7 +362,6 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="rg6-QM-WFP" secondAttribute="centerX" id="Rey-59-2p9"/>
                             <constraint firstItem="7gv-7j-llP" firstAttribute="top" secondItem="rg6-QM-WFP" secondAttribute="bottom" constant="20" symbolic="YES" id="lsm-c1-zs4"/>
-                            <constraint firstAttribute="width" secondItem="rg6-QM-WFP" secondAttribute="width" id="uYX-k6-sNZ"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>

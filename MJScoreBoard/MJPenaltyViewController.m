@@ -16,9 +16,9 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *penaltyPlayerControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *penaltyModeControl;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *addPenaltyScoreControl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *benefitPlayerControl;
 @property (strong, nonatomic) IBOutlet UIButton *btnResetPenaltyScore;
-@property (strong, nonatomic) IBOutlet UILabel *penaltyScoreLabel;
+@property (strong, nonatomic) NSMutableArray *penaltyScoreLabels;
 
 @property (weak, nonatomic) NSArray *playerNames;
 @property (strong, nonatomic) NSMutableArray *penaltyScores;
@@ -46,19 +46,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     UIFont *font = [UIFont boldSystemFontOfSize:20.0f];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSDictionary *attributes = @{NSFontAttributeName: font};
     
     [_penaltyPlayerControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    [_addPenaltyScoreControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    
-    _addPenaltyScoreControl.selectedSegmentIndex = UISegmentedControlNoSegment;
+    [_benefitPlayerControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [_penaltyModeControl   setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    _penaltyModeControl.selectedSegmentIndex = 1;
     _penaltyPlayerControl.selectedSegmentIndex = UISegmentedControlNoSegment;
-    
+    [self setPenaltyMode:_penaltyModeControl];
 
+    _penaltyScoreLabels = [[NSMutableArray alloc] init];
+    CGRect rect = _penaltyPlayerControl.frame;
+    rect.size = CGSizeMake(rect.size.width / 4, rect.size.height);
+    rect.origin.y += 40;
     for (int i=0; i<4; i++)
     {
-        [_penaltyPlayerControl setTitle:[_playerNames objectAtIndex:i] forSegmentAtIndex:i];
-        [_penaltyModeControl setTitle:[NSString stringWithFormat:@"付给%@", [_playerNames objectAtIndex:i] ] forSegmentAtIndex:i+2];
+        rect.origin.x = _penaltyPlayerControl.frame.origin.x + rect.size.width * i;
+        UILabel * label = [[UILabel alloc]initWithFrame:rect];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:30];
+        [_penaltyScoreLabels addObject:label];
+        [self.view addSubview:label];
+        
+        [_penaltyPlayerControl setTitle:_playerNames[i] forSegmentAtIndex:i];
+        [_benefitPlayerControl setTitle:_playerNames[i] forSegmentAtIndex:i];
         _pScores[i] = [_penaltyScores[i] integerValue];
     }
     [self refreshPenaltyLabelText];
@@ -80,7 +91,19 @@
     [self refreshPenaltyLabelText];
 }
 
-- (IBAction)AddPenaltyScore:(UISegmentedControl *)sender
+- (IBAction)setPenaltyMode:(UISegmentedControl *)sender
+{
+    if (sender.selectedSegmentIndex == 2)
+    {
+        _benefitPlayerControl.hidden = NO;
+    }
+    else
+    {
+        _benefitPlayerControl.hidden = YES;
+    }
+}
+
+- (IBAction)AddPenaltyScore:(UIButton*)sender
 {
     NSInteger punishedPlayer = _penaltyPlayerControl.selectedSegmentIndex;
     NSInteger penaltyMode = _penaltyModeControl.selectedSegmentIndex;
@@ -88,12 +111,15 @@
     {
         return;
     }
-    NSInteger benefitedPlayer = penaltyMode - 2;
-    NSInteger penaltyScore = (sender.selectedSegmentIndex + 1) * 5;
+    NSInteger benefitedPlayer = _benefitPlayerControl.selectedSegmentIndex;
+    NSInteger penaltyScore = - [sender.titleLabel.text integerValue];
     
     switch (penaltyMode)
     {
-        case 0:  //罚付三家
+        case 0:  //扣分
+            _pScores[punishedPlayer] -= penaltyScore;
+            break;
+        case 1: //罚付三家
             _pScores[punishedPlayer] -= 3*penaltyScore;
             for (int i=0; i<4; i++)
             {
@@ -103,13 +129,7 @@
                 }
             }
             break;
-        case 1: //扣分
-            _pScores[punishedPlayer] -= penaltyScore;
-            break;
         case 2:
-        case 3:
-        case 4:
-        case 5:
             //支付给某一个玩家
             _pScores[punishedPlayer] -= penaltyScore;
             _pScores[benefitedPlayer] += penaltyScore;
@@ -127,7 +147,7 @@
 {
     for (int i=0; i<4; i++)
     {
-        [_penaltyModeControl setEnabled:sender.selectedSegmentIndex!=i forSegmentAtIndex:i+2];
+        [_benefitPlayerControl setEnabled:sender.selectedSegmentIndex!=i forSegmentAtIndex:i];
     }
 }
 
@@ -136,9 +156,9 @@
     for (int i=0; i<4; i++)
     {
         _penaltyScores[i] = [NSNumber numberWithInteger:_pScores[i]];
+        UILabel *label = _penaltyScoreLabels[i];
+        label.text = [_penaltyScores[i] stringValue];
     }
-    _penaltyScoreLabel.text = [NSString stringWithFormat:@"%@                %@                %@               %@",
-                              _penaltyScores[0], _penaltyScores[1], _penaltyScores[2], _penaltyScores[3]];
     
 }
 
