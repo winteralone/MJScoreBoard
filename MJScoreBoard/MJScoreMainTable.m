@@ -67,6 +67,7 @@
     for (int i=0; i<4; i++)
     {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, SECTION_LABEL_HEIGHT)];
+        label.font = [UIFont systemFontOfSize:20];
         label.text = roundName[i];
         label.layer.borderWidth = 0.5;
         label.layer.borderColor = [[UIColor blackColor] CGColor];
