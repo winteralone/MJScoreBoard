@@ -16,6 +16,7 @@
 @property NSMutableArray* penaltyScoreLabels;
 @property NSMutableArray* totalScoreLabels;
 @property UILabel* scoreElementLabel;
+@property (strong, nonatomic) UIButton* setScoreElementBtn;
 @end
 
 @implementation MJMiniSummaryTable
@@ -71,6 +72,7 @@
     CGFloat cellWidth = (self.bounds.size.width - 40) / 5;
     CGFloat cellHeight = self.bounds.size.height / 5;
     
+    [self addSeparatorLine:0];
     [self addSeparatorLine:cellHeight];
     [self addSeparatorLine:cellHeight*3];
     [self addSeparatorLine:cellHeight*4];
@@ -85,6 +87,7 @@
     buttonSetScoreElement.frame = CGRectMake(cellWidth * 5 , cellHeight *4, 40, 40 );
     [self addSubview:buttonSetScoreElement];
     [buttonSetScoreElement addTarget:self action:@selector(setScoreElement:) forControlEvents:UIControlEventTouchUpInside];
+    _setScoreElementBtn = buttonSetScoreElement;
 
 }
 
@@ -131,6 +134,16 @@
         labelText = [NSString stringWithFormat:@"%@ %@", labelText, toDisplay];
     }
     _scoreElementLabel.text = labelText;
+    
+    if ([[_delegate getCurrentRound].nWinner isEqualToNumber:@4] || [[_delegate getCurrentRound].nWinner isEqualToNumber:@-1])
+    {
+        _setScoreElementBtn.hidden = YES;
+    }
+    else
+    {
+        _setScoreElementBtn.hidden = NO;
+    }
+
 }
 
 - (void)addSeparatorLine: (CGFloat)yPos;
@@ -141,25 +154,5 @@
     
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    CGFloat cellWidth = (self.bounds.size.width - 40) / 5;
-    CGFloat cellHeight = self.bounds.size.height / 5;
-
-    UIBezierPath *path = [[UIBezierPath alloc]init];
-    [[UIColor blackColor] setStroke];
-    [path moveToPoint:CGPointMake(0, cellHeight)];
-    [path addLineToPoint:CGPointMake(cellWidth*5, cellHeight)];
-    [path moveToPoint:CGPointMake(0, cellHeight*3)];
-    [path addLineToPoint:CGPointMake(cellWidth*5, cellHeight*3)];
-    [path moveToPoint:CGPointMake(0, cellHeight*4)];
-    [path addLineToPoint:CGPointMake(cellWidth*5, cellHeight*4)];
-    [path stroke];
-    
-}
-*/
 
 @end

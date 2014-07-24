@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-BZ-7RY">
-                                <rect key="frame" x="20" y="37" width="500" height="29"/>
+                                <rect key="frame" x="20" y="72" width="500" height="29"/>
                                 <segments>
                                     <segment title="东家"/>
                                     <segment title="南家"/>
@@ -85,7 +85,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="YoM-4c-d5d">
-                                <rect key="frame" x="20" y="102" width="500" height="29"/>
+                                <rect key="frame" x="20" y="152" width="500" height="29"/>
                                 <segments>
                                     <segment title="东家"/>
                                     <segment title="南家"/>
@@ -98,13 +98,13 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点炮" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdO-n5-kfO">
-                                <rect key="frame" x="20" y="73" width="500" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="120" width="500" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和牌" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S15-4d-b9R">
-                                <rect key="frame" x="20" y="8" width="500" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="40" width="500" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -118,7 +118,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0K-Hg-caG" customClass="MJScoreAdjustControl">
-                                <rect key="frame" x="20" y="190" width="500" height="40"/>
+                                <rect key="frame" x="20" y="230" width="500" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -139,15 +139,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="M0K-Hg-caG" firstAttribute="top" secondItem="YoM-4c-d5d" secondAttribute="bottom" constant="60" id="127-vH-wix"/>
+                            <constraint firstItem="M0K-Hg-caG" firstAttribute="top" secondItem="YoM-4c-d5d" secondAttribute="bottom" constant="50" id="127-vH-wix"/>
                             <constraint firstItem="S15-4d-b9R" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="4MR-kh-V7Q"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="top" secondItem="MdO-n5-kfO" secondAttribute="bottom" constant="8" symbolic="YES" id="6gr-ao-Czc"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="top" secondItem="S15-4d-b9R" secondAttribute="bottom" constant="8" symbolic="YES" id="FU8-yg-h1Y"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="width" secondItem="MdO-n5-kfO" secondAttribute="width" id="JoF-D5-B2L"/>
                             <constraint firstAttribute="trailing" secondItem="YoM-4c-d5d" secondAttribute="trailing" constant="20" symbolic="YES" id="PcK-Om-1Hk"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="QC3-AJ-xgb"/>
-                            <constraint firstItem="MdO-n5-kfO" firstAttribute="top" secondItem="aGh-BZ-7RY" secondAttribute="bottom" constant="8" symbolic="YES" id="UQ6-mO-njs"/>
-                            <constraint firstItem="S15-4d-b9R" firstAttribute="top" secondItem="598-OY-b0h" secondAttribute="bottom" constant="20" symbolic="YES" id="Wx5-th-7cG"/>
+                            <constraint firstItem="MdO-n5-kfO" firstAttribute="top" secondItem="aGh-BZ-7RY" secondAttribute="bottom" constant="20" id="UQ6-mO-njs"/>
+                            <constraint firstItem="S15-4d-b9R" firstAttribute="top" secondItem="598-OY-b0h" secondAttribute="bottom" constant="40" id="Wx5-th-7cG"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="width" secondItem="S15-4d-b9R" secondAttribute="width" id="am3-DJ-tZ1"/>
                             <constraint firstItem="MdO-n5-kfO" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="cBf-5k-fyz"/>
                             <constraint firstAttribute="trailing" secondItem="aGh-BZ-7RY" secondAttribute="trailing" constant="20" symbolic="YES" id="dAO-wY-H8x"/>
@@ -188,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-LO-s90" customClass="MJCustomButton">
-                                <rect key="frame" x="120" y="564" width="100" height="36"/>
+                                <rect key="frame" x="320" y="564" width="100" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="SBv-ft-8gW"/>
@@ -200,7 +200,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-f0-eBz" customClass="MJCustomButton">
-                                <rect key="frame" x="320" y="564" width="100" height="36"/>
+                                <rect key="frame" x="120" y="564" width="100" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="tEd-kh-BfR"/>
@@ -273,8 +273,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="iBk-LO-s90" secondAttribute="centerX" constant="100" id="1Kb-VV-OYw"/>
-                            <constraint firstAttribute="centerX" secondItem="GTz-f0-eBz" secondAttribute="centerX" constant="-100" id="Bzk-Ok-cJX"/>
+                            <constraint firstAttribute="centerX" secondItem="iBk-LO-s90" secondAttribute="centerX" constant="-100" id="1Kb-VV-OYw"/>
+                            <constraint firstAttribute="centerX" secondItem="GTz-f0-eBz" secondAttribute="centerX" constant="100" id="Bzk-Ok-cJX"/>
                             <constraint firstItem="iBk-LO-s90" firstAttribute="centerY" secondItem="GTz-f0-eBz" secondAttribute="centerY" id="KwT-HJ-qcc"/>
                             <constraint firstItem="Rig-PU-I1z" firstAttribute="top" secondItem="iBk-LO-s90" secondAttribute="bottom" constant="20" id="lDb-na-1hQ"/>
                         </constraints>
