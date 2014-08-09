@@ -154,6 +154,10 @@
 
 - (IBAction)clickedInfoButton:(id)sender
 {
+    for (UITextField *textField in _textFields)
+    {
+        [textField resignFirstResponder];
+    }
     [self.delegate performSegueWithIdentifier:@"SetScore" sender:sender];
     
 }
