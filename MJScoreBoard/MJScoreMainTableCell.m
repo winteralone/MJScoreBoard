@@ -17,6 +17,17 @@
 
 @implementation MJScoreMainTableCell
 
+- (void)addSectionHeaderLabel:(NSString *)title
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 4, 36, 36)];
+    label.backgroundColor = [UIColor colorWithRed:0 green:60/255.f blue:45/255.f alpha:1];
+    label.text = title;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont boldSystemFontOfSize:28];
+    label.textColor = [UIColor colorWithRed:38/255.f green:134/255.f blue:86/255.f alpha:1];
+    [self addSubview:label];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -34,12 +45,13 @@
             [label setTextAlignment:NSTextAlignmentCenter];
             if (i%2 == 1)
             {
-                [label setFont:[UIFont boldSystemFontOfSize:28]];
-                [label setTextColor:[UIColor blueColor]];
+                [label setFont:[UIFont boldSystemFontOfSize:24]];
+                [label setTextColor:[UIColor colorWithRed:205/255.f green:1.f blue:205/255.f alpha:1]];
             }
             else
             {
-                [label setFont:[UIFont systemFontOfSize:28]];
+                [label setFont:[UIFont systemFontOfSize:24]];
+                [label setTextColor:[UIColor whiteColor]];
                 
             }
             [label setAdjustsFontSizeToFitWidth:YES];
@@ -47,11 +59,13 @@
             [self addSubview:label];
         }
         _scoreElementLabel = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth*8, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
-        [_scoreElementLabel setFont:[UIFont systemFontOfSize:28]];
+        [_scoreElementLabel setFont:[UIFont boldSystemFontOfSize:22]];
+        [_scoreElementLabel setTextColor:[UIColor whiteColor]];
         [_scoreElementLabel setAdjustsFontSizeToFitWidth:YES];
         _infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         _infoButton.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth*8 + SCORE_ELEMENT_LABEL_WIDTH, 0, INFO_BUTTON_WIDTH, CELL_HEIGHT);
         [_infoButton addTarget:self.superview action:@selector(clickedInfoButton:) forControlEvents:UIControlEventTouchUpInside];
+        _infoButton.tintColor = [UIColor colorWithRed:205/255.f green:1.f blue:205/255.f alpha:1];
         [self addSubview:_scoreElementLabel];
         [self addSubview:_infoButton];
     }
@@ -86,7 +100,7 @@
         for (int i=0; i<8; i++)
         {
             UILabel *label = _scoreLabels[i];
-            label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth *i, 0, cellWidth, CELL_HEIGHT);
+            label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth *i + (i % 2 == 0 ? 12 : 0), 0, cellWidth - 12, CELL_HEIGHT);
             label.hidden = NO;
         }
         _scoreElementLabel.hidden = YES;
@@ -95,25 +109,6 @@
     _mode = mode;
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    return;
-    UIBezierPath *path = [[UIBezierPath alloc]init];
-    [path moveToPoint:CGPointMake(0, 0)];
-    [path addLineToPoint:CGPointMake(0, self.bounds.size.height)];
-    [path addLineToPoint:CGPointMake(self.bounds.size.width, self.bounds.size.height)];
-    [path addLineToPoint:CGPointMake(self.bounds.size.width, 0)];
-    [path closePath];
-    [[UIColor blackColor]setStroke];
-    [path stroke];
-    // Drawing code
-}
- */
 
 
 

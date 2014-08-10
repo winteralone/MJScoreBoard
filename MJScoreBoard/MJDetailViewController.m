@@ -104,6 +104,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor colorWithRed:34/255.f green:134/255.f blue:86/255.f alpha:1];
     CGRect rect = self.view.bounds;
     CGFloat height = self.navigationController.navigationBar.bounds.size.height + 20;
     rect.origin.y += height;
@@ -213,7 +214,6 @@
         }
         cell.scoreElementLabel.textAlignment = NSTextAlignmentRight;
         cell.scoreElementLabel.text = @"录入成绩👉";
-        cell.backgroundColor = [UIColor yellowColor];
     }
     else if (round > _currentRound)
     {
@@ -237,19 +237,20 @@
             MJOneRound *currRound = _rawScoreList[round];
             for (NSString *se in currRound.scoreElements)
             {
-                scoreElementText = [scoreElementText stringByAppendingFormat:@" %@", se ];
+                if (se == [currRound.scoreElements firstObject])
+                {
+                    scoreElementText = se;
+                }
+                else
+                    scoreElementText = [scoreElementText stringByAppendingFormat:@"、%@", se ];
+            }
+            if([currRound.nWinner isEqualToNumber:@4])
+            {
+                scoreElementText = @"荒牌";
             }
             cell.scoreElementLabel.textAlignment = NSTextAlignmentLeft;
             cell.scoreElementLabel.text =scoreElementText;
             cell.hidden = NO;
-            if (round % 2 == 0)
-            {
-                cell.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
-            }
-            else
-            {
-                cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:1 alpha:1];
-            }
         }
 
     }

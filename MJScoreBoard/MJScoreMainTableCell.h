@@ -16,4 +16,6 @@
 
 @property (nonatomic) NSInteger mode;
 
+- (void)addSectionHeaderLabel:(NSString*)title;
+
 @end

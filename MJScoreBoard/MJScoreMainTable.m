@@ -17,28 +17,54 @@
 @property NSMutableArray *textFields;
 @property NSMutableArray *sectionLabels;
 @property NSMutableArray *tableCells;
+@property NSMutableArray *segmentHeaderLines;
+@property NSMutableArray *segmentSeparateLines;
 @property MJScoreMainTableTotalScoreCell *totalScoreCell;
 @end
 
 @implementation MJScoreMainTable
 
-- (void)setupTextFields
+- (void)setupArrays
 {
-    CGFloat textWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - SCORE_ELEMENT_LABEL_WIDTH - INFO_BUTTON_WIDTH)/4;
-    CGFloat textHeight = TEXT_FIELD_HEIGHT;
     if (!_textFields)
     {
         _textFields = [[NSMutableArray alloc]init];
     }
+    if (!_sectionLabels)
+    {
+        _sectionLabels = [[NSMutableArray alloc]init];
+    }
+    if (!_tableCells)
+    {
+        _tableCells = [[NSMutableArray alloc]init];
+    }
+    if (!_segmentHeaderLines)
+    {
+        _segmentHeaderLines = [[NSMutableArray alloc] init];
+    }
+    if (!_segmentSeparateLines)
+    {
+        _segmentSeparateLines = [[NSMutableArray alloc] init];
+    }
+    
+}
+
+- (void)setupTextFields:(CGFloat)y
+{
+    CGFloat textWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - SCORE_ELEMENT_LABEL_WIDTH - INFO_BUTTON_WIDTH)/4;
+    CGFloat textHeight = TEXT_FIELD_HEIGHT;
+
     NSArray *defaulNames = @[@"东家", @"南家", @"西家", @"北家"];
     const CGFloat INTERVAL = 5;
     for (int i=0; i<4; i++)
     {
-        UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + textWidth*i+INTERVAL, INTERVAL, textWidth-2*INTERVAL, textHeight-2*INTERVAL)];
+        UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + textWidth*i+INTERVAL, y, textWidth-2*INTERVAL, textHeight-2*INTERVAL)];
         [_textFields addObject:textField];
         [textField setBorderStyle:UITextBorderStyleRoundedRect];
         [textField setTextAlignment:NSTextAlignmentCenter];
-        [textField setFont:[UIFont systemFontOfSize:28]];
+        [textField setFont:[UIFont boldSystemFontOfSize:28]];
+        [textField setTextColor:[UIColor whiteColor]];
+        [textField setBorderStyle:UITextBorderStyleNone];
         textField.adjustsFontSizeToFitWidth = YES;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [textField setPlaceholder:defaulNames[i]];
@@ -49,45 +75,57 @@
 
 - (void)setup
 {
-    [self setupTextFields];
-    
-    if (!_sectionLabels)
-    {
-        _sectionLabels = [[NSMutableArray alloc]init];
-    }
-    if (!_tableCells)
-    {
-        _tableCells = [[NSMutableArray alloc]init];
-    }
-    CGFloat baseline_y = TEXT_FIELD_HEIGHT;
+    [self setupArrays];
+    [self setupTextFields:0];
+
+    CGFloat baseline_y = TEXT_FIELD_HEIGHT + 40;
     NSArray *roundName = @[@"东", @"南", @"西", @"北"];
     _totalScoreCell = [[MJScoreMainTableTotalScoreCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, CELL_HEIGHT)];
     [self addSubview:_totalScoreCell];
-    baseline_y += CELL_HEIGHT;
+    baseline_y += CELL_HEIGHT + 45;
     for (int i=0; i<4; i++)
     {
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, SECTION_LABEL_HEIGHT)];
-        label.font = [UIFont systemFontOfSize:20];
-        label.text = roundName[i];
-        label.layer.borderWidth = 0.5;
-        label.layer.borderColor = [[UIColor blackColor] CGColor];
-        label.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-        [_sectionLabels addObject:label];
-        [self addSubview:label];
-        baseline_y += SECTION_LABEL_HEIGHT;
+        [self addSegmentHeaderLine:baseline_y];
+        baseline_y +=2;
         for (int j=0; j<4; j++)
         {
             MJScoreMainTableCell *cell = [[MJScoreMainTableCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, CELL_HEIGHT)];
+            if (j==0)
+            {
+                [cell addSectionHeaderLabel:roundName[i]];
+            }
             baseline_y += CELL_HEIGHT;
             [_tableCells addObject:cell];
             [self addSubview:cell];
+            if (j != 3)
+            {
+                [self addSegmentSeparateLine:baseline_y];
+                baseline_y += 1;
+            }
         }
     }
-    UIView *bottomline = [[UIView alloc] initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, 1)];
-    bottomline.backgroundColor = [UIColor blackColor];
-    [self addSubview:bottomline];
-    
-    
+    [self addSegmentHeaderLine:baseline_y];
+
+}
+
+- (void)addSegmentHeaderLine:(CGFloat)y
+{
+    UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(20, y, self.bounds.size.width - 40, 1)];
+    line1.backgroundColor = [UIColor colorWithRed:0 green:52/255.f blue:50/255.f alpha:1];
+    [self addSubview:line1];
+    UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(20, y+1, self.bounds.size.width - 40, 1)];
+    line2.backgroundColor = [UIColor colorWithRed:147/255.f green:195/255.f blue:171/255.f alpha:1];
+    [self addSubview:line2];
+    [_segmentHeaderLines addObject:line1];
+    [_segmentHeaderLines addObject:line2];
+}
+
+- (void)addSegmentSeparateLine:(CGFloat)y
+{
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(70, y, self.bounds.size.width-90, 1)];
+    line.backgroundColor = [UIColor colorWithRed:104/255.f green:171/255.f blue:136/255.f alpha:1];
+    [self addSubview:line];
+    [_segmentSeparateLines addObject:line];
 }
 
 - (void)reloadData
@@ -105,18 +143,34 @@
     for (MJScoreMainTableCell *cell in _tableCells)
     {
         CGRect rect = cell.frame;
-        rect.size.width = self.bounds.size.width;
+        rect.origin.x = 20;
+        rect.size.width = self.bounds.size.width - 40;
         cell.frame = rect;
         cell.mode = mode;
     }
-    CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - (mode?0:SCORE_ELEMENT_LABEL_WIDTH) - INFO_BUTTON_WIDTH) / 4;
+    for (UIView *line in _segmentHeaderLines)
+    {
+        CGRect rect = line.frame;
+        rect.origin.x = 20;
+        rect.size.width = self.bounds.size.width - 40;
+        line.frame = rect;
+    }
+    for (UIView *line in _segmentSeparateLines)
+    {
+        CGRect rect = line.frame;
+        rect.origin.x = 70;
+        rect.size.width  = self.bounds.size.width - 90;
+        line.frame = rect;
+    }
+    CGFloat cellWidth = (self.bounds.size.width - 40 - TABLE_LEFT_BOUNDARY - (mode?0:SCORE_ELEMENT_LABEL_WIDTH) - INFO_BUTTON_WIDTH) / 4;
     for (int i=0; i<4; i++)
     {
         UITextField *textField = _textFields[i];
-        textField.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, TEXT_FIELD_HEIGHT);
+        textField.frame = CGRectMake(20 + TABLE_LEFT_BOUNDARY + cellWidth * i, 40, cellWidth, TEXT_FIELD_HEIGHT);
     }
     CGRect rect = _totalScoreCell.frame;
-    rect.size.width = self.bounds.size.width;
+    rect.origin.x = 20;
+    rect.size.width = self.bounds.size.width - 40;
     _totalScoreCell.frame = rect;
     _totalScoreCell.mode = mode;
 }

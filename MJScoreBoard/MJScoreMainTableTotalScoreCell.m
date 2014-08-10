@@ -27,7 +27,7 @@
         {
             UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, CELL_HEIGHT)];
             label.text = @"0";
-            label.textColor = [UIColor colorWithRed:0.7 green:0 blue:0 alpha:1];
+            label.textColor = [UIColor colorWithRed:205/255.f green:1 blue:205/255.f alpha:1];
             label.font = [UIFont boldSystemFontOfSize:30];
             label.textAlignment = NSTextAlignmentCenter;
             [_labels addObject:label];
