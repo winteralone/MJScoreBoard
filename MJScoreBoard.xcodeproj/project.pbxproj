@@ -38,6 +38,7 @@
 		77CA9BB41973EDF2004929E7 /* MJScoreMainTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BB31973EDF2004929E7 /* MJScoreMainTable.m */; };
 		77CA9BB7197413AA004929E7 /* MJScoreMainTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */; };
 		77D822B2197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */; };
+		77F9AABD1998EC2B006D1231 /* Pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F9AABC1998EC2B006D1231 /* Pencil.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTableCell.m; sourceTree = "<group>"; };
 		77D822B0197A137300C7E340 /* MJScoreMainTableTotalScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreMainTableTotalScoreCell.h; sourceTree = "<group>"; };
 		77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTableTotalScoreCell.m; sourceTree = "<group>"; };
+		77F9AABC1998EC2B006D1231 /* Pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pencil.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		7764858018BB93DB005333A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				77F9AABC1998EC2B006D1231 /* Pencil.png */,
 				7764858118BB93DB005333A3 /* MJScoreBoard-Info.plist */,
 				7764858218BB93DB005333A3 /* InfoPlist.strings */,
 				7764858518BB93DB005333A3 /* main.m */,
@@ -360,6 +363,7 @@
 				7764859518BB93DB005333A3 /* Images.xcassets in Resources */,
 				7764858418BB93DB005333A3 /* InfoPlist.strings in Resources */,
 				77B9169418C4D85C0009E5FD /* TODO in Resources */,
+				77F9AABD1998EC2B006D1231 /* Pencil.png in Resources */,
 				7764858D18BB93DB005333A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +537,7 @@
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B3BB8E6E-AC24-4C5A-A440-621E2A5C4092";
+				PROVISIONING_PROFILE = "F4BC7B66-D874-40EB-9F38-D74F852A078C";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
