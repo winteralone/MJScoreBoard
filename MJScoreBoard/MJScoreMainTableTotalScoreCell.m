@@ -10,7 +10,7 @@
 #import "MJScoreMainTable.h"
 
 @interface MJScoreMainTableTotalScoreCell ()
-
+@property UILabel *dummyLabel;
 @end
 
 @implementation MJScoreMainTableTotalScoreCell
@@ -22,17 +22,25 @@
     {
         // Initialization code
         _labels = [[NSMutableArray alloc] init];
+        UIColor *textColor = [UIColor colorWithRed:205/255.f green:1 blue:205/255.f alpha:1];
+        UIFont *font = [UIFont boldSystemFontOfSize:28];
         CGFloat cellWidth = (frame.size.width - TABLE_LEFT_BOUNDARY - SCORE_ELEMENT_LABEL_WIDTH - INFO_BUTTON_WIDTH) / 4;
         for (int i=0; i<4; i++)
         {
             UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, CELL_HEIGHT)];
             label.text = @"0";
-            label.textColor = [UIColor colorWithRed:205/255.f green:1 blue:205/255.f alpha:1];
-            label.font = [UIFont boldSystemFontOfSize:30];
+            label.textColor = textColor;
+            label.font = font;
             label.textAlignment = NSTextAlignmentCenter;
             [_labels addObject:label];
             [self addSubview:label];
         }
+        _dummyLabel = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 4, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
+        _dummyLabel.text = @"（4番以上）";
+        _dummyLabel.textColor = textColor;
+        _dummyLabel.font = font;
+        _dummyLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:_dummyLabel];
     }
     return self;
 }
@@ -45,16 +53,10 @@
         UILabel *label = _labels[i];
         label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, self.bounds.size.height);
     }
+    _dummyLabel.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 4, 0, SCORE_ELEMENT_LABEL_WIDTH, self.bounds.size.height);
+    _dummyLabel.hidden = (mode == 1);
+
     _mode = mode;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
