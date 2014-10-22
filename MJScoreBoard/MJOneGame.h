@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString*         gameName;
 @property (strong, nonatomic) NSArray*          playerNames;
 @property (strong, nonatomic) NSMutableArray*   rawScoreList;
+@property (nonatomic)         NSInteger         nVersion;
 
 - (id)initWithName:(NSString*)name;
 - (BOOL)saveToFile;

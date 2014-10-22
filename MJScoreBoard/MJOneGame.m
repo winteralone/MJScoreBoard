@@ -7,8 +7,12 @@
 //
 
 #import "MJOneGame.h"
+
 #define PlayerNamesKey      @"PlayerNames"
 #define ScoreListKey        @"ScoreList"
+#define VersionKey          @"Version"
+#define DATA_VERSION        0
+
 @implementation MJOneGame
 
 - (id)init
@@ -38,6 +42,7 @@
 {
     NSMutableData *data = [[NSMutableData alloc]init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
+    [archiver encodeInteger:DATA_VERSION forKey:VersionKey];
     [archiver encodeObject:_playerNames forKey:PlayerNamesKey];
     [archiver encodeObject:_rawScoreList forKey:ScoreListKey];
     [archiver finishEncoding];
@@ -57,6 +62,7 @@
         NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
         _playerNames = [unArchiver decodeObjectForKey:PlayerNamesKey];
         _rawScoreList = [unArchiver decodeObjectForKey:ScoreListKey];
+        _nVersion = [unArchiver decodeIntegerForKey:VersionKey];
         return YES;
     };
     
