@@ -12,9 +12,9 @@
 
 - (void)setCGFormat
 {
-    self.layer.borderWidth = 1.0f;
-    self.layer.borderColor =[[self tintColor] CGColor];
     self.layer.cornerRadius = 5;
+    self.backgroundColor = [UIColor colorWithRed:34/255.f green:134/255.f blue:86/255.f alpha:1];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (id)initWithFrame:(CGRect)frame
