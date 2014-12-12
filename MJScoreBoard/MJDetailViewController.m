@@ -14,6 +14,7 @@
 #import "MJScoreMainTable.h"
 #import "MJScoreMainTableCell.h"
 #import "MJScoreMainTableTotalScoreCell.h"
+#import "MJViewTargetScoreViewController.h"
 
 @interface MJDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -298,13 +299,14 @@
     return YES;
 }
 
+- (IBAction)closeViewTargetScore:(UIStoryboardSegue* )segue
+{
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    MJScoreController* scoreController = [segue destinationViewController];
     NSArray *defaultName = @[@"东家", @"南家", @"西家", @"北家"];
-
-    scoreController.parentController = self;
-    NSIndexPath* indexPath = [_mainTable indexPathForSender:sender];
     NSMutableArray *tmpNames = [_mainTable playerNames];
     for (int i=0; i<4; i++)
     {
@@ -313,12 +315,33 @@
             tmpNames[i] = defaultName[i];
         }
     }
-    scoreController.playerNames = tmpNames;
-    scoreController.indexPath = indexPath;
-    NSInteger arrayIndex = indexPath.section * 4 + indexPath.row;
-    if ([[_rawScoreList objectAtIndex:arrayIndex] isKindOfClass:[MJOneRound class]])
+    
+    if ([segue.identifier isEqualToString:@"SetScore"])
     {
-        scoreController.originalResult = [_rawScoreList objectAtIndex:arrayIndex];
+        MJScoreController* scoreController = [segue destinationViewController];
+        
+        scoreController.parentController = self;
+        NSIndexPath* indexPath = [_mainTable indexPathForSender:sender];
+
+        scoreController.playerNames = tmpNames;
+        scoreController.indexPath = indexPath;
+        NSInteger arrayIndex = indexPath.section * 4 + indexPath.row;
+        if ([[_rawScoreList objectAtIndex:arrayIndex] isKindOfClass:[MJOneRound class]])
+        {
+            scoreController.originalResult = [_rawScoreList objectAtIndex:arrayIndex];
+        }
+    }
+    
+    if ([segue.identifier isEqualToString:@"viewTargetScore"] && _currentRound > 0)
+    {
+        MJViewTargetScoreViewController* targetController = [segue destinationViewController];
+        NSMutableArray *scores = [[NSMutableArray alloc]init];
+        for (int i=0; i<4; i++)
+        {
+            [scores addObject:@{tmpNames[i]:_totalScoreList[_currentRound-1][i]}];
+        }
+        targetController.scoreInfo = [scores mutableCopy];
+        
     }
 }
 

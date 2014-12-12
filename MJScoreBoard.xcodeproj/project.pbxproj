@@ -28,6 +28,7 @@
 		776485A818BB93DB005333A3 /* MJScoreBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776485A718BB93DB005333A3 /* MJScoreBoardTests.m */; };
 		777BFE0018BF5ABD003C4130 /* MJOneRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 777BFDFF18BF5ABD003C4130 /* MJOneRound.m */; };
 		777F031018BE27DA0029DBD8 /* MJScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F030F18BE27DA0029DBD8 /* MJScoreController.m */; };
+		7795BD781A320EBA0041688F /* MJViewTargetScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795BD771A320EBA0041688F /* MJViewTargetScoreViewController.m */; };
 		779D1BBC196C03710020EDFD /* MJMiniSummaryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D1BBB196C03710020EDFD /* MJMiniSummaryTable.m */; };
 		77B9169418C4D85C0009E5FD /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 77B9169318C4D85C0009E5FD /* TODO */; };
 		77C597AB194F2F510012D223 /* MJOneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C597AA194F2F510012D223 /* MJOneGame.m */; };
@@ -85,6 +86,8 @@
 		777BFDFF18BF5ABD003C4130 /* MJOneRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJOneRound.m; sourceTree = "<group>"; };
 		777F030E18BE27DA0029DBD8 /* MJScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreController.h; sourceTree = "<group>"; };
 		777F030F18BE27DA0029DBD8 /* MJScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreController.m; sourceTree = "<group>"; };
+		7795BD761A320EBA0041688F /* MJViewTargetScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJViewTargetScoreViewController.h; sourceTree = "<group>"; };
+		7795BD771A320EBA0041688F /* MJViewTargetScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJViewTargetScoreViewController.m; sourceTree = "<group>"; };
 		779D1BBA196C03710020EDFD /* MJMiniSummaryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMiniSummaryTable.h; sourceTree = "<group>"; };
 		779D1BBB196C03710020EDFD /* MJMiniSummaryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMiniSummaryTable.m; sourceTree = "<group>"; };
 		77B9169318C4D85C0009E5FD /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
@@ -168,8 +171,8 @@
 				7764858818BB93DB005333A3 /* MJAppDelegate.h */,
 				7764858918BB93DB005333A3 /* MJAppDelegate.m */,
 				77C597B219511A980012D223 /* MJScoreDelegates.h */,
-				77C597B319565E1C0012D223 /* Models */,
 				7764858B18BB93DB005333A3 /* Main.storyboard */,
+				77C597B319565E1C0012D223 /* Models */,
 				77C597B519565E440012D223 /* Views */,
 				77B9169318C4D85C0009E5FD /* TODO */,
 				77C597B419565E370012D223 /* Controllers */,
@@ -223,6 +226,8 @@
 		77C597B419565E370012D223 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7795BD761A320EBA0041688F /* MJViewTargetScoreViewController.h */,
+				7795BD771A320EBA0041688F /* MJViewTargetScoreViewController.m */,
 				7706031B195DA67D00D8735D /* MJScoreElementViewController.h */,
 				7706031C195DA67D00D8735D /* MJScoreElementViewController.m */,
 				77C597AF195071400012D223 /* MJPenaltyViewController.h */,
@@ -383,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7795BD781A320EBA0041688F /* MJViewTargetScoreViewController.m in Sources */,
 				77C597AB194F2F510012D223 /* MJOneGame.m in Sources */,
 				77CA9BB41973EDF2004929E7 /* MJScoreMainTable.m in Sources */,
 				77C597AE195069A20012D223 /* MJCustomButton.m in Sources */,
@@ -530,12 +536,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F4BC7B66-D874-40EB-9F38-D74F852A078C";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -548,14 +554,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B3BB8E6E-AC24-4C5A-A440-621E2A5C4092";
+				PROVISIONING_PROFILE = "f2218317-60c9-4e07-b881-4cb31e362793";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

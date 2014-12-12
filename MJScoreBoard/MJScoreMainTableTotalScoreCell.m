@@ -8,9 +8,10 @@
 
 #import "MJScoreMainTableTotalScoreCell.h"
 #import "MJScoreMainTable.h"
+#import "MJCustomButton.h"
 
 @interface MJScoreMainTableTotalScoreCell ()
-@property UILabel *dummyLabel;
+@property MJCustomButton *dummyLabel;
 @end
 
 @implementation MJScoreMainTableTotalScoreCell
@@ -35,11 +36,10 @@
             [_labels addObject:label];
             [self addSubview:label];
         }
-        _dummyLabel = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 4, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
-        _dummyLabel.text = @"（4番以上）";
-        _dummyLabel.textColor = textColor;
-        _dummyLabel.font = font;
-        _dummyLabel.textAlignment = NSTextAlignmentCenter;
+        _dummyLabel = [[MJCustomButton alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 4, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
+        [_dummyLabel setTitle:@"追分计算器" forState:UIControlStateNormal];
+        [_dummyLabel setTitleColor:textColor forState:UIControlStateNormal];
+        [_dummyLabel addTarget:self.superview action:@selector(clickedViewTargetScoreButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_dummyLabel];
     }
     return self;

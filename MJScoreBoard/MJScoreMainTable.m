@@ -230,6 +230,12 @@
     
 }
 
+- (IBAction)clickedViewTargetScoreButton:(id)sender
+{
+    [self.delegate performSegueWithIdentifier:@"viewTargetScore" sender:self.delegate];
+}
+
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
