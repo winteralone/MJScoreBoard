@@ -10,29 +10,29 @@
 	<string>MJScoreBoard</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5571BD81-8AD5-4F5B-8224-06B166CF53C5</key>
+		<key>CD73F361E28955A6A521FEAA66EABEA2767487F3</key>
 		<string>https://github.com/winteralone/MJScoreBoard.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MJScoreBoard.xcodeproj/project.xcworkspace</string>
+	<string>MJScoreBoard.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5571BD81-8AD5-4F5B-8224-06B166CF53C5</key>
+		<key>CD73F361E28955A6A521FEAA66EABEA2767487F3</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/winteralone/MJScoreBoard.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5571BD81-8AD5-4F5B-8224-06B166CF53C5</string>
+	<string>CD73F361E28955A6A521FEAA66EABEA2767487F3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5571BD81-8AD5-4F5B-8224-06B166CF53C5</string>
+			<string>CD73F361E28955A6A521FEAA66EABEA2767487F3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MJScoreBoard</string>
 		</dict>

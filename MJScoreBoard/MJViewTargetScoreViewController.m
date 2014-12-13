@@ -33,7 +33,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"targetScore"];
     if (!cell)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"targetScore"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"targetScore"];
     }
     NSDictionary *dict_self = _scoreInfo[indexPath.section];
     NSDictionary *dict_target = _scoreInfo[indexPath.row + indexPath.section + 1];
@@ -46,7 +46,12 @@
         nPangDian = nPangDian < 8? 8 : nPangDian;
         nDuiDian = nDuiDian < 8? 8 : nDuiDian;
         nZiMo = nZiMo < 8? 8 : nZiMo;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@: 自摸：%ld, 直击：%ld, 和牌：%ld", [dict_target allKeys][0],  nZiMo, nDuiDian, nPangDian];
+    cell.textLabel.text = [NSString stringWithFormat:@"⤴️%@:", [dict_target allKeys][0]];
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.font = [UIFont systemFontOfSize:20];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"自摸:%ld\t\t直击:%ld\t\t和牌:%ld", nZiMo, nDuiDian, nPangDian];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:20];
 
     return cell;
 }

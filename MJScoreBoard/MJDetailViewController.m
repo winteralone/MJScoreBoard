@@ -332,13 +332,20 @@
         }
     }
     
-    if ([segue.identifier isEqualToString:@"viewTargetScore"] && _currentRound > 0)
+    if ([segue.identifier isEqualToString:@"viewTargetScore"])
     {
         MJViewTargetScoreViewController* targetController = [segue destinationViewController];
         NSMutableArray *scores = [[NSMutableArray alloc]init];
-        for (int i=0; i<4; i++)
+        if(_currentRound == 0)
         {
-            [scores addObject:@{tmpNames[i]:_totalScoreList[_currentRound-1][i]}];
+            scores = [@[@{tmpNames[0]:@0}, @{tmpNames[1]:@0}, @{tmpNames[2]:@0}, @{tmpNames[3]:@0}] mutableCopy];
+        }
+        else
+        {
+            for (int i=0; i<4; i++)
+            {
+                [scores addObject:@{tmpNames[i]:_totalScoreList[_currentRound-1][i]}];
+            }
         }
         targetController.scoreInfo = [scores mutableCopy];
         
