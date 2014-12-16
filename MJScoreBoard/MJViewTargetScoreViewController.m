@@ -50,7 +50,7 @@
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"自摸:%ld\t\t直击:%ld\t\t和牌:%ld", nZiMo, nDuiDian, nPangDian];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"自摸:%ld\t\t直击:%ld\t\t和牌:%ld", (long)nZiMo, (long)nDuiDian, (long)nPangDian];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:20];
 
     return cell;
