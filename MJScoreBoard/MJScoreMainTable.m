@@ -60,7 +60,6 @@
     {
         UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + textWidth*i, y, textWidth, textHeight)];
         [_textFields addObject:textField];
-        [textField setBorderStyle:UITextBorderStyleRoundedRect];
         [textField setTextAlignment:NSTextAlignmentCenter];
         [textField setFont:[UIFont boldSystemFontOfSize:30]];
         [textField setTextColor:[UIColor whiteColor]];

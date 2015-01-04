@@ -61,7 +61,7 @@
 		77060322196113E900D8735D /* MJScoreElementHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementHeaderView.m; sourceTree = "<group>"; };
 		77222417196AB14F008600B1 /* MJScoreAdjustControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreAdjustControl.h; sourceTree = "<group>"; };
 		77222418196AB14F008600B1 /* MJScoreAdjustControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreAdjustControl.m; sourceTree = "<group>"; };
-		7764857618BB93DB005333A3 /* MJScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7764857618BB93DB005333A3 /* 国标麻将记分器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "国标麻将记分器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7764857918BB93DB005333A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7764857B18BB93DB005333A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7764857D18BB93DB005333A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -148,7 +148,7 @@
 		7764857718BB93DB005333A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7764857618BB93DB005333A3 /* MJScoreBoard.app */,
+				7764857618BB93DB005333A3 /* 国标麻将记分器.app */,
 				7764859A18BB93DB005333A3 /* MJScoreBoardTests.xctest */,
 			);
 			name = Products;
@@ -302,7 +302,7 @@
 			);
 			name = MJScoreBoard;
 			productName = MJScoreBoard;
-			productReference = 7764857618BB93DB005333A3 /* MJScoreBoard.app */;
+			productReference = 7764857618BB93DB005333A3 /* 国标麻将记分器.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7764859918BB93DB005333A3 /* MJScoreBoardTests */ = {
@@ -542,7 +542,7 @@
 				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "国标麻将记分器";
 				PROVISIONING_PROFILE = "F4BC7B66-D874-40EB-9F38-D74F852A078C";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -560,7 +560,7 @@
 				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "国标麻将记分器";
 				PROVISIONING_PROFILE = "f2218317-60c9-4e07-b881-4cb31e362793";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;

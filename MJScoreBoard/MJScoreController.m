@@ -11,6 +11,7 @@
 #import "MJOneRound.h"
 #import "MJScoreAdjustControl.h"
 #import "MJMiniSummaryTable.h"
+#import "MJCustomButton.h"
 
 @interface MJScoreController ()
 {
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *loserLabel;
 @property (strong, nonatomic) IBOutlet MJScoreAdjustControl *scoreAdjustControl;
 @property (strong, nonatomic) IBOutlet MJMiniSummaryTable *summaryTable;
+@property (strong, nonatomic) IBOutlet MJCustomButton *cancelButton;
 
 
 - (IBAction)selectPlayer:(UISegmentedControl *)sender;
@@ -52,6 +54,7 @@
     
     [_winnerControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [_loserControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [_cancelButton setBackgroundColor:[UIColor darkGrayColor]];
     
     for (int i=0; i<4; i++)
     {
@@ -140,6 +143,10 @@
     }
 }
 
+- (IBAction)ClickedCancelButton
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

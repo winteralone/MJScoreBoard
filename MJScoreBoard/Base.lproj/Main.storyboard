@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -191,7 +192,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK3-IW-uOt" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="572" width="500" height="40"/>
+                                <rect key="frame" x="280" y="572" width="240" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3ZW-JD-cpk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="确定"/>
                                 <connections>
@@ -215,12 +219,25 @@
                                     <outlet property="delegate" destination="dn8-o5-Oxh" id="U3v-Ww-a7a"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnk-Dm-aga" customClass="MJCustomButton">
+                                <rect key="frame" x="20" y="572" width="240" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="H5f-xb-aAD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="取消"/>
+                                <connections>
+                                    <action selector="ClickedCancelButton" destination="dn8-o5-Oxh" eventType="touchUpInside" id="cJZ-w7-MMW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="M0K-Hg-caG" firstAttribute="top" secondItem="YoM-4c-d5d" secondAttribute="bottom" constant="50" id="127-vH-wix"/>
                             <constraint firstItem="S15-4d-b9R" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="4MR-kh-V7Q"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="top" secondItem="MdO-n5-kfO" secondAttribute="bottom" constant="8" symbolic="YES" id="6gr-ao-Czc"/>
+                            <constraint firstItem="dnk-Dm-aga" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leadingMargin" id="Dgr-G8-8wE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DK3-IW-uOt" secondAttribute="trailing" id="Ed3-Um-bkL"/>
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="top" secondItem="S15-4d-b9R" secondAttribute="bottom" constant="8" symbolic="YES" id="FU8-yg-h1Y"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="width" secondItem="MdO-n5-kfO" secondAttribute="width" id="JoF-D5-B2L"/>
                             <constraint firstAttribute="trailing" secondItem="YoM-4c-d5d" secondAttribute="trailing" constant="20" symbolic="YES" id="PcK-Om-1Hk"/>
@@ -230,16 +247,16 @@
                             <constraint firstItem="aGh-BZ-7RY" firstAttribute="width" secondItem="S15-4d-b9R" secondAttribute="width" id="am3-DJ-tZ1"/>
                             <constraint firstItem="MdO-n5-kfO" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="cBf-5k-fyz"/>
                             <constraint firstAttribute="trailing" secondItem="aGh-BZ-7RY" secondAttribute="trailing" constant="20" symbolic="YES" id="dAO-wY-H8x"/>
-                            <constraint firstAttribute="centerX" secondItem="DK3-IW-uOt" secondAttribute="centerX" id="g5X-rq-uBr"/>
-                            <constraint firstItem="DK3-IW-uOt" firstAttribute="width" secondItem="YoM-4c-d5d" secondAttribute="width" id="gWz-uT-zJJ"/>
                             <constraint firstItem="M0K-Hg-caG" firstAttribute="centerX" secondItem="YoM-4c-d5d" secondAttribute="centerX" id="h2t-FW-pBo"/>
                             <constraint firstItem="M0K-Hg-caG" firstAttribute="width" secondItem="YoM-4c-d5d" secondAttribute="width" id="oVg-ac-7wE"/>
                             <constraint firstItem="GgY-O1-NY8" firstAttribute="top" secondItem="DK3-IW-uOt" secondAttribute="bottom" constant="8" symbolic="YES" id="p3C-Bj-lOf"/>
                             <constraint firstItem="YoM-4c-d5d" firstAttribute="leading" secondItem="Ped-cR-SHu" secondAttribute="leading" constant="20" symbolic="YES" id="t3F-7h-5ZA"/>
+                            <constraint firstItem="GgY-O1-NY8" firstAttribute="top" secondItem="dnk-Dm-aga" secondAttribute="bottom" constant="8" id="tVb-qZ-QOg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dLs-HR-1rg"/>
                     <connections>
+                        <outlet property="cancelButton" destination="dnk-Dm-aga" id="Bpl-qZ-WEM"/>
                         <outlet property="loserControl" destination="YoM-4c-d5d" id="KbD-LY-QTv"/>
                         <outlet property="loserLabel" destination="MdO-n5-kfO" id="kA1-kZ-NzF"/>
                         <outlet property="scoreAdjustControl" destination="M0K-Hg-caG" id="rT5-oS-EnT"/>
