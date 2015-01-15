@@ -32,7 +32,16 @@
 
 - (NSArray*)getFileList
 {
-    return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[self getPathURL] path] error:nil];
+    NSArray* allFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[self getPathURL] path] error:nil];
+    NSMutableArray* filteredFiles = [[NSMutableArray alloc]init];
+    for (NSString* file in allFiles)
+    {
+        if ([self isValidFile:file])
+        {
+            [filteredFiles addObject:file];
+        }
+    }
+    return filteredFiles;
 }
 
 - (void)viewDidLoad
@@ -80,6 +89,20 @@
     NSURL *url = [self getPathURL];
     return [[NSFileManager defaultManager]fileExistsAtPath:[[url URLByAppendingPathComponent:gameName] path] ];
 }
+
+- (BOOL)isValidFile:(NSString*)fileName
+{
+    NSArray* sections = [fileName componentsSeparatedByString:@"-"];
+    if (sections.count == 4
+        && ((NSString*)sections[0]).length == 4
+        && ((NSString*)sections[1]).length == 2
+        && ((NSString*)sections[2]).length == 2
+        && ((NSString*)sections[3]).length == 1)
+    {
+        return YES;
+    }
+    return NO;
+}
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -101,11 +124,7 @@
     NSInteger index =  [pathArray count] - 1 - indexPath.row;
     NSString* filename = pathArray[index];
     MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
-    if (![filename isEqualToString:@".DS_Store"])
-    {
-        [game loadFromFile];
-    }
-
+    [game loadFromFile];
     cell.textLabel.text = pathArray[index];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", game.playerNames[0], game.playerNames[1], game.playerNames[2], game.playerNames[3]];
     return cell;

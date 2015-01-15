@@ -61,7 +61,7 @@
 		77060322196113E900D8735D /* MJScoreElementHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreElementHeaderView.m; sourceTree = "<group>"; };
 		77222417196AB14F008600B1 /* MJScoreAdjustControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreAdjustControl.h; sourceTree = "<group>"; };
 		77222418196AB14F008600B1 /* MJScoreAdjustControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreAdjustControl.m; sourceTree = "<group>"; };
-		7764857618BB93DB005333A3 /* 国标麻将记分器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "国标麻将记分器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7764857618BB93DB005333A3 /* MJScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7764857918BB93DB005333A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7764857B18BB93DB005333A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7764857D18BB93DB005333A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -82,6 +82,7 @@
 		776485A318BB93DB005333A3 /* MJScoreBoardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MJScoreBoardTests-Info.plist"; sourceTree = "<group>"; };
 		776485A518BB93DB005333A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		776485A718BB93DB005333A3 /* MJScoreBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJScoreBoardTests.m; sourceTree = "<group>"; };
+		7771456F1A66B34F00A78A7E /* MJScoreBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MJScoreBoard.entitlements; sourceTree = "<group>"; };
 		777BFDFE18BF5ABD003C4130 /* MJOneRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJOneRound.h; sourceTree = "<group>"; };
 		777BFDFF18BF5ABD003C4130 /* MJOneRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJOneRound.m; sourceTree = "<group>"; };
 		777F030E18BE27DA0029DBD8 /* MJScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreController.h; sourceTree = "<group>"; };
@@ -148,7 +149,7 @@
 		7764857718BB93DB005333A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7764857618BB93DB005333A3 /* 国标麻将记分器.app */,
+				7764857618BB93DB005333A3 /* MJScoreBoard.app */,
 				7764859A18BB93DB005333A3 /* MJScoreBoardTests.xctest */,
 			);
 			name = Products;
@@ -168,6 +169,7 @@
 		7764857F18BB93DB005333A3 /* MJScoreBoard */ = {
 			isa = PBXGroup;
 			children = (
+				7771456F1A66B34F00A78A7E /* MJScoreBoard.entitlements */,
 				7764858818BB93DB005333A3 /* MJAppDelegate.h */,
 				7764858918BB93DB005333A3 /* MJAppDelegate.m */,
 				77C597B219511A980012D223 /* MJScoreDelegates.h */,
@@ -302,7 +304,7 @@
 			);
 			name = MJScoreBoard;
 			productName = MJScoreBoard;
-			productReference = 7764857618BB93DB005333A3 /* 国标麻将记分器.app */;
+			productReference = 7764857618BB93DB005333A3 /* MJScoreBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7764859918BB93DB005333A3 /* MJScoreBoardTests */ = {
@@ -335,6 +337,11 @@
 				TargetAttributes = {
 					7764857518BB93DB005333A3 = {
 						DevelopmentTeam = TPAZ48HSGV;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					7764859918BB93DB005333A3 = {
 						TestTargetID = 7764857518BB93DB005333A3;
@@ -536,14 +543,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "国标麻将记分器";
-				PROVISIONING_PROFILE = "F4BC7B66-D874-40EB-9F38-D74F852A078C";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -554,14 +561,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MJScoreBoard/MJScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "MJScoreBoard/MJScoreBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "国标麻将记分器";
-				PROVISIONING_PROFILE = "f2218317-60c9-4e07-b881-4cb31e362793";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
