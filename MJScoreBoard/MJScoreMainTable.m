@@ -15,6 +15,7 @@
 
 @interface MJScoreMainTable ()
 @property NSMutableArray *textFields;
+@property NSMutableArray *positionLabels;
 @property UILabel *dummyTitleSE;
 @property NSMutableArray *sectionLabels;
 @property NSMutableArray *tableCells;
@@ -30,6 +31,10 @@
     if (!_textFields)
     {
         _textFields = [[NSMutableArray alloc]init];
+    }
+    if (!_positionLabels)
+    {
+        _positionLabels = [[NSMutableArray alloc]init];
     }
     if (!_sectionLabels)
     {
@@ -69,6 +74,20 @@
         [textField setPlaceholder:defaulNames[i]];
         [self addSubview:textField];
     }
+    
+    NSArray *positions = @[@"东-南-北-西", @"南-东-西-北", @"西-北-东-南", @"北-西-南-东"];
+    for (int i=0; i<4; i++)
+    {
+        UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + textWidth*i, y+textHeight+5, textWidth, 12)];
+        [_positionLabels addObject:label];
+        label.text = positions[i];
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont boldSystemFontOfSize:16];
+        label.textAlignment = NSTextAlignmentCenter;
+        [label setAdjustsFontSizeToFitWidth:YES];
+        [self addSubview:label];
+    }
+
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + textWidth * 4, y, SCORE_ELEMENT_LABEL_WIDTH, textHeight)];
     label.font = [UIFont boldSystemFontOfSize:30];
     label.textColor = [UIColor whiteColor];
@@ -84,7 +103,7 @@
     [self setupArrays];
     [self setupTextFields:45];
 
-    CGFloat baseline_y = TEXT_FIELD_HEIGHT + 45;
+    CGFloat baseline_y = TEXT_FIELD_HEIGHT + 70;
     NSArray *roundName = @[@"东", @"南", @"西", @"北"];
     _totalScoreCell = [[MJScoreMainTableTotalScoreCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, CELL_HEIGHT)];
     [self addSubview:_totalScoreCell];
@@ -176,6 +195,14 @@
         rect.origin.x = 20 + TABLE_LEFT_BOUNDARY + cellWidth * i;
         rect.size.width = cellWidth;
         textField.frame = rect;
+    }
+    for (int i=0; i<4; i++)
+    {
+        UILabel  *positionLabel = _positionLabels[i];
+        CGRect rect = positionLabel.frame;
+        rect.origin.x = 20 + TABLE_LEFT_BOUNDARY + cellWidth * i;
+        rect.size.width = cellWidth;
+        positionLabel.frame = rect;
     }
     CGRect rect = _dummyTitleSE.frame;
     rect.origin.x = 20 + TABLE_LEFT_BOUNDARY + cellWidth * 4;
