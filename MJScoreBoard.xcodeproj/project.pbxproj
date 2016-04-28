@@ -38,6 +38,7 @@
 		77CA9BAF1972C72E004929E7 /* MJSelectedScoreElementList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BAE1972C72E004929E7 /* MJSelectedScoreElementList.m */; };
 		77CA9BB41973EDF2004929E7 /* MJScoreMainTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BB31973EDF2004929E7 /* MJScoreMainTable.m */; };
 		77CA9BB7197413AA004929E7 /* MJScoreMainTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */; };
+		77D4AA461CCE6922003E3B3A /* NewMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D4AA451CCE6922003E3B3A /* NewMain.storyboard */; };
 		77D822B2197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */; };
 		77F9AABD1998EC2B006D1231 /* Pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F9AABC1998EC2B006D1231 /* Pencil.png */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		77CA9BB31973EDF2004929E7 /* MJScoreMainTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTable.m; sourceTree = "<group>"; };
 		77CA9BB5197413AA004929E7 /* MJScoreMainTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreMainTableCell.h; sourceTree = "<group>"; };
 		77CA9BB6197413AA004929E7 /* MJScoreMainTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTableCell.m; sourceTree = "<group>"; };
+		77D4AA451CCE6922003E3B3A /* NewMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewMain.storyboard; sourceTree = "<group>"; };
 		77D822B0197A137300C7E340 /* MJScoreMainTableTotalScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScoreMainTableTotalScoreCell.h; sourceTree = "<group>"; };
 		77D822B1197A137300C7E340 /* MJScoreMainTableTotalScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScoreMainTableTotalScoreCell.m; sourceTree = "<group>"; };
 		77F9AABC1998EC2B006D1231 /* Pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pencil.png; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				7764858918BB93DB005333A3 /* MJAppDelegate.m */,
 				77C597B219511A980012D223 /* MJScoreDelegates.h */,
 				7764858B18BB93DB005333A3 /* Main.storyboard */,
+				77D4AA451CCE6922003E3B3A /* NewMain.storyboard */,
 				77C597B319565E1C0012D223 /* Models */,
 				77C597B519565E440012D223 /* Views */,
 				77B9169318C4D85C0009E5FD /* TODO */,
@@ -372,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D4AA461CCE6922003E3B3A /* NewMain.storyboard in Resources */,
 				7764859518BB93DB005333A3 /* Images.xcassets in Resources */,
 				7764858418BB93DB005333A3 /* InfoPlist.strings in Resources */,
 				77B9169418C4D85C0009E5FD /* TODO in Resources */,
@@ -542,7 +546,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -551,7 +554,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -560,7 +563,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -569,7 +571,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

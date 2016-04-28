@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JEX-9P-axG">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment version="1792" identifier="iOS"/>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="pY4-Hu-kfo">
-            <objects>
-                <navigationController id="RMx-3f-FxP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="tsl-Nk-0bq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="448" y="-630"/>
-        </scene>
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
@@ -31,12 +16,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EKg-bN-iSh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEU-cA-nHy">
-                                <rect key="frame" x="0.0" y="724" width="703" height="44"/>
-                                <animations/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Xx0-6y-THU"/>
                                     <barButtonItem title="番种统计" id="01L-dR-G9M"/>
@@ -50,7 +34,6 @@
                                 <color key="barTintColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gEU-cA-nHy" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="uMZ-K0-Pa8"/>
@@ -62,9 +45,8 @@
                     <navigationItem key="navigationItem" id="mOI-FS-AaM">
                         <barButtonItem key="rightBarButtonItem" id="V45-uW-UVy">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ydu-Hl-Plb">
-                                <rect key="frame" x="531" y="7" width="156" height="30"/>
+                                <rect key="frame" x="424" y="7" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
                                 <segments>
                                     <segment title="番种"/>
                                     <segment title="场况"/>
@@ -76,14 +58,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="layoutModeControl" destination="ydu-Hl-Plb" id="3YL-Qb-Nhi"/>
-                        <segue destination="dn8-o5-Oxh" kind="modal" identifier="SetScore" modalPresentationStyle="formSheet" id="5kI-0O-gSr"/>
-                        <segue destination="UH3-NA-4ac" kind="modal" identifier="viewTargetScore" modalPresentationStyle="formSheet" id="YBU-hi-2WA"/>
+                        <segue destination="dn8-o5-Oxh" kind="presentation" identifier="SetScore" modalPresentationStyle="formSheet" id="5kI-0O-gSr"/>
+                        <segue destination="UH3-NA-4ac" kind="presentation" identifier="viewTargetScore" modalPresentationStyle="formSheet" id="YBU-hi-2WA"/>
+                        <segue destination="7bK-jq-Zjz" kind="presentation" identifier="showHistory" modalPresentationStyle="formSheet" id="bdr-AZ-ome"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="248"/>
+            <point key="canvasLocation" x="350" y="145.3125"/>
         </scene>
         <!--View Target Score View Controller-->
         <scene sceneID="Khg-qj-VGN">
@@ -94,12 +76,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gxP-Lr-6tN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3gn-A2-kTz">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVN-0Z-Dsc" customClass="MJCustomButton">
                                 <rect key="frame" x="16" y="550" width="508" height="50"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="确定">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -110,7 +91,6 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pBY-bv-gZw">
                                 <rect key="frame" x="16" y="20" width="508" height="522"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetScore" textLabel="Pz0-NU-5EA" detailTextLabel="H9f-up-5rR" style="IBUITableViewCellStyleValue2" id="j3o-ue-GuP">
@@ -123,7 +103,6 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pz0-NU-5EA">
                                                     <rect key="frame" x="15" y="15" width="91" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -131,15 +110,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H9f-up-5rR">
                                                     <rect key="frame" x="112" y="15" width="33" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -148,13 +124,12 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxi-hE-EG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="1319"/>
+            <point key="canvasLocation" x="789" y="928"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="A5l-Rv-QIP">
@@ -165,12 +140,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GgY-O1-NY8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ped-cR-SHu">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-BZ-7RY">
-                                <rect key="frame" x="20" y="72" width="500" height="29"/>
-                                <animations/>
+                                <rect key="frame" x="20" y="72" width="560" height="29"/>
                                 <segments>
                                     <segment title="东家"/>
                                     <segment title="南家"/>
@@ -183,8 +157,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="YoM-4c-d5d">
-                                <rect key="frame" x="20" y="152" width="500" height="29"/>
-                                <animations/>
+                                <rect key="frame" x="20" y="152" width="560" height="29"/>
                                 <segments>
                                     <segment title="东家"/>
                                     <segment title="南家"/>
@@ -197,21 +170,18 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点炮" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdO-n5-kfO">
-                                <rect key="frame" x="20" y="120" width="500" height="24"/>
-                                <animations/>
+                                <rect key="frame" x="20" y="120" width="560" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和牌" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S15-4d-b9R">
-                                <rect key="frame" x="20" y="40" width="500" height="24"/>
-                                <animations/>
+                                <rect key="frame" x="20" y="40" width="560" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK3-IW-uOt" customClass="MJCustomButton">
-                                <rect key="frame" x="280" y="572" width="240" height="40"/>
-                                <animations/>
+                                <rect key="frame" x="340" y="552" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="3ZW-JD-cpk"/>
                                 </constraints>
@@ -221,9 +191,8 @@
                                     <action selector="CloseMe:" destination="dn8-o5-Oxh" eventType="touchUpInside" id="cSN-Bc-fhp"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0K-Hg-caG" customClass="MJScoreAdjustControl">
-                                <rect key="frame" x="20" y="230" width="500" height="40"/>
-                                <animations/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0K-Hg-caG" customClass="MJScoreAdjustControl">
+                                <rect key="frame" x="49" y="230" width="500" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Q4n-Ml-bSc"/>
@@ -235,15 +204,13 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-Hq-7Na" customClass="MJMiniSummaryTable">
                                 <rect key="frame" x="20" y="307" width="500" height="217"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="dn8-o5-Oxh" id="U3v-Ww-a7a"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnk-Dm-aga" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="572" width="240" height="40"/>
-                                <animations/>
+                                <rect key="frame" x="20" y="552" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="H5f-xb-aAD"/>
                                 </constraints>
@@ -254,7 +221,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="M0K-Hg-caG" firstAttribute="top" secondItem="YoM-4c-d5d" secondAttribute="bottom" constant="50" id="127-vH-wix"/>
@@ -285,13 +251,13 @@
                         <outlet property="scoreAdjustControl" destination="M0K-Hg-caG" id="rT5-oS-EnT"/>
                         <outlet property="summaryTable" destination="6gN-Hq-7Na" id="Wdi-3M-3kG"/>
                         <outlet property="winnerControl" destination="aGh-BZ-7RY" id="zbl-Sm-vbD"/>
-                        <segue destination="n3V-Zm-32Z" kind="modal" identifier="SetScoreElement" modalPresentationStyle="formSheet" id="vKf-Xl-7nE"/>
-                        <segue destination="VEH-Fn-9i9" kind="modal" identifier="SetPenalty" modalPresentationStyle="formSheet" id="pQc-Rr-AGZ"/>
+                        <segue destination="n3V-Zm-32Z" kind="presentation" identifier="SetScoreElement" modalPresentationStyle="formSheet" id="vKf-Xl-7nE"/>
+                        <segue destination="VEH-Fn-9i9" kind="presentation" identifier="SetPenalty" modalPresentationStyle="formSheet" id="pQc-Rr-AGZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNF-Rh-W6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="248"/>
+            <point key="canvasLocation" x="1204" y="145"/>
         </scene>
         <!--Penalty View Controller-->
         <scene sceneID="GMD-vh-Cwh">
@@ -302,12 +268,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Rig-PU-I1z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UKZ-mR-hYd">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-f0-eBz" customClass="MJCustomButton">
-                                <rect key="frame" x="120" y="508" width="100" height="36"/>
-                                <animations/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-f0-eBz" customClass="MJCustomButton">
+                                <rect key="frame" x="149" y="488" width="100" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="tEd-kh-BfR"/>
                                 </constraints>
@@ -321,7 +286,6 @@
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JEt-Qs-Gen">
                                 <rect key="frame" x="24" y="76" width="500" height="29"/>
-                                <animations/>
                                 <segments>
                                     <segment title="东家"/>
                                     <segment title="南家"/>
@@ -334,7 +298,6 @@
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-3Q-KLE">
                                 <rect key="frame" x="83" y="177" width="375" height="29"/>
-                                <animations/>
                                 <segments>
                                     <segment title="扣除分数"/>
                                     <segment title="付给三家"/>
@@ -346,7 +309,6 @@
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lus-9U-aZn" customClass="MJCustomButton">
                                 <rect key="frame" x="120" y="421" width="100" height="36"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="-5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,7 +319,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZk-mc-35q" customClass="MJCustomButton">
                                 <rect key="frame" x="320" y="421" width="100" height="36"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="-10">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -368,7 +329,6 @@
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-bF-Xae">
                                 <rect key="frame" x="24" y="296" width="500" height="29"/>
-                                <animations/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -376,9 +336,8 @@
                                     <segment title=""/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-LO-s90" customClass="MJCustomButton">
-                                <rect key="frame" x="320" y="508" width="100" height="36"/>
-                                <animations/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-LO-s90" customClass="MJCustomButton">
+                                <rect key="frame" x="349" y="488" width="100" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="SBv-ft-8gW"/>
                                 </constraints>
@@ -389,7 +348,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="iBk-LO-s90" secondAttribute="centerX" constant="-100" id="1Kb-VV-OYw"/>
@@ -408,7 +366,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXa-0y-NBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pjN-wB-miE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2033" y="248"/>
+            <point key="canvasLocation" x="2112" y="-159"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="MUH-vt-xJ9">
@@ -419,12 +377,11 @@
                         <viewControllerLayoutGuide type="bottom" id="7gv-7j-llP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EGb-OA-cel">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cfK-iR-OB4">
                                 <rect key="frame" x="0.0" y="64" width="540" height="499"/>
-                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hbu-Rm-iUa">
                                     <size key="itemSize" width="100" height="35"/>
@@ -439,26 +396,22 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <animations/>
                                         <size key="customSize" width="100" height="35"/>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScoreElementHeader" id="lS1-HK-s8y" customClass="MJScoreElementHeaderView">
                                     <rect key="frame" x="0.0" y="0.0" width="540" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="n3V-Zm-32Z" id="6jN-nk-Yy5"/>
                                     <outlet property="delegate" destination="n3V-Zm-32Z" id="44g-Jd-OEH"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg6-QM-WFP" customClass="MJCustomButton">
-                                <rect key="frame" x="20" y="571" width="500" height="41"/>
-                                <animations/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg6-QM-WFP" customClass="MJCustomButton">
+                                <rect key="frame" x="49" y="551" width="500" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="500" id="d7V-0r-E9c"/>
                                 </constraints>
@@ -472,14 +425,12 @@
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="har-MO-Dna" customClass="MJSelectedScoreElementList">
                                 <rect key="frame" x="0.0" y="20" width="540" height="36"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="n3V-Zm-32Z" id="MdK-14-nEF"/>
                                 </connections>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="rg6-QM-WFP" secondAttribute="centerX" id="Rey-59-2p9"/>
@@ -495,61 +446,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOf-F1-gkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="aut-XF-4b1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2033" y="1078"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="Nki-YV-4Qg">
-            <objects>
-                <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
-                        <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-687" y="-630"/>
+            <point key="canvasLocation" x="2112" y="532"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MJMasterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" detailTextLabel="zbw-f4-J9j" style="IBUITableViewCellStyleSubtitle" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="urN-KM-MHV">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
                                             <rect key="frame" x="15" y="4" width="35.5" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zbw-f4-J9j">
                                             <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
@@ -563,23 +493,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="r7l-gg-dq7">
-            <objects>
-                <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="GKi-kA-LjT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-366" y="248"/>
+            <point key="canvasLocation" x="-64" y="928"/>
         </scene>
     </scenes>
 </document>

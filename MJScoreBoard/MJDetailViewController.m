@@ -20,7 +20,8 @@
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) MJScoreMainTable *mainTable;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *layoutModeControl;
+@property (strong, nonatomic) UISegmentedControl *layoutModeControl;
+@property (strong, nonatomic) UIButton *historyButton;
 
 @end
 
@@ -125,23 +126,21 @@
 
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18]};
     
+    _historyButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 0, 100, 30)];
+    [_historyButton setTitle:@"历史战绩" forState:UIControlStateNormal];
+    [_historyButton addTarget:self action:@selector(clickedViewHistoryButton:) forControlEvents:UIControlEventTouchDown];
+    [_mainTable addSubview:_historyButton];
+    
+    _layoutModeControl = [[UISegmentedControl alloc] initWithItems:@[@"番种", @"场况"]];
+    _layoutModeControl.frame = CGRectMake(rect.size.width-200, 0, 200, 30);
+    _layoutModeControl.selectedSegmentIndex = 0;
+    [_layoutModeControl addTarget:self action:@selector(setLayoutMode:) forControlEvents:UIControlEventValueChanged];
+    _layoutModeControl.tintColor = [UIColor whiteColor];
+    [_mainTable addSubview:_layoutModeControl];
     [_layoutModeControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [self reset];
     
     NSString* dateToday = [[[NSDate date] description] substringToIndex:10];
-
-    MJMasterViewController *masterViewController = (MJMasterViewController*)[[[self.splitViewController viewControllers] firstObject] topViewController];
-    int i=1;
-    while (1)
-    {
-        NSString* title = [NSString stringWithFormat:@"%@-%@", dateToday, [[NSNumber numberWithInt:i] stringValue] ];
-        if ([masterViewController containsGame:title] == NO )
-        {
-            [self.navigationItem setTitle:title];
-            break;
-        }
-        i++;
-    }
 
 }
 
@@ -152,7 +151,7 @@
     _scrollView.frame = rect;
     rect.origin.y = 0;
     _mainTable.frame = rect;
-    [_mainTable setLayout:_layoutModeControl.selectedSegmentIndex];
+    [self setLayoutMode:_layoutModeControl];
     
 }
 
@@ -168,12 +167,11 @@
 
 - (IBAction)saveCurrentGame
 {
-    MJMasterViewController *masterController = (MJMasterViewController*)[[[self.splitViewController viewControllers] firstObject] topViewController];
     MJOneGame *game = [[MJOneGame alloc] init];
     game.gameName = [self.navigationItem.title copy];
     game.playerNames = [_mainTable playerNames];
     game.rawScoreList = [[NSMutableArray alloc] initWithArray:_rawScoreList copyItems:YES];
-    [masterController addGame:game];
+    [game saveToFile];
         
 }
 
@@ -278,21 +276,12 @@
     
 }
 
+- (IBAction)clickedViewHistoryButton:(id)sender
+{
+    [self performSegueWithIdentifier:@"showHistory" sender:self];
+}
+
 #pragma mark - Split view
-
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
-{
-    barButtonItem.title = @"历史战绩";//NSLocalizedString(@"Master", @"Master");
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
-    self.masterPopoverController = popoverController;
-}
-
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.masterPopoverController = nil;
-}
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
