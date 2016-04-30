@@ -10,7 +10,7 @@
 
 @class MJDetailViewController;
 @class MJOneGame;
-@interface MJMasterViewController : UITableViewController
+@interface MJMasterViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) MJDetailViewController *detailViewController;
 - (void)addGame:(MJOneGame*)game;

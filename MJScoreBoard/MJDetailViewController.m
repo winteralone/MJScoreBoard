@@ -22,7 +22,7 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UISegmentedControl *layoutModeControl;
 @property (strong, nonatomic) UIButton *historyButton;
-
+@property (strong, nonatomic) UILabel *titleLabel;
 @end
 
 @implementation MJDetailViewController
@@ -141,6 +141,21 @@
     [self reset];
     
     NSString* dateToday = [[[NSDate date] description] substringToIndex:10];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 200, 30)];
+    
+    int i=1;
+    while (1)
+    {
+        NSString* title = [NSString stringWithFormat:@"%@-%@", dateToday, [[NSNumber numberWithInt:i] stringValue] ];
+        NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        if ([[NSFileManager defaultManager]fileExistsAtPath:[[url URLByAppendingPathComponent:title] path] ]  == NO )
+        {
+            [_titleLabel setText:title];
+            [_mainTable addSubview:_titleLabel];
+            break;
+        }
+        i++;
+    }
 
 }
 
@@ -168,7 +183,7 @@
 - (IBAction)saveCurrentGame
 {
     MJOneGame *game = [[MJOneGame alloc] init];
-    game.gameName = [self.navigationItem.title copy];
+    game.gameName = [_titleLabel.text copy];
     game.playerNames = [_mainTable playerNames];
     game.rawScoreList = [[NSMutableArray alloc] initWithArray:_rawScoreList copyItems:YES];
     [game saveToFile];

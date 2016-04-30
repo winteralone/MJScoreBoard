@@ -13,14 +13,14 @@
 
 @interface MJMasterViewController ()
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation MJMasterViewController
 
 - (void)awakeFromNib
 {
-    self.clearsSelectionOnViewWillAppear = NO;
-    //self.preferredContentSize = CGSizeMake(320.0, 600.0);
     [super awakeFromNib];
 }
 
@@ -150,6 +150,11 @@
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -159,6 +164,11 @@
     MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
     [_detailViewController loadFromMJOneGame:game];
     
+}
+
+- (IBAction)CloseMe
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
