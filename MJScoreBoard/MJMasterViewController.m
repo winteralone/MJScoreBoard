@@ -163,6 +163,7 @@
     NSString* filename = [[pathArray[index] componentsSeparatedByString:@"."] firstObject];
     MJOneGame *game = [[MJOneGame alloc]initWithName:filename];
     [_detailViewController loadFromMJOneGame:game];
+    [self CloseMe];
     
 }
 

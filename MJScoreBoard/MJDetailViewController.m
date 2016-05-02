@@ -354,6 +354,12 @@
         targetController.scoreInfo = [scores mutableCopy];
         
     }
+    
+    if ([segue.identifier isEqualToString:@"showHistory"])
+    {
+        MJMasterViewController* masterController = [segue destinationViewController];
+        masterController.detailViewController = sender;
+    }
 }
 
 @end
