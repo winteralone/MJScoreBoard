@@ -17,6 +17,8 @@
 
 @protocol MJScoreMainTableDelegate;
 
+
+
 @interface MJScoreMainTable : UIView
 @property (weak, nonatomic) IBOutlet UIViewController<MJScoreMainTableDelegate> *delegate;
 @property (weak, nonatomic) NSMutableArray* playerNames;
@@ -25,4 +27,6 @@
 - (void)setLayout: (NSInteger)mode;
 - (NSIndexPath*)indexPathForSender:(id)sender;
 - (IBAction)clickedInfoButton:(id)sender;
++ (CGRect)getCellFrame:(CGSize)containerSize withNum:(NSInteger)cellNum atIndex:(NSInteger)index withMode:(NSInteger)mode;
+
 @end

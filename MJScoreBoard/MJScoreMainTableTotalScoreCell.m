@@ -36,7 +36,7 @@
             [_labels addObject:label];
             [self addSubview:label];
         }
-        _dummyLabel = [[MJCustomButton alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 4, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
+        _dummyLabel = [[MJCustomButton alloc]initWithFrame:CGRectMake(self.bounds.size.width*0.1, cellWidth * 4, self.bounds.size.width*0.3, self.bounds.size.height)];
         [_dummyLabel setTitle:@"追分计算器" forState:UIControlStateNormal];
         [_dummyLabel setTitleColor:textColor forState:UIControlStateNormal];
         [_dummyLabel addTarget:self.superview action:@selector(clickedViewTargetScoreButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -47,13 +47,12 @@
 
 - (void)setMode:(NSInteger)mode
 {
-    CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - (mode?0:SCORE_ELEMENT_LABEL_WIDTH) - INFO_BUTTON_WIDTH) / 4;
     for (int i=0; i<4; i++)
     {
         UILabel *label = _labels[i];
-        label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i, 0, cellWidth, self.bounds.size.height);
+        label.frame = [MJScoreMainTable getCellFrame:self.bounds.size withNum:4 atIndex:i withMode:mode];
     }
-    _dummyLabel.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 4, 0, SCORE_ELEMENT_LABEL_WIDTH, self.bounds.size.height);
+    _dummyLabel.frame = [MJScoreMainTable getCellFrame:self.bounds.size withNum:4 atIndex:-1 withMode:mode];
     _dummyLabel.hidden = (mode == 1);
 
     _mode = mode;

@@ -187,31 +187,26 @@
         rect.size.width  = self.bounds.size.width - 40 - TABLE_LEFT_BOUNDARY;
         line.frame = rect;
     }
-    CGFloat cellWidth = (self.bounds.size.width - 40 - TABLE_LEFT_BOUNDARY - (mode?0:SCORE_ELEMENT_LABEL_WIDTH) - INFO_BUTTON_WIDTH) / 4;
     for (int i=0; i<4; i++)
     {
         UITextField *textField = _textFields[i];
-        CGRect rect = textField.frame;
-        rect.origin.x = 20 + TABLE_LEFT_BOUNDARY + cellWidth * i;
-        rect.size.width = cellWidth;
+        CGRect rect = [MJScoreMainTable getCellFrame:CGSizeMake(self.bounds.size.width, textField.frame.size.height) withNum:4 atIndex:i withMode:mode];
+        rect.origin.y = textField.frame.origin.y;
         textField.frame = rect;
     }
     for (int i=0; i<4; i++)
     {
         UILabel  *positionLabel = _positionLabels[i];
-        CGRect rect = positionLabel.frame;
-        rect.origin.x = 20 + TABLE_LEFT_BOUNDARY + cellWidth * i;
-        rect.size.width = cellWidth;
+        CGRect rect = [MJScoreMainTable getCellFrame:CGSizeMake(self.bounds.size.width, positionLabel.frame.size.height) withNum:4 atIndex:i withMode:mode];
+        rect.origin.y = positionLabel.frame.origin.y;
         positionLabel.frame = rect;
     }
-    CGRect rect = _dummyTitleSE.frame;
-    rect.origin.x = 20 + TABLE_LEFT_BOUNDARY + cellWidth * 4;
+    
+    CGFloat originY = _dummyTitleSE.frame.origin.y;
+    CGRect rect = [MJScoreMainTable getCellFrame:CGSizeMake(self.bounds.size.width, _dummyTitleSE.frame.size.height) withNum:4 atIndex:-1 withMode:mode];
+    rect.origin.y = originY;
     _dummyTitleSE.frame = rect;
     
-    rect = _totalScoreCell.frame;
-    rect.origin.x = 20;
-    rect.size.width = self.bounds.size.width - 40;
-    _totalScoreCell.frame = rect;
     _totalScoreCell.mode = mode;
 }
 
@@ -270,6 +265,30 @@
         [self setup];
     }
     return self;
+}
+
++ (CGRect)getCellFrame:(CGSize)containerSize withNum:(NSInteger)cellNum atIndex:(NSInteger)index withMode:(NSInteger)mode
+{
+    float LeftBorder = 0.05;
+    float RightBorder = 0.05;
+    float SpecialCell = mode?0.0:0.3;
+    
+    if (index != -1)
+    {
+        
+        CGFloat cellWidth = containerSize.width * ( 1 - LeftBorder - RightBorder - SpecialCell ) / cellNum;
+        return CGRectMake(containerSize.width * LeftBorder + index * cellWidth,
+                          0,
+                          cellWidth,
+                          containerSize.height);
+    }
+    else
+    {
+        return CGRectMake(containerSize.width * (1 - RightBorder - SpecialCell),
+                          0,
+                          containerSize.width * SpecialCell,
+                          containerSize.height);
+    }
 }
 
 /*
