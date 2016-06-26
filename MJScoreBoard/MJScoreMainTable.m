@@ -104,22 +104,23 @@
     [self setupTextFields:45];
 
     CGFloat baseline_y = TEXT_FIELD_HEIGHT + 70;
+    CGFloat cell_height = (self.bounds.size.height - baseline_y) / 16 - 1;
     NSArray *roundName = @[@"东", @"南", @"西", @"北"];
-    _totalScoreCell = [[MJScoreMainTableTotalScoreCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, CELL_HEIGHT)];
+    _totalScoreCell = [[MJScoreMainTableTotalScoreCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, cell_height)];
     [self addSubview:_totalScoreCell];
-    baseline_y += CELL_HEIGHT + 45;
+    baseline_y += cell_height + 45;
     for (int i=0; i<4; i++)
     {
         [self addSegmentHeaderLine:baseline_y];
         baseline_y +=2;
         for (int j=0; j<4; j++)
         {
-            MJScoreMainTableCell *cell = [[MJScoreMainTableCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, CELL_HEIGHT)];
+            MJScoreMainTableCell *cell = [[MJScoreMainTableCell alloc]initWithFrame:CGRectMake(0, baseline_y, self.bounds.size.width, cell_height)];
             if (j==0)
             {
                 [cell addSectionHeaderLabel:roundName[i]];
             }
-            baseline_y += CELL_HEIGHT;
+            baseline_y += cell_height;
             [_tableCells addObject:cell];
             [self addSubview:cell];
             if (j != 3)

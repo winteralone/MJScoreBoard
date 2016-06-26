@@ -19,11 +19,12 @@
 
 - (void)addSectionHeaderLabel:(NSString *)title
 {
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 4, 36, 36)];
+    CGFloat border = self.bounds.size.height - 8;
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 4, border, border)];
     label.backgroundColor = [UIColor colorWithRed:0 green:60/255.f blue:45/255.f alpha:1];
     label.text = title;
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont boldSystemFontOfSize:28];
+    label.font = [UIFont boldSystemFontOfSize:border*0.8];
     label.textColor = [UIColor colorWithRed:38/255.f green:134/255.f blue:86/255.f alpha:1];
     [self addSubview:label];
 }
@@ -45,12 +46,12 @@
             [label setTextAlignment:NSTextAlignmentCenter];
             if (i%2 == 1)
             {
-                [label setFont:[UIFont boldSystemFontOfSize:26]];
+                [label setFont:[UIFont boldSystemFontOfSize:self.bounds.size.height*0.5 ]];
                 [label setTextColor:[UIColor colorWithRed:205/255.f green:1.f blue:205/255.f alpha:1]];
             }
             else
             {
-                [label setFont:[UIFont systemFontOfSize:26]];
+                [label setFont:[UIFont systemFontOfSize:self.bounds.size.height*0.5]];
                 [label setTextColor:[UIColor whiteColor]];
                 
             }
@@ -59,7 +60,7 @@
             [self addSubview:label];
         }
         _scoreElementLabel = [[UILabel alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth*8, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT)];
-        [_scoreElementLabel setFont:[UIFont boldSystemFontOfSize:22]];
+        [_scoreElementLabel setFont:[UIFont boldSystemFontOfSize:self.bounds.size.height*0.5]];
         [_scoreElementLabel setTextColor:[UIColor whiteColor]];
         [_scoreElementLabel setAdjustsFontSizeToFitWidth:YES];
         _infoButton = [[UIButton alloc]initWithFrame:CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth*8 + SCORE_ELEMENT_LABEL_WIDTH, 0, 20, 20)];
@@ -77,13 +78,13 @@
 {
     if (mode == 0)
     {
-        CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - SCORE_ELEMENT_LABEL_WIDTH - INFO_BUTTON_WIDTH) / 8;
+        CGFloat cellWidth = (self.bounds.size.width - TABLE_LEFT_BOUNDARY - self.bounds.size.width * 0.3 - INFO_BUTTON_WIDTH) / 8;
         for (int i=0; i<8; i++)
         {
             UILabel *label = _scoreLabels[i];
             if (i %2 == 0)
             {
-                label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i , 0, cellWidth * 2, CELL_HEIGHT);
+                label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * i , 0, cellWidth*2, self.bounds.size.height);
 
             }
             else
@@ -91,7 +92,7 @@
                 label.hidden = YES;
             }
         }
-        _scoreElementLabel.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 8, 0, SCORE_ELEMENT_LABEL_WIDTH, CELL_HEIGHT);
+        _scoreElementLabel.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth * 8, 0, self.bounds.size.width*0.3, self.bounds.size.height);
         _scoreElementLabel.hidden = NO;
         _infoButton.frame = CGRectMake(self.bounds.size.width - INFO_BUTTON_WIDTH + 10, 12, 20, 20);
     }
@@ -101,7 +102,7 @@
         for (int i=0; i<8; i++)
         {
             UILabel *label = _scoreLabels[i];
-            label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth *i + (i % 2 == 0 ? 12 : 0), 0, cellWidth - 12, CELL_HEIGHT);
+            label.frame = CGRectMake(TABLE_LEFT_BOUNDARY + cellWidth *i, 0, cellWidth, self.bounds.size.height);
             label.hidden = NO;
         }
         _scoreElementLabel.hidden = YES;
